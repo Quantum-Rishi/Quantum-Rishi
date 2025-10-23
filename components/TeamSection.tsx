@@ -1,11 +1,11 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Badge } from "./ui/badge";
 import { Linkedin, Github, Twitter } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const team = [
   {
-    name: "Rishi Kumar",
+    name: "Vivekananda",
     role: "Founder & CEO",
     bio: "Former VP of Infrastructure at a Fortune 500 company. 15+ years building secure, scalable systems.",
     image: "https://images.unsplash.com/photo-1660074127797-1c429fbb8cd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB0ZWNoJTIwQ0VPJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzYxMjA1ODczfDA&ixlib=rb-4.1.0&q=80&w=1080",

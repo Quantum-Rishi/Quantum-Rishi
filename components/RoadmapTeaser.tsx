@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Badge } from "./ui/badge";
 import { CheckCircle2, Circle, Clock } from "lucide-react";
 

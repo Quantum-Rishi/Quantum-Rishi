@@ -29,7 +29,7 @@ A production-ready Next.js corporate homepage showcasing enterprise-grade techno
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
@@ -65,6 +65,7 @@ The site will be available at `http://localhost:3000`
 ### Other Platforms
 
 The site is built as a standalone Next.js application and can be deployed to:
+
 - Netlify
 - AWS Amplify
 - Railway
@@ -73,7 +74,7 @@ The site is built as a standalone Next.js application and can be deployed to:
 
 ## 🏗️ Project Structure
 
-```
+```bash
 quantum-rishi/
 ├── app/
 │   ├── (site)/
