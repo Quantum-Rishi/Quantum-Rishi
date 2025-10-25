@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot@1.1.2";
-import { ChevronRight, MoreHorizontal } from "lucide-react@0.487.0";
+import { Slot } from "@radix-ui/react-slot";
+import { ChevronRight, MoreHorizontal } from "lucide-react";
 
 import { cn } from "./utils";
 
@@ -39,12 +39,13 @@ function BreadcrumbLink({
   asChild?: boolean;
 }) {
   const Comp = asChild ? Slot : "a";
-
+  // Remove ref from props to avoid type error
+  const { ref, ...rest } = props;
   return (
     <Comp
       data-slot="breadcrumb-link"
       className={cn("hover:text-foreground transition-colors", className)}
-      {...props}
+      {...rest}
     />
   );
 }

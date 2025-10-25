@@ -62,7 +62,7 @@ export function DemoRequestModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="primary" onClick={() => setOpen(true)}>
+  <Button variant="default" onClick={() => setOpen(true)}>
           Request Demo
         </Button>
       </DialogTrigger>
@@ -114,7 +114,7 @@ export function DemoRequestModal() {
             <Button type="button" variant="ghost" onClick={() => setOpen(false)}>
               Cancel
             </Button>
-            <Button type="submit" variant="primary" disabled={loading}>
+            <Button type="submit" variant="default" disabled={loading}>
               {loading ? "Submitting..." : "Submit"}
             </Button>
           </div>

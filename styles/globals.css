@@ -7,7 +7,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-```
+/* No stray backticks. */
 
 
 :root {
