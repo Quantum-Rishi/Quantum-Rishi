@@ -1,3 +1,4 @@
+declare module "recharts";
 declare module "tailwind-merge";
 declare module "@radix-ui/react-tooltip";
 declare module "@radix-ui/react-toggle";

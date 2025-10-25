@@ -4,9 +4,6 @@
   The following Tailwind directives require Tailwind CSS and PostCSS setup.
   Make sure your project is configured to use Tailwind CSS.
 */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 /* No stray backticks. */
 
 
