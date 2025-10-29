@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Badge } from "./ui/badge.tsx";
 import { Linkedin, Github, Twitter } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback.tsx";
+import { memo } from "react";
 
 const team = [
   {
@@ -30,7 +31,7 @@ const team = [
   }
 ];
 
-export function TeamSection() {
+export const TeamSection = memo(function TeamSection() {
   return (
     <section className="py-24 bg-accent/30 relative overflow-hidden">
       {/* Background pattern */}
@@ -142,7 +143,7 @@ export function TeamSection() {
           <div className="bg-card border border-border rounded-lg p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl mb-3">Join our team</h3>
             <p className="text-muted-foreground mb-6">
-              We're always looking for exceptional talent to help us build the future of sovereign infrastructure.
+              We&apos;re always looking for exceptional talent to help us build the future of sovereign infrastructure.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2">
@@ -160,4 +161,4 @@ export function TeamSection() {
       </div>
     </section>
   );
-}
+});

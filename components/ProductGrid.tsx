@@ -15,6 +15,7 @@ import {
   ArrowRight,
   ExternalLink
 } from "lucide-react";
+import { memo } from "react";
 
 const products = [
   {
@@ -145,7 +146,7 @@ const statusColors: Record<string, string> = {
   Research: "bg-chart-3/20 text-chart-3 border-chart-3/30"
 };
 
-export function ProductGrid() {
+export const ProductGrid = memo(function ProductGrid() {
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -234,4 +235,4 @@ export function ProductGrid() {
       </div>
     </section>
   );
-}
+});

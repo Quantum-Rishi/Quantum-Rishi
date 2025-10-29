@@ -13,22 +13,22 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "NodeNext",
-  "moduleResolution": "nodenext",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-  "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "types": [
-  "node",
-  "react",
-  "react-dom"
+      "node",
+      "react",
+      "react-dom"
     ],
     "plugins": [
       {
         "name": "next"
       }
-    ]
-    ,"allowImportingTsExtensions": true
+    ],
+    "allowImportingTsExtensions": true
   },
   "include": [
     "next-env.d.ts",
