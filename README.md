@@ -4,6 +4,8 @@
 
 A production-ready Next.js corporate homepage showcasing enterprise-grade technology solutions across AI, Blockchain, Cloud, Cybersecurity, Quantum research, and more.
 
+> 📘 **[View Full Master Blueprint](FULL_MASTER_BLUEPRINT.md)** - Complete project documentation covering architecture, development, deployment, and future roadmap (2,300+ lines)
+
 ## 🚀 Features
 
 - **Modern Tech Stack**: Built with Next.js 14.2 (App Router), TypeScript, Tailwind CSS, and Framer Motion
@@ -235,9 +237,11 @@ For adding multi-language support, see our [i18n setup guide](docs/i18n-setup.md
 
 ## 📚 Documentation
 
+- **[Full Master Blueprint](FULL_MASTER_BLUEPRINT.md)** - Comprehensive project documentation (2,300+ lines)
 - [Performance Optimization Guide](docs/performance-optimization.md)
 - [Security Best Practices](docs/security-best-practices.md)
 - [i18n Setup Guide](docs/i18n-setup.md)
+- [Implementation Summary](docs/IMPLEMENTATION_SUMMARY.md)
 
 ---
 
