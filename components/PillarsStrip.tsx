@@ -43,7 +43,7 @@ export function PillarsStrip() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {pillars.map((pillar, idx) => (
             <motion.div
               key={idx}
