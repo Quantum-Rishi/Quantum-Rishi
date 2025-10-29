@@ -1,0 +1,30 @@
+{
+  "team": [
+    {
+      "id": "founder-ceo",
+      "name": "Dr. Rishi Quantum",
+      "role": "Founder & CEO",
+      "bio": "Visionary technologist with expertise in quantum computing and AI",
+      "image": "/assets/team/placeholder.png",
+      "linkedin": "https://linkedin.com/in/rishiquantum",
+      "twitter": "https://twitter.com/rishiquantum"
+    },
+    {
+      "id": "cto",
+      "name": "Sarah Chen",
+      "role": "Chief Technology Officer",
+      "bio": "Former Google engineer specializing in distributed systems",
+      "image": "/assets/team/placeholder.png",
+      "linkedin": "https://linkedin.com/in/sarahchen",
+      "twitter": "https://twitter.com/sarahchen"
+    },
+    {
+      "id": "cso",
+      "name": "Marcus Johnson",
+      "role": "Chief Security Officer",
+      "bio": "Cybersecurity expert with 15+ years in defense technology",
+      "image": "/assets/team/placeholder.png",
+      "linkedin": "https://linkedin.com/in/marcusjohnson"
+    }
+  ]
+}
