@@ -15,7 +15,7 @@ import {
   ArrowRight,
   ExternalLink
 } from "lucide-react";
-import { memo, useMemo } from "react";
+import { memo } from "react";
 
 const products = [
   {
