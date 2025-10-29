@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import { ArrowUpRight, ArrowDownRight, Server, Database, Users, ShieldCheck, Activity, Clock, Wifi } from "lucide-react";
 import { Badge } from "./ui/badge.tsx";
 
@@ -26,10 +26,10 @@ const recentActivity = [
   { type: "deploy", message: "Node #1203 deployed in US-East", time: "30m ago" },
 ];
 
-export function MetricsDashboard() {
+export const MetricsDashboard = memo(function MetricsDashboard() {
   const [pulse, setPulse] = useState(true);
   useEffect(() => {
-    const interval = setInterval(() => setPulse((p) => !p), 1000);
+    const interval = setInterval(() => setPulse((p) => !p), 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -70,4 +70,4 @@ export function MetricsDashboard() {
       </div>
     </section>
   );
-}
+});

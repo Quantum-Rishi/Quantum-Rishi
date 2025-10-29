@@ -68,7 +68,7 @@ export function Footer() {
               </div>
               
               <p className="text-muted-foreground mb-6 max-w-sm">
-                Building the world's most trusted sovereign infrastructure for autonomous teams.
+                Building the world&apos;s most trusted sovereign infrastructure for autonomous teams.
               </p>
 
               {/* Telegram contact */}

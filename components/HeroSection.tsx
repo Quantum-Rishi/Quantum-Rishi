@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button.tsx";
 import { ArrowRight, Play } from "lucide-react";
+import { memo } from "react";
 
-export function HeroSection() {
+export const HeroSection = memo(function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background grid */}
@@ -119,4 +120,4 @@ export function HeroSection() {
       </motion.div>
     </section>
   );
-}
+});

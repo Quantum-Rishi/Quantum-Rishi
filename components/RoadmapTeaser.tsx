@@ -72,7 +72,7 @@ export function RoadmapTeaser() {
         >
           <h2 className="text-3xl sm:text-4xl mb-4">Product roadmap</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Our journey to building the world's most trusted sovereign infrastructure
+            Our journey to building the world&apos;s most trusted sovereign infrastructure
           </p>
         </motion.div>
 
