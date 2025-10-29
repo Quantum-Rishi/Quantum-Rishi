@@ -156,7 +156,7 @@ export const revalidate = 3600; // revalidate every hour
 
 Track these metrics:
 - **LCP (Largest Contentful Paint)**: < 2.5s
-- **FID (First Input Delay)**: < 100ms
+- **INP (Interaction to Next Paint)**: < 200ms
 - **CLS (Cumulative Layout Shift)**: < 0.1
 
 ### Tools
@@ -174,7 +174,7 @@ Maintain these targets:
 |--------|--------|---------|
 | First Load JS | < 100 kB | 87.4 kB ✓ |
 | LCP | < 2.5s | TBD |
-| FID | < 100ms | TBD |
+| INP | < 200ms | TBD |
 | CLS | < 0.1 | TBD |
 | Total Page Size | < 500 kB | TBD |
 
