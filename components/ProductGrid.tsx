@@ -148,17 +148,21 @@ const statusColors: Record<string, string> = {
 
 export const ProductGrid = memo(function ProductGrid() {
   return (
-    <section className="py-24 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-32 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 mesh-gradient opacity-50" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          {...{ className: "text-center mb-16" }}
+          {...{ className: "text-center mb-20" }}
         >
-          <h2 className="text-3xl sm:text-4xl mb-4">Complete ecosystem</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl mb-6 font-bold bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent">Complete ecosystem</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             Ten verticals working together to power your sovereign infrastructure
           </p>
         </motion.div>
@@ -171,21 +175,25 @@ export const ProductGrid = memo(function ProductGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05, duration: 0.5 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
               {...{ className: "group" }}
             >
-              <div className="bg-card border border-border rounded-lg overflow-hidden h-full flex flex-col transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
-                {/* Header with gradient */}
-                <div className={`bg-gradient-to-r ${product.gradient} p-6 relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/40" />
+              <div className="bg-card/50 backdrop-blur-xl border border-border/50 rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20 hover:bg-card/70">
+                {/* Header with enhanced gradient */}
+                <div className={`bg-gradient-to-br ${product.gradient} p-8 relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+                  {/* Animated shimmer effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 shimmer" />
+                  </div>
                   <div className="relative z-10 flex items-start justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                        <product.icon className="h-6 w-6 text-white" />
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 bg-white/15 backdrop-blur-md rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                        <product.icon className="h-7 w-7 text-white drop-shadow-lg" />
                       </div>
                       <div>
-                        <h3 className="text-xl text-white mb-1">{product.title}</h3>
-                        <Badge variant="outline" className={`${statusColors[product.status]} border text-xs`}>
+                        <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">{product.title}</h3>
+                        <Badge variant="outline" className={`${statusColors[product.status]} border text-xs font-semibold`}>
                           {product.status}
                         </Badge>
                       </div>
@@ -193,36 +201,38 @@ export const ProductGrid = memo(function ProductGrid() {
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6 flex-grow flex flex-col">
-                  <p className="text-muted-foreground mb-4">
+                {/* Content with better spacing */}
+                <div className="p-8 flex-grow flex flex-col">
+                  <p className="text-gray-400 mb-6 leading-relaxed">
                     {product.descriptor}
                   </p>
 
                   {/* Features */}
-                  <ul className="space-y-2 mb-6 flex-grow">
+                  <ul className="space-y-3 mb-8 flex-grow">
                     {product.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2 text-sm">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
+                      <li key={fIdx} className="flex items-start gap-3 text-sm group/item">
+                        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover/item:scale-110 transition-transform">
+                          <div className="w-2 h-2 rounded-full bg-gradient-to-br from-primary to-cyan-400" />
+                        </div>
+                        <span className="text-gray-400 group-hover/item:text-gray-300 transition-colors">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* Actions */}
-                  <div className="flex gap-3 pt-4 border-t border-border">
+                  {/* Actions with enhanced styling */}
+                  <div className="flex gap-3 pt-6 border-t border-border/50">
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="flex-1 hover:bg-primary/10 hover:text-primary group/btn"
+                      className="flex-1 hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/10 hover:text-primary group/btn transition-all duration-300 rounded-lg font-medium"
                     >
                       Learn more
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-2 transition-transform duration-300" />
                     </Button>
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="hover:bg-accent"
+                      className="hover:bg-accent/50 hover:text-primary transition-all duration-300 rounded-lg"
                     >
                       <ExternalLink className="h-4 w-4" />
                     </Button>
