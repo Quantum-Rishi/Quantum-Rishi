@@ -1,8 +1,12 @@
-import React from 'react';
-import Navigation from '../../components/Navigation.jsx';
+import React, { ReactNode } from 'react';
+import Navigation from '../../components/Navigation.tsx';
 import '../../styles/globals.css';
 
-export default function SiteLayout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Navigation />

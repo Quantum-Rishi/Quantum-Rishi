@@ -53,9 +53,9 @@ export function DemoRequestModal() {
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value, type } = e.target;
     if (type === "checkbox") {
-      setForm((f) => ({ ...f, [name]: (e.target as HTMLInputElement).checked }));
+  setForm((f: typeof form) => ({ ...f, [name]: (e.target as HTMLInputElement).checked }));
     } else {
-      setForm((f) => ({ ...f, [name]: value }));
+  setForm((f: typeof form) => ({ ...f, [name]: value }));
     }
   }
 
@@ -107,7 +107,7 @@ export function DemoRequestModal() {
             {errors.message && <span id="message-error" className="text-red-600 text-xs">{errors.message}</span>}
           </div>
           <div className="flex items-center gap-2">
-            <Checkbox id="newsletter" name="newsletter" checked={form.newsletter} onCheckedChange={(checked: boolean | "indeterminate") => setForm(f => ({ ...f, newsletter: checked === true }))} />
+            <Checkbox id="newsletter" name="newsletter" checked={form.newsletter} onCheckedChange={(checked: boolean | "indeterminate") => setForm((f: typeof form) => ({ ...f, newsletter: checked === true }))} />
             <label htmlFor="newsletter" className="text-sm">Subscribe to our newsletter</label>
           </div>
           <div className="flex justify-end gap-2 mt-6">

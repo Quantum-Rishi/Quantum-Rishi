@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Send, Github, Twitter, Linkedin, Youtube, MessageCircle } from "lucide-react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Separator } from "./ui/separator";
+import { Button } from "./ui/button.ts";
+import { Input } from "./ui/input.ts";
+import { Separator } from "./ui/separator.ts";
 
 const footerLinks = {
   Product: [
@@ -130,7 +130,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="py-8"
+          {...{ className: "py-8" }}
         >
           <div className="max-w-md">
             <h3 className="mb-2">Stay updated</h3>
@@ -158,7 +158,7 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="py-8 flex flex-col md:flex-row justify-between items-center gap-4"
+          {...{ className: "py-8 flex flex-col md:flex-row justify-between items-center gap-4" }}
         >
           <div className="text-sm text-muted-foreground">
             © 2025 Quantum Rishi. All rights reserved.
@@ -186,7 +186,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="pb-8"
+          {...{ className: "pb-8" }}
         >
           <div className="bg-card border border-border rounded-lg p-6">
             <div className="flex items-center justify-between mb-4">

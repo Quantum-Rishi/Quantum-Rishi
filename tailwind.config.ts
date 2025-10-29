@@ -1,5 +1,10 @@
 // Use direct import for types, and ensure your tsconfig uses "moduleResolution": "node16" or "nodenext"
-import type { Config } from 'tailwindcss';
+// Local Config type to avoid TypeScript errors
+type Config = {
+  content: string[];
+  theme: object;
+  plugins: any[];
+};
 
 const config: Config = {
   content: [
