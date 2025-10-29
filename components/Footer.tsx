@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Send, Github, Twitter, Linkedin, Youtube, MessageCircle } from "lucide-react";
-import { Button } from "./ui/button.ts";
-import { Input } from "./ui/input.ts";
-import { Separator } from "./ui/separator.ts";
+import { Button } from "./ui/button.tsx";
+import { Input } from "./ui/input.tsx";
+import { Separator } from "./ui/separator.tsx";
 
 const footerLinks = {
   Product: [
