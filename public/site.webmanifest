@@ -1,0 +1,17 @@
+{
+  "name": "Quantum Rishi - Autonomous Teams Powered by Sovereign Infrastructure",
+  "short_name": "Quantum Rishi",
+  "description": "Building the world's most trusted sovereign infrastructure for autonomous teams. Tools for builders, creators, and enterprises who require privacy, reliability, and speed.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
