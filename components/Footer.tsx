@@ -51,9 +51,9 @@ export function Footer() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main footer content */}
-        <div className="py-20 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10">
+        <div className="py-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-12 gap-10">
           {/* Brand column */}
-          <div className="col-span-2">
+          <div className="col-span-2 md:col-span-3 lg:col-span-2 xl:col-span-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

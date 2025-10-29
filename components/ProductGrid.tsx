@@ -167,7 +167,7 @@ export const ProductGrid = memo(function ProductGrid() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
           {products.map((product, idx) => (
             <motion.div
               key={idx}

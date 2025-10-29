@@ -52,7 +52,7 @@ export const HeroSection = memo(function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            {...{ className: "text-5xl sm:text-6xl lg:text-7xl xl:text-8xl mb-6 font-bold bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent leading-tight" }}
+            {...{ className: "text-5xl sm:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl mb-6 font-bold bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent leading-tight" }}
           >
             Autonomous teams powered by sovereign infrastructure
           </motion.h1>
