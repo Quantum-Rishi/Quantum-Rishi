@@ -6,24 +6,24 @@ import { VariantProps, cva } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";
 
 import { useIsMobile } from "./use-mobile.js";
-import { cn } from "./utils.js";
-import { Button } from "./button.jsx";
-import { Input } from "./input.jsx";
-import { Separator } from "./separator.jsx";
+import { cn } from "./utils.ts";
+import { Button } from "./button.tsx";
+import { Input } from "./input.tsx";
+import { Separator } from "./separator.tsx";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "./sheet.jsx";
-import { Skeleton } from "./skeleton.jsx";
+} from "./sheet.tsx";
+import { Skeleton } from "./skeleton.tsx";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./tooltip.jsx";
+} from "./tooltip.tsx";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
