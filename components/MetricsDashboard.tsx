@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ArrowUpRight, ArrowDownRight, Server, Database, Users, ShieldCheck, Activity, Clock, Wifi } from "lucide-react";
-import { Badge } from "./ui/badge";
+import { Badge } from "./ui/badge.tsx";
 
 const metricsConfig = [
   { label: "Uptime", value: "99.99%", icon: Clock, trend: "+0.01%", up: true },

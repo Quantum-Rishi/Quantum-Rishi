@@ -1,1 +1,1 @@
-export { TeamSection as default } from '../../../components/TeamSection';
+export { TeamSection as default } from '../../../components/TeamSection.jsx';

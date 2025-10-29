@@ -34,7 +34,7 @@ export function PillarsStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          {...{ className: "text-center mb-16" }}
         >
           <h2 className="text-3xl sm:text-4xl mb-4">Built on three pillars</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -51,7 +51,7 @@ export function PillarsStrip() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.2, duration: 0.6 }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="relative group"
+              {...{ className: "relative group" }}
             >
               <div className="bg-card border border-border rounded-lg p-8 h-full transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10">
                 {/* Icon */}

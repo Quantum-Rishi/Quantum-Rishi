@@ -1,3 +1,4 @@
+// Use direct import for types, and ensure your tsconfig uses "moduleResolution": "node16" or "nodenext"
 import type { Config } from 'tailwindcss';
 
 const config: Config = {

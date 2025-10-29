@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog.tsx";
+import { Input } from "./ui/input.tsx";
+import { Button } from "./ui/button.tsx";
+import { Checkbox } from "./ui/checkbox.tsx";
 import { toast } from "sonner";
 
 const initialState = {

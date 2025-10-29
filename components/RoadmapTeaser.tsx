@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Badge } from "./ui/badge";
+import { Badge } from "./ui/badge.tsx";
 import { CheckCircle2, Circle, Clock } from "lucide-react";
 
 const milestones = [
@@ -68,7 +68,7 @@ export function RoadmapTeaser() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          {...{ className: "text-center mb-16" }}
         >
           <h2 className="text-3xl sm:text-4xl mb-4">Product roadmap</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -89,8 +89,7 @@ export function RoadmapTeaser() {
               whileInView={{ scaleX: 0.5 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="absolute top-1/2 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary -translate-y-1/2 origin-left"
-              style={{ width: '50%' }}
+              {...{ className: "absolute top-1/2 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary -translate-y-1/2 origin-left", style: { width: '50%' } }}
             />
 
             <div className="grid grid-cols-5 gap-4">
@@ -105,7 +104,7 @@ export function RoadmapTeaser() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.15, duration: 0.5 }}
-                    className="relative"
+                    {...{ className: "relative" }}
                   >
                     {/* Timeline dot */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
@@ -114,14 +113,14 @@ export function RoadmapTeaser() {
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.15 + 0.3, type: "spring" }}
-                        className={`w-4 h-4 rounded-full ${milestone.status === 'completed' ? 'bg-chart-4' : milestone.status === 'in-progress' ? 'bg-secondary' : 'bg-muted'} ring-4 ring-background`}
+                        {...{ className: `w-4 h-4 rounded-full ${milestone.status === 'completed' ? 'bg-chart-4' : milestone.status === 'in-progress' ? 'bg-secondary' : 'bg-muted'} ring-4 ring-background` }}
                       />
                     </div>
 
                     {/* Card */}
                     <motion.div
                       whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                      className={`bg-card border rounded-lg p-4 mt-8 ${config.borderColor} hover:border-primary/50 transition-all`}
+                      {...{ className: `bg-card border rounded-lg p-4 mt-8 ${config.borderColor} hover:border-primary/50 transition-all` }}
                     >
                       <div className="flex items-center gap-2 mb-3">
                         <StatusIcon className={`h-4 w-4 ${config.color}`} />
@@ -160,7 +159,7 @@ export function RoadmapTeaser() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  className="relative pl-8"
+                  {...{ className: "relative pl-8" }}
                 >
                   {/* Vertical line */}
                   {idx < milestones.length - 1 && (
@@ -174,7 +173,7 @@ export function RoadmapTeaser() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.1 + 0.2, type: "spring" }}
-                      className={`w-4 h-4 rounded-full ${milestone.status === 'completed' ? 'bg-chart-4' : milestone.status === 'in-progress' ? 'bg-secondary' : 'bg-muted'} ring-4 ring-background`}
+                      {...{ className: `w-4 h-4 rounded-full ${milestone.status === 'completed' ? 'bg-chart-4' : milestone.status === 'in-progress' ? 'bg-secondary' : 'bg-muted'} ring-4 ring-background` }}
                     />
                   </div>
 
@@ -210,7 +209,7 @@ export function RoadmapTeaser() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="flex flex-wrap justify-center gap-6 mt-12 text-sm"
+          {...{ className: "flex flex-wrap justify-center gap-6 mt-12 text-sm" }}
         >
           {Object.entries(statusConfig).map(([key, config]) => {
             const StatusIcon = config.icon;

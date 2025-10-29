@@ -1,14 +1,14 @@
-import { HeroSection } from "./components/HeroSection";
-import { PillarsStrip } from "./components/PillarsStrip";
-import { ProductGrid } from "./components/ProductGrid";
-import { LabsSection } from "./components/LabsSection";
-// import { TrustCompliance } from "./components/TrustCompliance";
-import { RoadmapTeaser } from "./components/RoadmapTeaser";
-import { TeamSection } from "./components/TeamSection";
-import { Footer } from "./components/Footer";
-import { AnnouncementBar } from "./components/AnnouncementBar";
-import { ScrollProgress } from "./components/ScrollProgress";
-import { BackToTop } from "./components/BackToTop";
+import { HeroSection } from "./components/HeroSection.tsx";
+import { PillarsStrip } from "./components/PillarsStrip.tsx";
+import { ProductGrid } from "./components/ProductGrid.tsx";
+import { LabsSection } from "./components/LabsSection.tsx";
+// import { TrustCompliance } from "./components/TrustCompliance.tsx";
+import { RoadmapTeaser } from "./components/RoadmapTeaser.tsx";
+import { TeamSection } from "./components/TeamSection.tsx";
+import { Footer } from "./components/Footer.tsx";
+import { AnnouncementBar } from "./components/AnnouncementBar.tsx";
+import { ScrollProgress } from "./components/ScrollProgress.tsx";
+import { BackToTop } from "./components/BackToTop.tsx";
 import { Toaster } from "sonner";
 
 export default function App() {

@@ -1,6 +1,6 @@
 import React from "react";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./ui/accordion";
-import { Button } from "./ui/button";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./ui/accordion.tsx";
+import { Button } from "./ui/button.tsx";
 
 const faqs = [
   {

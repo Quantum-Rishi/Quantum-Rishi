@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
+import { Button } from "./ui/button.tsx";
+import { Badge } from "./ui/badge.tsx";
 import { Play, Clock, Cpu, Database, Network, Video } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ImageWithFallback } from "./figma/ImageWithFallback.tsx";
 
 const demos = [
   {
@@ -42,7 +42,7 @@ export function LabsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          {...{ className: "text-center mb-16" }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
             <Database className="h-4 w-4 text-primary" />
@@ -63,7 +63,7 @@ export function LabsSection() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.2, duration: 0.6 }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group"
+              {...{ className: "group" }}
             >
               <div className="bg-card border border-border rounded-lg overflow-hidden h-full flex flex-col transition-all hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
                 {/* Thumbnail */}
@@ -143,7 +143,7 @@ export function LabsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="text-center mt-12"
+          {...{ className: "text-center mt-12" }}
         >
           <Button variant="outline" className="border-primary/30 hover:bg-primary/10">
             View all demos

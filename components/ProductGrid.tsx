@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
+import { Button } from "./ui/button.tsx";
+import { Badge } from "./ui/badge.tsx";
 import { 
   Brain, 
   Box, 
@@ -154,7 +154,7 @@ export function ProductGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          {...{ className: "text-center mb-16" }}
         >
           <h2 className="text-3xl sm:text-4xl mb-4">Complete ecosystem</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -171,7 +171,7 @@ export function ProductGrid() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05, duration: 0.5 }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group"
+              {...{ className: "group" }}
             >
               <div className="bg-card border border-border rounded-lg overflow-hidden h-full flex flex-col transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
                 {/* Header with gradient */}

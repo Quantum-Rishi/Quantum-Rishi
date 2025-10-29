@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Badge } from "./ui/badge";
+import { Badge } from "./ui/badge.tsx";
 import { Linkedin, Github, Twitter } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ImageWithFallback } from "./figma/ImageWithFallback.tsx";
 
 const team = [
   {
@@ -50,7 +50,7 @@ export function TeamSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          {...{ className: "text-center mb-16" }}
         >
           <h2 className="text-3xl sm:text-4xl mb-4">Meet the team</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -67,7 +67,7 @@ export function TeamSection() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.15, duration: 0.6 }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group"
+              {...{ className: "group" }}
             >
               <div className="bg-card border border-border rounded-lg overflow-hidden h-full flex flex-col transition-all hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
                 {/* Photo */}
@@ -137,7 +137,7 @@ export function TeamSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-16 text-center"
+          {...{ className: "mt-16 text-center" }}
         >
           <div className="bg-card border border-border rounded-lg p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl mb-3">Join our team</h3>

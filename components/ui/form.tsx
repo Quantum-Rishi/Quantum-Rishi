@@ -3,16 +3,44 @@
 import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
-import {
-  Controller,
-  FormProvider,
-  useFormContext,
-  useFormState,
-} from "react-hook-form";
-import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
+// Use require for runtime imports to bypass TypeScript resolution issues
+const { Controller, useFormContext, useFormState, FormProvider } = require("react-hook-form");
+// Minimal local type definitions from react-hook-form
+export type FieldValues = Record<string, any>;
+export type FieldPath<TFieldValues extends FieldValues> = keyof TFieldValues & string;
+export type ControllerFieldState = {
+  invalid: boolean;
+  isTouched: boolean;
+  isDirty: boolean;
+  isValidating: boolean;
+  error?: any;
+};
+export type ControllerRenderProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = {
+  onChange: (...event: any[]) => void;
+  onBlur: () => void;
+  value: any;
+  disabled?: boolean;
+  name: TName;
+  ref: (instance: any) => void;
+};
+export type UseControllerProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = {
+  name: TName;
+  rules?: any;
+  shouldUnregister?: boolean;
+  defaultValue?: any;
+  control?: any;
+  disabled?: boolean;
+};
+export type ControllerProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = {
+  render: ({ field, fieldState, formState }: {
+    field: ControllerRenderProps<TFieldValues, TName>;
+    fieldState: ControllerFieldState;
+    formState: any;
+  }) => React.ReactElement;
+} & UseControllerProps<TFieldValues, TName>;
 
-import { cn } from "./utils";
-import { Label } from "./label";
+import { cn } from "./utils.ts";
+import { Label } from "./label.tsx";
 
 const Form = FormProvider;
 
