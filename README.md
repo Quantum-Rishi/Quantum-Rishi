@@ -6,15 +6,21 @@ A production-ready Next.js corporate homepage showcasing enterprise-grade techno
 
 ## 🚀 Features
 
-- **Modern Tech Stack**: Built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and Framer Motion
+- **Modern Tech Stack**: Built with Next.js 14.2 (App Router), TypeScript, Tailwind CSS, and Framer Motion
 - **10 Service Divisions**: Comprehensive showcase of QR.AI, QR.Block, QR.Cloud, QR.Cyber, QR.Quantum, QR.IoT, QR.Digi, QR.EduTech, QR.Labs, and QR.Stream
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices
 - **Interactive Navigation**: Smooth scrolling, mobile menu with animations
 - **Engagement Models**: Multiple business engagement options (Consulting, Fixed-Scope, SaaS, Retainers, MVPs)
 - **Accessibility**: WCAG compliant with proper ARIA labels and keyboard navigation
-- **SEO Optimized**: Complete metadata, Open Graph tags, and JSON-LD structured data
-- **Performance**: Lighthouse scores ≥90, optimized assets, and efficient code splitting
+- **SEO Optimized**: Complete metadata, Open Graph tags, Twitter cards, and JSON-LD structured data
+- **Google Analytics**: Ready-to-use analytics integration with event tracking
+- **Performance**: 87.4 kB First Load JS, optimized assets, and efficient code splitting
 - **Enterprise Polish**: Professional animations, hover effects, and visual hierarchy
+- **Testing**: Comprehensive test suite with Jest and React Testing Library
+- **CI/CD**: GitHub Actions for automated linting, testing, and building
+- **Error Handling**: React Error Boundary for graceful failure recovery
+- **Security**: Regular security audits, no vulnerabilities, latest dependencies
+- **Dynamic Content**: JSON-based data structure for easy content updates
 
 ## 🎨 Design Highlights
 
@@ -42,8 +48,18 @@ cd Quantum-Rishi
 # Install dependencies
 npm install
 
+# Copy environment variables (optional)
+cp .env.example .env.local
+# Edit .env.local with your Google Analytics ID
+
 # Run development server
 npm run dev
+
+# Run tests
+npm test
+
+# Run linter
+npm run lint
 
 # Build for production
 npm run build
@@ -76,42 +92,54 @@ The site is built as a standalone Next.js application and can be deployed to:
 
 ```bash
 quantum-rishi/
+├── __tests__/               # Test files
+│   └── components/          # Component tests
 ├── app/
 │   ├── (site)/
 │   │   ├── layout.tsx       # Site-specific layout
 │   │   └── page.tsx         # Homepage
-│   └── layout.tsx           # Root layout with metadata
+│   └── layout.tsx           # Root layout with metadata & SEO
 ├── components/
 │   ├── ui/                  # UI primitives (Badge, Button, Card)
-│   ├── BackToTop.tsx        # Back to top button
-│   ├── CTA.tsx              # Call-to-action section
-│   ├── Contact.tsx          # Contact section
-│   ├── Engagement.tsx       # Engagement models
+│   ├── ErrorBoundary.tsx    # Error boundary component
 │   ├── Footer.tsx           # Footer component
-│   ├── Hero.tsx             # Hero section
-│   ├── Mission.tsx          # Mission statement
+│   ├── HeroSection.tsx      # Hero section
 │   ├── Navigation.tsx       # Navigation bar
-│   ├── Services.tsx         # Services grid
-│   └── TrustBar.tsx         # Trust logos bar
+│   └── ...                  # Other components
+├── data/
+│   ├── services.json        # Services data
+│   ├── team.json           # Team members data
+│   └── engagement.json     # Engagement models data
+├── docs/
+│   ├── i18n-setup.md       # i18n implementation guide
+│   ├── performance-optimization.md
+│   └── security-best-practices.md
 ├── lib/
-│   ├── seo.ts              # SEO utilities (JSON-LD)
-│   └── utils.ts            # Helper functions
+│   ├── analytics.ts        # Google Analytics utilities
+│   ├── seo.ts             # SEO utilities (JSON-LD)
+│   └── utils.ts           # Helper functions
 ├── public/
-│   └── assets/             # Static assets (logos, images)
+│   └── assets/            # Static assets (logos, images)
 ├── styles/
-│   └── globals.css         # Global styles
-├── tailwind.config.ts      # Tailwind configuration
-├── tsconfig.json           # TypeScript configuration
-└── package.json            # Dependencies
+│   └── globals.css        # Global styles
+├── .github/
+│   ├── workflows/         # CI/CD workflows
+│   └── ISSUE_TEMPLATE/    # Issue templates
+├── jest.config.cjs        # Jest configuration
+├── jest.setup.ts          # Jest setup
+├── tailwind.config.ts     # Tailwind configuration
+├── tsconfig.json          # TypeScript configuration
+├── CONTRIBUTING.md        # Contribution guidelines
+└── package.json           # Dependencies
 ```
 
 ## 📝 Customization
 
 ### Update Content
 
-- **Services**: Edit `components/Services.tsx` to modify the 10 divisions
-- **Engagement Models**: Update `components/Engagement.tsx`
-- **Contact Info**: Change email/LinkedIn in `components/Contact.tsx`, `components/CTA.tsx`, and `components/Footer.tsx`
+- **Services**: Edit `data/services.json` for easy content updates
+- **Team**: Update `data/team.json` to modify team members
+- **Engagement Models**: Edit `data/engagement.json`
 - **Branding**: Replace `public/assets/logo.svg` with your brand logo
 
 ### Styling
@@ -141,7 +169,35 @@ quantum-rishi/
 - **Code Splitting**: Automatic chunking by Next.js
 - **Image Optimization**: Next.js Image component with lazy loading
 - **CSS Optimization**: Tailwind CSS with PurgeCSS
-- **Bundle Size**: ~143 KB First Load JS
+- **Bundle Size**: 87.4 kB First Load JS (excellent!)
+- **Performance Guide**: See `docs/performance-optimization.md` for more details
+
+## 🧪 Testing
+
+- **Framework**: Jest with React Testing Library
+- **Coverage**: 25+ tests for critical components
+- **CI/CD**: Automated testing on every push
+
+```bash
+# Run all tests
+npm test
+
+# Watch mode for development
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
+```
+
+Test files are located in `__tests__/` directory.
+
+## 🔒 Security
+
+- **No Vulnerabilities**: Clean npm audit report
+- **Latest Dependencies**: Next.js 14.2.33 (patched security issues)
+- **Error Boundaries**: Graceful error handling
+- **TypeScript**: Strict mode enabled for type safety
+- **Security Guide**: See `docs/security-best-practices.md`
 
 ## ♿ Accessibility
 
@@ -164,7 +220,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🤝 Contributing
 
-This is a public repository. Feel free to fork, customize, and use for your own projects.
+We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
+
+- Code of conduct
+- Development workflow
+- Pull request process
+- Coding standards
+- Testing guidelines
+- Commit message format
+
+## 🌍 Internationalization
+
+For adding multi-language support, see our [i18n setup guide](docs/i18n-setup.md).
+
+## 📚 Documentation
+
+- [Performance Optimization Guide](docs/performance-optimization.md)
+- [Security Best Practices](docs/security-best-practices.md)
+- [i18n Setup Guide](docs/i18n-setup.md)
 
 ---
 
