@@ -1,4 +1,4 @@
-// File: /workspaces/Quantum-Rishi/app/(site)/page.tsx
+// File: /home/runner/work/Quantum-Rishi/Quantum-Rishi/app/(site)/page.tsx
 import * as entry from '../../../../app/(site)/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
