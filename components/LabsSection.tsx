@@ -27,8 +27,9 @@ const demos = [
 
 export function LabsSection() {
   return (
-    <section className="py-24 bg-accent/30 relative overflow-hidden">
-      {/* Background pattern */}
+    <section className="py-32 bg-accent/20 backdrop-blur-sm relative overflow-hidden">
+      {/* Enhanced background pattern */}
+      <div className="absolute inset-0 opacity-10 mesh-gradient" />
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
@@ -42,14 +43,14 @@ export function LabsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          {...{ className: "text-center mb-16" }}
+          {...{ className: "text-center mb-20" }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30 mb-6 backdrop-blur-sm shadow-lg shadow-primary/10">
             <Database className="h-4 w-4 text-primary" />
-            <span className="text-sm text-primary">QR.Labs</span>
+            <span className="text-sm font-medium bg-gradient-to-r from-primary to-cyan-300 bg-clip-text text-transparent">QR.Labs</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl mb-4">Interactive demos</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl mb-6 font-bold bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent">Interactive demos</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             Experience our technology firsthand with these interactive demonstrations
           </p>
         </motion.div>
@@ -62,29 +63,29 @@ export function LabsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.2, duration: 0.6 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              whileHover={{ y: -12, transition: { duration: 0.3 } }}
               {...{ className: "group" }}
             >
-              <div className="bg-card border border-border rounded-lg overflow-hidden h-full flex flex-col transition-all hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
-                {/* Thumbnail */}
+              <div className="bg-card/50 backdrop-blur-xl border border-border/50 rounded-2xl overflow-hidden h-full flex flex-col transition-all hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20">
+                {/* Enhanced Thumbnail */}
                 <div className="relative aspect-video overflow-hidden bg-muted">
                   <ImageWithFallback
                     src={demo.thumbnail}
                     alt={demo.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   
-                  {/* Play button overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-16 h-16 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="h-8 w-8 text-white ml-1" fill="currentColor" />
+                  {/* Enhanced Play button overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-cyan-400 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl shadow-primary/40">
+                      <Play className="h-10 w-10 text-white ml-1" fill="currentColor" />
                     </div>
                   </div>
 
-                  {/* Status badge */}
+                  {/* Enhanced Status badge */}
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-chart-4 text-white border-0">
+                    <Badge className="bg-gradient-to-r from-green-500 to-emerald-600 text-white border-0 shadow-lg shadow-green-500/30 px-3 py-1.5">
                       <span className="relative flex h-2 w-2 mr-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
@@ -93,43 +94,43 @@ export function LabsSection() {
                     </Badge>
                   </div>
 
-                  {/* Runtime */}
+                  {/* Enhanced Runtime */}
                   <div className="absolute bottom-4 left-4">
-                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-sm">
-                      <Clock className="h-3.5 w-3.5 text-white" />
-                      <span className="text-sm text-white">{demo.runtime}</span>
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-black/70 backdrop-blur-md border border-white/10">
+                      <Clock className="h-4 w-4 text-primary" />
+                      <span className="text-sm text-white font-medium">{demo.runtime}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6 flex-grow flex flex-col">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <demo.icon className="h-5 w-5 text-primary" />
+                {/* Enhanced Content */}
+                <div className="p-8 flex-grow flex flex-col">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                      <demo.icon className="h-6 w-6 text-primary" />
                     </div>
-                    <h3 className="text-xl flex-grow">{demo.title}</h3>
+                    <h3 className="text-2xl font-bold flex-grow">{demo.title}</h3>
                   </div>
 
-                  <p className="text-muted-foreground mb-4 flex-grow">
+                  <p className="text-gray-400 mb-6 flex-grow leading-relaxed">
                     {demo.description}
                   </p>
 
-                  {/* Tech stack */}
-                  <div className="mb-4">
+                  {/* Enhanced Tech stack */}
+                  <div className="mb-6">
                     <div className="flex flex-wrap gap-2">
                       {demo.techStack.map((tech, tIdx) => (
-                        <Badge key={tIdx} variant="outline" className="text-xs bg-muted/50 border-border">
+                        <Badge key={tIdx} variant="outline" className="text-xs bg-muted/30 border-border/50 hover:bg-primary/10 hover:border-primary/30 transition-colors backdrop-blur-sm px-3 py-1">
                           {tech}
                         </Badge>
                       ))}
                     </div>
                   </div>
 
-                  {/* CTA */}
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group/btn">
+                  {/* Enhanced CTA */}
+                  <Button className="w-full bg-gradient-to-r from-primary to-cyan-400 hover:from-cyan-400 hover:to-primary text-white group/btn transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 rounded-xl py-6 font-semibold">
                     Launch Demo
-                    <Play className="ml-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
+                    <Play className="ml-2 h-4 w-4 group-hover/btn:scale-125 transition-transform" />
                   </Button>
                 </div>
               </div>
@@ -137,17 +138,17 @@ export function LabsSection() {
           ))}
         </div>
 
-        {/* Additional demos CTA */}
+        {/* Enhanced Additional demos CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          {...{ className: "text-center mt-12" }}
+          {...{ className: "text-center mt-16" }}
         >
-          <Button variant="outline" className="border-primary/30 hover:bg-primary/10">
+          <Button variant="outline" className="border-2 border-primary/40 hover:bg-primary/10 px-8 py-6 text-lg rounded-xl backdrop-blur-sm hover:border-primary/60 transition-all duration-300 hover:scale-105 font-semibold">
             View all demos
-            <Network className="ml-2 h-4 w-4" />
+            <Network className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
       </div>

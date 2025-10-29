@@ -44,13 +44,14 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-accent/50 border-t border-border relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
+    <footer className="bg-accent/30 backdrop-blur-xl border-t border-border/50 relative overflow-hidden">
+      {/* Enhanced background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-secondary/5 to-transparent" />
+      <div className="absolute inset-0 mesh-gradient opacity-20" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main footer content */}
-        <div className="py-16 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        <div className="py-20 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10">
           {/* Brand column */}
           <div className="col-span-2">
             <motion.div
@@ -59,37 +60,37 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              {/* Logo */}
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                  <span className="text-white">QR</span>
+              {/* Enhanced Logo */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-cyan-400 to-secondary flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-xl group-hover:shadow-primary/30 transition-shadow">
+                  <span className="text-white font-bold text-lg">QR</span>
                 </div>
-                <span className="text-xl">Quantum Rishi</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Quantum Rishi</span>
               </div>
               
-              <p className="text-muted-foreground mb-6 max-w-sm">
+              <p className="text-gray-400 mb-8 max-w-sm leading-relaxed">
                 Building the world&apos;s most trusted sovereign infrastructure for autonomous teams.
               </p>
 
               {/* Telegram contact */}
               <a
                 href="https://t.me/quantumrishi"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 border border-primary/30 hover:bg-primary/20 transition-colors group"
+                className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30 hover:border-primary/50 hover:bg-primary/15 transition-all duration-300 group mb-8 backdrop-blur-sm"
               >
-                <MessageCircle className="h-4 w-4 text-primary" />
-                <span className="text-sm text-primary">Join us on Telegram</span>
+                <MessageCircle className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium text-primary">Join us on Telegram</span>
               </a>
 
-              {/* Social links */}
-              <div className="flex gap-3 mt-6">
+              {/* Enhanced Social links */}
+              <div className="flex gap-3">
                 {socialLinks.map((social, idx) => (
                   <a
                     key={idx}
                     href={social.href}
-                    className="w-10 h-10 rounded-lg bg-muted hover:bg-primary/20 flex items-center justify-center transition-colors group"
+                    className="w-11 h-11 rounded-xl bg-muted/50 hover:bg-gradient-to-br hover:from-primary/20 hover:to-secondary/20 flex items-center justify-center transition-all duration-300 group border border-border/50 hover:border-primary/30 backdrop-blur-sm hover:scale-110"
                     aria-label={social.label}
                   >
-                    <social.icon className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <social.icon className="h-5 w-5 text-gray-400 group-hover:text-primary transition-colors" />
                   </a>
                 ))}
               </div>
@@ -105,13 +106,13 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
             >
-              <h3 className="mb-4">{category}</h3>
+              <h3 className="mb-5 font-semibold text-lg">{category}</h3>
               <ul className="space-y-3">
                 {links.map((link, linkIdx) => (
                   <li key={linkIdx}>
                     <a
                       href={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      className="text-sm text-gray-400 hover:text-primary transition-colors duration-300 hover:translate-x-1 inline-block"
                     >
                       {link.label}
                     </a>
@@ -122,7 +123,7 @@ export function Footer() {
           ))}
         </div>
 
-        <Separator className="bg-border" />
+        <Separator className="bg-border/50" />
 
         {/* Newsletter section */}
         <motion.div
@@ -130,27 +131,27 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          {...{ className: "py-8" }}
+          {...{ className: "py-10" }}
         >
           <div className="max-w-md">
-            <h3 className="mb-2">Stay updated</h3>
-            <p className="text-sm text-muted-foreground mb-4">
+            <h3 className="mb-3 text-lg font-semibold">Stay updated</h3>
+            <p className="text-sm text-gray-400 mb-5">
               Get the latest updates on new features and product releases.
             </p>
-            <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex gap-3" onSubmit={(e) => e.preventDefault()}>
               <Input
                 type="email"
                 placeholder="your@email.com"
-                className="bg-background border-border"
+                className="bg-background/50 border-border/50 focus:border-primary/50 backdrop-blur-sm rounded-lg"
               />
-              <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button type="submit" className="bg-gradient-to-r from-primary to-cyan-400 hover:from-cyan-400 hover:to-primary text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all rounded-lg px-6">
                 <Send className="h-4 w-4" />
               </Button>
             </form>
           </div>
         </motion.div>
 
-        <Separator className="bg-border" />
+        <Separator className="bg-border/50" />
 
         {/* Bottom bar */}
         <motion.div
@@ -160,40 +161,44 @@ export function Footer() {
           transition={{ delay: 0.3, duration: 0.6 }}
           {...{ className: "py-8 flex flex-col md:flex-row justify-between items-center gap-4" }}
         >
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm text-gray-500">
             © 2025 Quantum Rishi. All rights reserved.
           </div>
           
-          <div className="flex flex-wrap gap-4 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+          <div className="flex flex-wrap gap-6 text-sm">
+            <a href="#" className="text-gray-400 hover:text-primary transition-colors duration-300">
               Privacy Policy
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="#" className="text-gray-400 hover:text-primary transition-colors duration-300">
               Terms of Service
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="#" className="text-gray-400 hover:text-primary transition-colors duration-300">
               Cookie Settings
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="#" className="text-gray-400 hover:text-primary transition-colors duration-300">
               Accessibility
             </a>
           </div>
         </motion.div>
 
-        {/* Social stream placeholder */}
+        {/* Enhanced community highlights */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          {...{ className: "pb-8" }}
+          {...{ className: "pb-10" }}
         >
-          <div className="bg-card border border-border rounded-lg p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg">Community highlights</h3>
-              <div className="flex gap-2">
-                <Twitter className="h-5 w-5 text-primary" />
-                <Linkedin className="h-5 w-5 text-secondary" />
+          <div className="bg-card/50 backdrop-blur-xl border border-border/50 rounded-2xl p-8 hover:border-primary/30 transition-all duration-300">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-semibold">Community highlights</h3>
+              <div className="flex gap-3">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <Twitter className="h-5 w-5 text-primary" />
+                </div>
+                <div className="p-2 rounded-lg bg-secondary/10">
+                  <Linkedin className="h-5 w-5 text-secondary" />
+                </div>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -204,9 +209,12 @@ export function Footer() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground hover:bg-muted transition-colors cursor-pointer"
+                  className="bg-muted/30 backdrop-blur-sm rounded-xl p-5 text-sm text-gray-400 hover:bg-gradient-to-br hover:from-primary/10 hover:to-secondary/10 hover:text-gray-300 transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/20 group"
                 >
-                  {item}
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                    <span>{item}</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -214,8 +222,8 @@ export function Footer() {
         </motion.div>
       </div>
 
-      {/* Decorative gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary" />
+      {/* Enhanced decorative gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-80" />
     </footer>
   );
 }
