@@ -132,7 +132,7 @@ Security headers are configured in `_headers`:
 This project follows a 17-phase build plan (see `qr_build_plan.json`):
 
 - ✅ Phase 1-15: Completed
-- ✅ Phase 16: Deployment & Domain Configuration (CURRENT)
+- ✅ Phase 16: Deployment & domain configuration (CURRENT)
 - ⏳ Phase 17: Future Sub-Domain Preparation
 
 ## 🤝 Contributing
