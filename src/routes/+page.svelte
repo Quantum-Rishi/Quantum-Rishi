@@ -10,7 +10,7 @@
 	<!-- Hero Section with Parallax -->
 	<Parallax>
 		<Hero 
-			headline="Accelerate Quantum Solutions" 
+			headline="Bridging tomorrow's technologies with today's businesses." 
 			subhead="Unlock the power of quantum computing for your business with scalable, secure, and developer-friendly tools."
 		>
 			<Button slot="primary-cta" variant="primary">Request a Demo</Button>
