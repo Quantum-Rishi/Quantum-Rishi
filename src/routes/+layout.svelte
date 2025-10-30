@@ -4,6 +4,8 @@
 	import '../lib/styles/global.css';
 
 	let { children } = $props();
+import Navbar from '../lib/components/Navbar.svelte';
+import Footer from '../lib/components/Footer.svelte';
 </script>
 
 <svelte:head>
@@ -12,6 +14,10 @@
 	<meta name="description" content="Enterprise-grade technology solutions across AI, Blockchain, Cloud, Cybersecurity, and Quantum research." />
 </svelte:head>
 
-<div class="dark">
-	{@render children?.()}
+<div class="dark min-h-screen flex flex-col">
+	<Navbar />
+		<main class="flex-1">
+			<slot />
+		</main>
+	<Footer />
 </div>
