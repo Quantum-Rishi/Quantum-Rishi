@@ -125,52 +125,60 @@
 
 <div class="knowledge-layout" style="--division-color: {division.color}">
 	<!-- Learning Paths Section -->
-	<section class="paths-section">
+	<section class="paths-section" aria-labelledby="paths-heading">
 		<div class="qr-container">
-			<h2 class="section-heading">Learning Paths</h2>
+			<h2 class="section-heading" id="paths-heading">Learning Paths</h2>
 			<p class="section-description">
 				Choose your learning journey based on your experience level and goals
 			</p>
 
-			<div class="paths-grid">
+			<div class="paths-grid" role="list" aria-label="Available learning paths">
 				{#each learningPaths as path (path.name)}
-					<Card hover glow>
-						<div class="path-icon">{path.icon}</div>
-						<div class="path-level">{path.level}</div>
-						<h3 class="path-name">{path.name}</h3>
-						<p class="path-description">{path.description}</p>
-						<div class="path-meta">
-							<span class="meta-item">
-								<span class="meta-icon">⏱️</span>
-								{path.duration}
-							</span>
-							<span class="meta-item">
-								<span class="meta-icon">📦</span>
-								{path.modules} modules
-							</span>
-						</div>
-						<div class="path-action">
-							<Button variant="outline" size="small">Explore Path</Button>
-						</div>
-					</Card>
+					<div role="listitem">
+						<Card hover glow>
+							<div class="path-icon" aria-hidden="true">{path.icon}</div>
+							<div class="path-level">{path.level}</div>
+							<h3 class="path-name">{path.name}</h3>
+							<p class="path-description">{path.description}</p>
+							<div class="path-meta" aria-label="Course details">
+								<span class="meta-item">
+									<span class="meta-icon" aria-hidden="true">⏱️</span>
+									<span class="sr-only">Duration:</span>
+									{path.duration}
+								</span>
+								<span class="meta-item">
+									<span class="meta-icon" aria-hidden="true">📦</span>
+									<span class="sr-only">Modules:</span>
+									{path.modules} modules
+								</span>
+							</div>
+							<div class="path-action">
+								<Button variant="outline" size="small" aria-label="Explore {path.name}"
+									>Explore Path</Button
+								>
+							</div>
+						</Card>
+					</div>
 				{/each}
 			</div>
 		</div>
 	</section>
 
 	<!-- Content Categories Section -->
-	<section class="categories-section">
+	<section class="categories-section" aria-labelledby="categories-heading">
 		<div class="qr-container">
-			<h2 class="section-heading">Content Library</h2>
+			<h2 class="section-heading" id="categories-heading">Content Library</h2>
 			<p class="section-description">Access a comprehensive collection of learning resources</p>
 
-			<div class="categories-grid">
+			<div class="categories-grid" role="list" aria-label="Content categories">
 				{#each contentCategories as category (category.name)}
-					<div class="category-card">
-						<div class="category-icon">{category.icon}</div>
+					<div class="category-card" role="listitem">
+						<div class="category-icon" aria-hidden="true">{category.icon}</div>
 						<div class="category-header">
 							<h3 class="category-name">{category.name}</h3>
-							<span class="category-count">{category.count}</span>
+							<span class="category-count" aria-label="{category.count} items"
+								>{category.count}</span
+							>
 						</div>
 						<p class="category-description">{category.description}</p>
 					</div>
@@ -180,40 +188,42 @@
 	</section>
 
 	<!-- Features Section -->
-	<section class="features-section">
+	<section class="features-section" aria-labelledby="features-heading">
 		<div class="qr-container">
-			<h2 class="section-heading">Platform Features</h2>
+			<h2 class="section-heading" id="features-heading">Platform Features</h2>
 
-			<div class="features-grid">
+			<div class="features-grid" role="list" aria-label="Platform features">
 				{#each features as feature (feature.title)}
-					<Card hover glow>
-						<div class="feature-icon">{feature.icon}</div>
-						<h3 class="feature-title">{feature.title}</h3>
-						<p class="feature-description">{feature.description}</p>
-					</Card>
+					<div role="listitem">
+						<Card hover glow>
+							<div class="feature-icon" aria-hidden="true">{feature.icon}</div>
+							<h3 class="feature-title">{feature.title}</h3>
+							<p class="feature-description">{feature.description}</p>
+						</Card>
+					</div>
 				{/each}
 			</div>
 		</div>
 	</section>
 
 	<!-- Stats Section -->
-	<section class="stats-section">
+	<section class="stats-section" aria-label="Platform statistics">
 		<div class="qr-container">
-			<div class="stats-grid">
-				<div class="stat-item">
-					<div class="stat-value">10K+</div>
+			<div class="stats-grid" role="list">
+				<div class="stat-item" role="listitem">
+					<div class="stat-value" aria-label="10 thousand plus">10K+</div>
 					<div class="stat-label">Active Learners</div>
 				</div>
-				<div class="stat-item">
-					<div class="stat-value">1500+</div>
+				<div class="stat-item" role="listitem">
+					<div class="stat-value" aria-label="1500 plus">1500+</div>
 					<div class="stat-label">Hours of Content</div>
 				</div>
-				<div class="stat-item">
-					<div class="stat-value">95%</div>
+				<div class="stat-item" role="listitem">
+					<div class="stat-value" aria-label="95 percent">95%</div>
 					<div class="stat-label">Completion Rate</div>
 				</div>
-				<div class="stat-item">
-					<div class="stat-value">4.8/5</div>
+				<div class="stat-item" role="listitem">
+					<div class="stat-value" aria-label="4.8 out of 5 stars">4.8/5</div>
 					<div class="stat-label">Average Rating</div>
 				</div>
 			</div>
