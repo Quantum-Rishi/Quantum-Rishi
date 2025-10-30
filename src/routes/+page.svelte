@@ -1,9 +1,12 @@
 <script lang="ts">
-	import { Button, Card, SectionTitle, Badge } from '$lib';
+	import { Button, Card, SectionTitle, Badge, HeroSection } from '$lib';
 </script>
 
+<!-- Phase 5: Hero Section -->
+<HeroSection />
+
 <div class="qr-container">
-	<!-- Hero Section -->
+	<!-- Phase 3 Design System Demo (kept for reference) -->
 	<section class="qr-section">
 		<div class="qr-flex-col" style="text-align: center; align-items: center;">
 			<SectionTitle level={1} align="center">Quantum Rishi Design System</SectionTitle>
