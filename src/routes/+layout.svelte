@@ -4,8 +4,9 @@
 	import '../lib/styles/global.css';
 
 	let { children } = $props();
-import Navbar from '../lib/components/Navbar.svelte';
-import Footer from '../lib/components/Footer.svelte';
+	import Navbar from '../lib/components/Navbar.svelte';
+	import Footer from '../lib/components/Footer.svelte';
+	import Button from '../lib/components/Button.svelte';
 </script>
 
 <svelte:head>
@@ -15,9 +16,14 @@ import Footer from '../lib/components/Footer.svelte';
 </svelte:head>
 
 <div class="dark min-h-screen flex flex-col">
-	<Navbar />
-		<main class="flex-1">
-			{@render children()}
-		</main>
+	<Navbar>
+		<div slot="cta" class="flex gap-3">
+			<Button variant="outline">Sign up</Button>
+			<Button variant="primary">Try it</Button>
+		</div>
+	</Navbar>
+	<main class="flex-1">
+		{@render children()}
+	</main>
 	<Footer />
 </div>
