@@ -32,7 +32,7 @@
 	};
 
 	// Example services/modules based on division type
-	const getDivisionModules = (divisionId: string) => {
+	const getDivisionModules = () => {
 		// This would ideally come from a modules.json file in the future (Phase 10)
 		// For now, we'll provide some generic examples
 		const commonModules = [
@@ -61,7 +61,7 @@
 		return commonModules;
 	};
 
-	const modules = getDivisionModules(division.id);
+	const modules = getDivisionModules();
 
 	onMount(() => {
 		// ========== Three.js Animated Background Setup ==========
@@ -217,15 +217,10 @@
 
 			<!-- CTA Button -->
 			<div class="hero-cta">
-				<Button
-					variant="primary"
-					size="large"
-					href={generateSubDomainUrl(division.slug)}
-					external
-				>
+				<Button variant="primary" size="large" href={generateSubDomainUrl(division.slug)} external>
 					Open Platform →
 				</Button>
-				<Button variant="outline" size="large" href="/#ecosystem"> Back to Ecosystem </Button>
+				<Button variant="outline" size="large" href="/#ecosystem">Back to Ecosystem</Button>
 			</div>
 		</div>
 	</div>
@@ -240,7 +235,7 @@
 		<SectionTitle>Key Modules & Services</SectionTitle>
 
 		<div class="modules-grid">
-			{#each modules as module}
+			{#each modules as module, index (index)}
 				<Card hover glow class="module-card">
 					<div class="module-icon">{module.icon}</div>
 					<h3 class="module-name">{module.name}</h3>
