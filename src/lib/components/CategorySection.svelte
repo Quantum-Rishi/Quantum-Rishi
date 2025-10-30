@@ -45,9 +45,12 @@
 		// Check for reduced motion preference
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+		// Store references to ScrollTriggers for proper cleanup
+		const scrollTriggers: ScrollTrigger[] = [];
+
 		if (!prefersReducedMotion) {
 			// Animate section header with fade + upward reveal
-			gsap.from(headerElement, {
+			const headerAnimation = gsap.from(headerElement, {
 				opacity: 0,
 				y: 30,
 				duration: 0.8,
@@ -58,10 +61,13 @@
 					toggleActions: 'play none none none'
 				}
 			});
+			if (headerAnimation.scrollTrigger) {
+				scrollTriggers.push(headerAnimation.scrollTrigger);
+			}
 
 			// Animate division cards with stagger effect
 			const cards = gridElement.querySelectorAll('.division-card-wrapper');
-			gsap.from(cards, {
+			const cardsAnimation = gsap.from(cards, {
 				opacity: 0,
 				y: 50,
 				duration: 0.6,
@@ -73,11 +79,14 @@
 					toggleActions: 'play none none none'
 				}
 			});
+			if (cardsAnimation.scrollTrigger) {
+				scrollTriggers.push(cardsAnimation.scrollTrigger);
+			}
 		}
 
-		// Cleanup function
+		// Cleanup function - only kill this component's ScrollTriggers
 		return () => {
-			ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+			scrollTriggers.forEach((trigger) => trigger.kill());
 		};
 	});
 </script>

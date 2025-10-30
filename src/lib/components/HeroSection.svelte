@@ -122,7 +122,10 @@
 		// Check for reduced motion preference
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-		const handleParallaxScroll = () => {
+		// Use requestAnimationFrame for smooth, throttled parallax updates
+		let ticking = false;
+
+		const updateParallax = () => {
 			if (!prefersReducedMotion) {
 				const scrollY = window.scrollY;
 				const scrollSpeed = scrollY * 0.5; // Parallax intensity factor
@@ -137,6 +140,14 @@
 				if (heroContentElement) {
 					heroContentElement.style.transform = `translateY(${scrollSpeed * 0.3}px)`;
 				}
+			}
+			ticking = false;
+		};
+
+		const handleParallaxScroll = () => {
+			if (!ticking) {
+				requestAnimationFrame(updateParallax);
+				ticking = true;
 			}
 		};
 
