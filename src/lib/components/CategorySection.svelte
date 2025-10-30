@@ -40,16 +40,16 @@
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 		// Store references to ScrollTriggers for proper cleanup
-		let scrollTriggers: any[] = [];
+		const scrollTriggers: { kill: () => void }[] = [];
 
 		if (!prefersReducedMotion) {
 			// ========== Dynamically import GSAP for code splitting ==========
 			// Phase 14: Lazy load heavy libraries to improve initial page load
 			const { gsap, ScrollTrigger } = await import('gsap/all');
-			
+
 			// Register ScrollTrigger plugin
 			gsap.registerPlugin(ScrollTrigger);
-			
+
 			// Animate section header with fade + upward reveal
 			const headerAnimation = gsap.from(headerElement, {
 				opacity: 0,

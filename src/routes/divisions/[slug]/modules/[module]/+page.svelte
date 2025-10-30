@@ -28,11 +28,8 @@
 	onMount(async () => {
 		// ========== Dynamically import Three.js and GSAP for code splitting ==========
 		// Phase 14: Lazy load heavy libraries
-		const [THREE, { gsap }] = await Promise.all([
-			import('three'),
-			import('gsap')
-		]);
-		
+		const [THREE, { gsap }] = await Promise.all([import('three'), import('gsap')]);
+
 		// ========== Three.js Background Animation ==========
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(

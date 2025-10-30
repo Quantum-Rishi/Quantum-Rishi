@@ -1,9 +1,26 @@
 import tailwindcss from '@tailwindcss/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import { imagetools } from 'vite-imagetools';
 
 export default defineConfig({
-	plugins: [tailwindcss(), sveltekit()],
+	plugins: [
+		tailwindcss(),
+		imagetools({
+			// Default output formats for optimized images
+			defaultDirectives: (url) => {
+				// Generate WebP and AVIF formats for better compression
+				if (url.searchParams.has('width')) {
+					return new URLSearchParams({
+						format: 'webp;avif;jpg',
+						quality: '80'
+					});
+				}
+				return new URLSearchParams();
+			}
+		}),
+		sveltekit()
+	],
 	build: {
 		// Improve chunking strategy for better code splitting
 		rollupOptions: {
