@@ -39,51 +39,15 @@
 	};
 
 	const titleClasses = `${headingClasses[level]} ${alignClasses[align]} ${className}`;
+	const tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 </script>
 
-{#if level === 1}
-	<h1 class={titleClasses}>
-		{@render children?.()}
-		{#if underline}
-			<div class="neon-underline"></div>
-		{/if}
-	</h1>
-{:else if level === 2}
-	<h2 class={titleClasses}>
-		{@render children?.()}
-		{#if underline}
-			<div class="neon-underline"></div>
-		{/if}
-	</h2>
-{:else if level === 3}
-	<h3 class={titleClasses}>
-		{@render children?.()}
-		{#if underline}
-			<div class="neon-underline"></div>
-		{/if}
-	</h3>
-{:else if level === 4}
-	<h4 class={titleClasses}>
-		{@render children?.()}
-		{#if underline}
-			<div class="neon-underline"></div>
-		{/if}
-	</h4>
-{:else if level === 5}
-	<h5 class={titleClasses}>
-		{@render children?.()}
-		{#if underline}
-			<div class="neon-underline"></div>
-		{/if}
-	</h5>
-{:else}
-	<h6 class={titleClasses}>
-		{@render children?.()}
-		{#if underline}
-			<div class="neon-underline"></div>
-		{/if}
-	</h6>
-{/if}
+<svelte:element this={tag} class={titleClasses}>
+	{@render children?.()}
+	{#if underline}
+		<div class="neon-underline"></div>
+	{/if}
+</svelte:element>
 
 <style>
 	h1,
