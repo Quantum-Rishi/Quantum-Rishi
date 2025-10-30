@@ -36,8 +36,10 @@
 		renderer.setSize(canvasElement.clientWidth, canvasElement.clientHeight);
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-		// Create particle geometry
-		const particleCount = 1500;
+		// Create particle geometry with adaptive count based on device performance
+		// Reduce particles on mobile devices and lower-end hardware
+		const isMobile = window.innerWidth < 768;
+		const particleCount = isMobile ? 800 : 1500;
 		const particles = new THREE.BufferGeometry();
 		const positions = new Float32Array(particleCount * 3);
 		const colors = new Float32Array(particleCount * 3);
@@ -169,9 +171,28 @@
 			</p>
 
 			<!-- CTA Buttons -->
+			<!-- Note: CTA functionality will be implemented in later phases when the respective pages exist -->
 			<div class="hero-cta-container" bind:this={ctaContainerElement}>
-				<Button variant="primary" size="large">Launch QR Studio</Button>
-				<Button variant="outline" size="large">Explore Ecosystem</Button>
+				<Button
+					variant="primary"
+					size="large"
+					onclick={() => {
+						// TODO: Navigate to QR Studio (Phase 6+)
+						console.log('Launch QR Studio - Coming soon!');
+					}}
+				>
+					Launch QR Studio
+				</Button>
+				<Button
+					variant="outline"
+					size="large"
+					onclick={() => {
+						// TODO: Scroll to ecosystem section (Phase 6)
+						console.log('Explore Ecosystem - Coming soon!');
+					}}
+				>
+					Explore Ecosystem
+				</Button>
 			</div>
 		</div>
 	</div>
