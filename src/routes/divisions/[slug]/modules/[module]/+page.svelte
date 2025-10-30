@@ -13,7 +13,7 @@
 
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
-	import { Button, Card } from '$lib';
+	import { Button } from '$lib';
 	import * as THREE from 'three';
 	import { gsap } from 'gsap';
 
@@ -172,19 +172,10 @@
 
 			<!-- CTA Button to Sub-domain -->
 			<div class="module-cta">
-				<Button
-					variant="primary"
-					size="large"
-					href="https://{module.subdomain}"
-					external
-				>
+				<Button variant="primary" size="large" href="https://{module.subdomain}" external>
 					Launch Module →
 				</Button>
-				<Button
-					variant="outline"
-					size="large"
-					href="/divisions/{division.slug}"
-				>
+				<Button variant="outline" size="large" href="/divisions/{division.slug}">
 					Back to {division.name}
 				</Button>
 			</div>
@@ -200,7 +191,7 @@
 	<div class="qr-container">
 		<h2 class="section-title">Key Features</h2>
 		<div class="features-grid">
-			{#each module.features as feature}
+			{#each module.features as feature, index (index)}
 				<div class="feature-card">
 					<div class="feature-icon" style="color: {division.color}">
 						<svg
@@ -228,7 +219,7 @@
 		<div class="qr-container">
 			<h2 class="section-title">Related Modules</h2>
 			<div class="modules-grid">
-				{#each relatedModules as relatedModule}
+				{#each relatedModules as relatedModule, index (index)}
 					<a
 						href="/divisions/{division.slug}/modules/{relatedModule.slug}"
 						class="module-card"
@@ -465,11 +456,7 @@
 		left: -50%;
 		width: 200%;
 		height: 200%;
-		background: radial-gradient(
-			circle,
-			var(--card-color) 0%,
-			transparent 70%
-		);
+		background: radial-gradient(circle, var(--card-color) 0%, transparent 70%);
 		opacity: 0;
 		transition: opacity var(--transition-base);
 		pointer-events: none;
@@ -479,8 +466,9 @@
 	.module-card:hover {
 		border-color: var(--card-color);
 		transform: translateY(-4px);
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
-		            0 0 20px var(--card-color);
+		box-shadow:
+			0 8px 32px rgba(0, 0, 0, 0.3),
+			0 0 20px var(--card-color);
 	}
 
 	.module-card:hover .module-card-glow {

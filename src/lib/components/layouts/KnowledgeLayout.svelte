@@ -240,7 +240,7 @@
 								<h3 class="module-card-title">{module.name}</h3>
 								<p class="module-card-description">{module.description}</p>
 								<div class="module-card-features">
-									{#each module.features.slice(0, 3) as feature}
+									{#each module.features.slice(0, 3) as feature, index (index)}
 										<span class="feature-tag">{feature}</span>
 									{/each}
 								</div>
@@ -615,11 +615,7 @@
 		left: -50%;
 		width: 200%;
 		height: 200%;
-		background: radial-gradient(
-			circle,
-			var(--module-color) 0%,
-			transparent 70%
-		);
+		background: radial-gradient(circle, var(--module-color) 0%, transparent 70%);
 		opacity: 0;
 		transition: opacity var(--transition-base);
 		pointer-events: none;
@@ -629,8 +625,9 @@
 	.module-card:hover {
 		border-color: var(--module-color);
 		transform: translateY(-4px);
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
-		            0 0 20px var(--module-color);
+		box-shadow:
+			0 8px 32px rgba(0, 0, 0, 0.3),
+			0 0 20px var(--module-color);
 	}
 
 	.module-card:hover .module-card-glow {

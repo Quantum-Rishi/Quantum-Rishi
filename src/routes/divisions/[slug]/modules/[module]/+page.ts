@@ -31,7 +31,7 @@ export const load: PageLoad = ({ params }) => {
 
 	// Find the module within the division
 	const divisionModules = modulesData[slug as keyof typeof modulesData];
-	
+
 	if (!divisionModules || !divisionModules.modules) {
 		throw error(404, {
 			message: 'No modules found for this division'
