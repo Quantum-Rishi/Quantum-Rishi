@@ -55,7 +55,6 @@ jobs:
 
       - name: Run linter
         run: pnpm run lint
-        continue-on-error: true
 
       - name: Run type check
         run: pnpm run check
