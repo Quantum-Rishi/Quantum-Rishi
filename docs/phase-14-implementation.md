@@ -10,8 +10,8 @@ Phase 14 focuses on performance optimization as outlined in `qr_build_plan.json`
 
 The following libraries have been converted to dynamic imports:
 
-- **Three.js** (~569 KB uncompressed)
-- **GSAP** (~115 KB uncompressed)
+- **Three.js** (~705 KB uncompressed, ~181 KB gzipped)
+- **GSAP** (~115 KB uncompressed, ~46 KB gzipped)
 
 ### Implementation Pattern
 
@@ -277,17 +277,21 @@ worker.addEventListener('message', (e) => {
 ### Before Optimization
 
 ```
-chunks/ByIXN2uP.js  569.01 kB │ gzip: 155.38 kB
+chunks/ByIXN2uP.js  704.89 kB uncompressed │ gzip: 181.19 kB
 ```
 
 ### After Optimization
 
+With dynamic imports, heavy libraries are now loaded on-demand:
+
 ```
-chunks/vendor-three.js    (lazy loaded)
-chunks/vendor-gsap.js     (lazy loaded)
-chunks/vendor-svelte.js   31.16 kB
-chunks/vendor.js          91.96 kB
+chunks/BT1pP-6r.js        704.89 kB │ gzip: 181.19 kB  (Three.js + GSAP, lazy loaded)
+chunks/BEjUq-Mi.js        115.17 kB │ gzip:  45.85 kB  (Vendor libraries)
+chunks/vendor-svelte.js    31.16 kB                     (Svelte runtime, server)
+chunks/vendor.js           91.96 kB                     (Other vendors, server)
 ```
+
+**Key Benefit**: Heavy libraries are not in the initial bundle and only load when components mount.
 
 ## Best Practices Implemented
 

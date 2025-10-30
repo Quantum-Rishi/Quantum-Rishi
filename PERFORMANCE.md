@@ -20,7 +20,7 @@ This document summarizes the performance optimizations implemented in Phase 14 o
 
 **Benefits:**
 
-- Heavy libraries (Three.js: ~569KB) are now loaded only when needed
+- Heavy libraries (Three.js: ~705 KB uncompressed / ~181 KB gzipped) are now loaded only when needed
 - Initial bundle size reduced
 - Improved Time to Interactive (TTI)
 
@@ -158,11 +158,13 @@ When deployed to Cloudflare Pages, we expect:
 
 ### Target Metrics (Production)
 
-- Performance Score: **>85** (realistic target given animation requirements)
+- Performance Score: **85-90** (realistic target given Three.js animation requirements; 90+ would be achievable without 3D graphics)
 - FCP: **<1.0s**
 - LCP: **<2.5s**
 - TBT: **<300ms**
 - CLS: **<0.1**
+
+**Note**: The original Phase 14 goal of >90 is challenging with the heavy Three.js particle system on the homepage. A score of 85-90 is excellent for a site with complex 3D graphics, and further improvements can be made by implementing additional optimizations like Intersection Observer for lazy Three.js initialization.
 
 ## Monitoring & Testing
 
