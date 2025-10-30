@@ -5,6 +5,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 ## Pre-Deployment Verification
 
 ### Technical Requirements
+
 - [x] SvelteKit project configured
 - [x] `@sveltejs/adapter-cloudflare` installed and configured
 - [x] Build command works: `pnpm run build`
@@ -14,6 +15,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 - [x] No console errors in development
 
 ### Repository Status
+
 - [x] All changes committed to Git
 - [x] Repository pushed to GitHub
 - [x] Main/production branch is clean
@@ -22,6 +24,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 ## Cloudflare Pages Setup
 
 ### Task 1: Connect Repository
+
 - [ ] Log in to Cloudflare Dashboard
 - [ ] Navigate to Pages > Create a project
 - [ ] Connect to Git (GitHub)
@@ -29,6 +32,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 - [ ] Select `Quantum-Rishi/Quantum-Rishi` repository
 
 ### Task 2: Configure Build Settings
+
 - [ ] Set project name: `quantum-rishi`
 - [ ] Set production branch: `main` (or appropriate branch)
 - [ ] Set build command: `pnpm run build`
@@ -37,6 +41,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 - [ ] Add environment variables (if needed)
 
 ### Task 3: Initial Deployment
+
 - [ ] Click "Save and Deploy"
 - [ ] Wait for build to complete (2-5 minutes)
 - [ ] Check build logs for errors
@@ -45,6 +50,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 ## Routing Verification
 
 ### Core Routes Testing
+
 - [ ] Homepage loads: `https://*.pages.dev/`
 - [ ] Division pages load: `https://*.pages.dev/divisions/qr-ai`
 - [ ] Module pages load: `https://*.pages.dev/divisions/qr-ai/modules/llm-fine-tuning`
@@ -52,6 +58,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 - [ ] 404 page works for invalid routes
 
 ### Static Assets
+
 - [ ] CSS files load correctly
 - [ ] JavaScript chunks load correctly
 - [ ] Images display properly
@@ -60,6 +67,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 - [ ] GSAP animations work
 
 ### Navigation
+
 - [ ] Click through all navigation links
 - [ ] Test division category navigation
 - [ ] Test module navigation
@@ -69,18 +77,19 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 ## Domain Configuration
 
 ### Task 4: Add Custom Domain
+
 - [ ] Go to Pages project > Custom domains
 - [ ] Click "Set up a custom domain"
 - [ ] Enter domain: `quantum-rishi.com`
 - [ ] Click Continue
 
 ### DNS Configuration
+
 - [ ] Add CNAME record for apex domain:
   - Type: `CNAME`
   - Name: `@`
   - Target: `your-project.pages.dev`
   - Proxy: Enabled (orange cloud)
-  
 - [ ] Add CNAME record for www subdomain:
   - Type: `CNAME`
   - Name: `www`
@@ -88,6 +97,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
   - Proxy: Enabled (orange cloud)
 
 ### DNS Propagation
+
 - [ ] Wait for DNS propagation (5-30 minutes)
 - [ ] Check DNS with: `dig quantum-rishi.com`
 - [ ] Verify DNS globally: https://dnschecker.org/
@@ -96,6 +106,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 ## HTTPS & Redirects
 
 ### Task 5: SSL/TLS Configuration
+
 - [ ] SSL certificate auto-provisioned (wait 15-20 min)
 - [ ] Visit `https://quantum-rishi.com`
 - [ ] Verify padlock icon in browser
@@ -103,13 +114,16 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 - [ ] Set SSL/TLS mode to "Full" or "Full (strict)"
 
 ### Redirect Testing
+
 - [ ] Test HTTP to HTTPS redirect:
+
   ```bash
   curl -I http://quantum-rishi.com
   # Should return 301 to https://quantum-rishi.com
   ```
 
 - [ ] Test WWW redirect (if configured):
+
   ```bash
   curl -I http://www.quantum-rishi.com
   curl -I https://www.quantum-rishi.com
@@ -125,6 +139,7 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 ## Security Verification
 
 ### Headers Check
+
 - [ ] Open DevTools > Network tab
 - [ ] Load a page and check response headers:
   - [ ] `X-Frame-Options: DENY`
@@ -134,18 +149,18 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
   - [ ] `Permissions-Policy: camera=(), microphone=(), geolocation=()`
 
 ### Cache Headers
+
 - [ ] Check CSS file headers:
   - [ ] `Cache-Control: public, max-age=604800, stale-while-revalidate=86400`
-  
 - [ ] Check JS file headers:
   - [ ] `Cache-Control: public, max-age=604800, stale-while-revalidate=86400`
-  
 - [ ] Check immutable assets:
   - [ ] `Cache-Control: public, max-age=31536000, immutable`
 
 ## Performance Testing
 
 ### Lighthouse Audit
+
 - [ ] Run Lighthouse on homepage
 - [ ] Performance score > 85 (target: 90+)
 - [ ] Accessibility score > 90
@@ -153,12 +168,14 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 - [ ] SEO score > 90
 
 ### Core Web Vitals
+
 - [ ] First Contentful Paint (FCP) < 1.8s
 - [ ] Largest Contentful Paint (LCP) < 2.5s
 - [ ] Total Blocking Time (TBT) < 300ms
 - [ ] Cumulative Layout Shift (CLS) < 0.1
 
 ### Manual Testing
+
 - [ ] Page load feels fast on desktop
 - [ ] Page load feels fast on mobile
 - [ ] Animations are smooth (60fps)
@@ -168,17 +185,20 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 ## Cross-Browser Testing
 
 ### Desktop Browsers
+
 - [ ] Chrome (latest)
 - [ ] Firefox (latest)
 - [ ] Safari (latest)
 - [ ] Edge (latest)
 
 ### Mobile Browsers
+
 - [ ] Chrome Mobile (Android)
 - [ ] Safari Mobile (iOS)
 - [ ] Samsung Internet (Android)
 
 ### Test Points
+
 - [ ] Layout renders correctly
 - [ ] Navigation works
 - [ ] Animations play smoothly
@@ -188,11 +208,13 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 ## Monitoring Setup
 
 ### Cloudflare Analytics
+
 - [ ] Enable Cloudflare Web Analytics
 - [ ] Set up Real User Monitoring (RUM)
 - [ ] Configure Core Web Vitals tracking
 
 ### Notifications
+
 - [ ] Set up deployment notifications
 - [ ] Configure downtime alerts
 - [ ] Set up build failure notifications
@@ -200,17 +222,20 @@ Quick reference checklist for deploying Quantum Rishi to Cloudflare Pages.
 ## Post-Deployment
 
 ### Documentation
+
 - [ ] Update README.md with live URL
 - [ ] Document deployment process
 - [ ] Update project status to "Live"
 - [ ] Share URL with stakeholders
 
 ### Continuous Deployment
+
 - [ ] Verify automatic deployments on push
 - [ ] Test preview deployments for PRs
 - [ ] Document rollback procedure
 
 ### Backup & Recovery
+
 - [ ] Document rollback process
 - [ ] Test rollback to previous deployment
 - [ ] Verify deployment history is accessible
@@ -234,10 +259,10 @@ All tasks from qr_build_plan.json Phase 16:
 - [ ] Security headers in place
 - [ ] Monitoring configured
 
-**Deployed By:** _________________
-**Date:** _________________
+**Deployed By:** **\*\*\*\***\_**\*\*\*\***
+**Date:** **\*\*\*\***\_**\*\*\*\***
 **Production URL:** https://quantum-rishi.com
-**Pages URL:** https://*.pages.dev
+**Pages URL:** https://\*.pages.dev
 
 ---
 

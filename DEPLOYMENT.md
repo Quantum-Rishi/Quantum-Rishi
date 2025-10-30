@@ -41,13 +41,13 @@ Before starting the deployment process, ensure:
 
 Set up the following build configuration:
 
-| Setting | Value |
-|---------|-------|
-| **Project name** | `quantum-rishi` (or your preferred name) |
-| **Production branch** | `main` (or your default branch) |
-| **Build command** | `pnpm run build` |
-| **Build output directory** | `.svelte-kit/cloudflare` |
-| **Root directory** | `/` |
+| Setting                    | Value                                    |
+| -------------------------- | ---------------------------------------- |
+| **Project name**           | `quantum-rishi` (or your preferred name) |
+| **Production branch**      | `main` (or your default branch)          |
+| **Build command**          | `pnpm run build`                         |
+| **Build output directory** | `.svelte-kit/cloudflare`                 |
+| **Root directory**         | `/`                                      |
 
 ### 1.4 Environment Variables (Optional)
 
@@ -109,12 +109,14 @@ Check that static assets load correctly:
 Cloudflare will provide DNS configuration instructions. You'll need to add:
 
 **For apex domain (quantum-rishi.com):**
+
 - Type: `CNAME`
 - Name: `@` (or your apex domain)
 - Target: `your-project.pages.dev`
 - Proxy status: Proxied (orange cloud)
 
 **For www subdomain (www.quantum-rishi.com):**
+
 - Type: `CNAME`
 - Name: `www`
 - Target: `your-project.pages.dev`
@@ -146,6 +148,7 @@ curl -I http://quantum-rishi.com
 ```
 
 Expected response:
+
 ```
 HTTP/1.1 301 Moved Permanently
 Location: https://quantum-rishi.com/
@@ -156,6 +159,7 @@ Location: https://quantum-rishi.com/
 Configure www redirect (if needed):
 
 **Option A: Redirect www to apex**
+
 1. Go to Cloudflare DNS settings
 2. Add a Page Rule or Redirect Rule
 3. Pattern: `www.quantum-rishi.com/*`
@@ -163,6 +167,7 @@ Configure www redirect (if needed):
 5. Status Code: 301 (Permanent Redirect)
 
 **Option B: Redirect apex to www**
+
 1. Follow similar steps but reverse the pattern
 2. Pattern: `quantum-rishi.com/*`
 3. Redirect to: `https://www.quantum-rishi.com/$1`
@@ -185,12 +190,14 @@ curl -I https://www.quantum-rishi.com
 Use this checklist to verify Phase 16 completion:
 
 ### Repository & Build
+
 - [x] Repository connected to Cloudflare Pages
 - [x] Build command set to `pnpm run build`
 - [x] Build output directory set to `.svelte-kit/cloudflare`
 - [x] Initial deployment successful
 
 ### Routing & Functionality
+
 - [ ] Homepage loads correctly
 - [ ] Division pages load correctly
 - [ ] Module pages load correctly
@@ -199,18 +206,21 @@ Use this checklist to verify Phase 16 completion:
 - [ ] Sitemap.xml accessible
 
 ### Domain & SSL
+
 - [ ] Custom domain `quantum-rishi.com` connected
 - [ ] DNS records configured correctly
 - [ ] SSL certificate provisioned and active
 - [ ] HTTPS working on all pages
 
 ### Redirects & Security
+
 - [ ] HTTP redirects to HTTPS
 - [ ] WWW redirect configured (if applicable)
 - [ ] Security headers present (see `_headers` file)
 - [ ] Cache headers working correctly
 
 ### Performance
+
 - [ ] Initial load time < 3 seconds
 - [ ] No console errors in browser
 - [ ] Images and assets optimized
@@ -223,6 +233,7 @@ Use this checklist to verify Phase 16 completion:
 **Issue:** Build fails on Cloudflare Pages
 
 **Solutions:**
+
 1. Check build logs in Cloudflare Pages dashboard
 2. Verify `pnpm` is available (Cloudflare Pages supports it natively)
 3. Ensure all dependencies are in `package.json`
@@ -233,6 +244,7 @@ Use this checklist to verify Phase 16 completion:
 **Issue:** Domain doesn't resolve to Cloudflare Pages
 
 **Solutions:**
+
 1. Verify DNS records are correct
 2. Check if DNS has propagated: `dig quantum-rishi.com`
 3. Ensure Cloudflare proxy is enabled (orange cloud)
@@ -243,6 +255,7 @@ Use this checklist to verify Phase 16 completion:
 **Issue:** HTTPS not working, certificate errors
 
 **Solutions:**
+
 1. Ensure domain is proxied through Cloudflare
 2. Check SSL/TLS encryption mode is set to "Full" or "Full (strict)"
 3. Wait 15-20 minutes for certificate provisioning
@@ -253,6 +266,7 @@ Use this checklist to verify Phase 16 completion:
 **Issue:** SvelteKit routes return 404
 
 **Solutions:**
+
 1. Verify `@sveltejs/adapter-cloudflare` is installed
 2. Check build output directory is correct
 3. Ensure `_routes.json` is generated in build output
@@ -263,6 +277,7 @@ Use this checklist to verify Phase 16 completion:
 **Issue:** Static assets not being cached properly
 
 **Solutions:**
+
 1. Verify `_headers` file is in project root (not `/static`)
 2. Check `_headers` file is included in build output
 3. Use browser DevTools Network tab to verify headers
@@ -321,6 +336,7 @@ After successful deployment:
 ## Support
 
 For deployment issues:
+
 - Check [Cloudflare Community](https://community.cloudflare.com/)
 - Review [SvelteKit Discord](https://discord.gg/svelte)
 - Consult project documentation

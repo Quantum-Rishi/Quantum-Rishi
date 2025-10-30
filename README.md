@@ -79,6 +79,7 @@ See [Quick Start Guide](docs/phase-16-quickstart.md) for a 5-minute deployment w
 ### Complete Guide
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for comprehensive deployment instructions including:
+
 - Cloudflare Pages setup
 - Custom domain configuration
 - HTTPS & redirect configuration
@@ -119,6 +120,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for comprehensive deployment instructions inc
 ## 🔒 Security
 
 Security headers are configured in `_headers`:
+
 - X-Frame-Options: DENY
 - X-Content-Type-Options: nosniff
 - X-XSS-Protection: 1; mode=block
@@ -136,6 +138,7 @@ This project follows a 17-phase build plan (see `qr_build_plan.json`):
 ## 🤝 Contributing
 
 This project follows a structured development process. Please ensure:
+
 - Code passes linting: `pnpm run lint`
 - Types check: `pnpm run check`
 - Build succeeds: `pnpm run build`

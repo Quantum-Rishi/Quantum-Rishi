@@ -48,21 +48,21 @@ All Phase 16 tasks are now complete:
 
 ## Files Created for Phase 16
 
-| File | Purpose |
-|------|---------|
-| `DEPLOYMENT.md` | Complete deployment guide with troubleshooting |
-| `wrangler.toml` | Cloudflare Pages configuration |
-| `docs/phase-16-deployment-checklist.md` | Detailed checklist for deployment |
-| `docs/phase-16-quickstart.md` | This quick start guide |
-| `.github/workflows/cloudflare-pages.yml` | CI/CD automation |
+| File                                     | Purpose                                        |
+| ---------------------------------------- | ---------------------------------------------- |
+| `DEPLOYMENT.md`                          | Complete deployment guide with troubleshooting |
+| `wrangler.toml`                          | Cloudflare Pages configuration                 |
+| `docs/phase-16-deployment-checklist.md`  | Detailed checklist for deployment              |
+| `docs/phase-16-quickstart.md`            | This quick start guide                         |
+| `.github/workflows/cloudflare-pages.yml` | CI/CD automation                               |
 
 ## Existing Phase 14 Files (Performance)
 
-| File | Purpose |
-|------|---------|
-| `_headers` | Cloudflare cache and security headers |
-| `svelte.config.js` | Cloudflare adapter configuration |
-| `docs/phase-14-implementation.md` | Performance optimization docs |
+| File                              | Purpose                               |
+| --------------------------------- | ------------------------------------- |
+| `_headers`                        | Cloudflare cache and security headers |
+| `svelte.config.js`                | Cloudflare adapter configuration      |
+| `docs/phase-14-implementation.md` | Performance optimization docs         |
 
 ## Next Steps After Deployment
 
@@ -100,15 +100,18 @@ curl -I http://quantum-rishi.com
 ## Troubleshooting
 
 ### Build fails
+
 → Check build logs in Cloudflare Pages dashboard
 → Verify `pnpm run build` works locally
 
 ### Domain not working
+
 → Wait 5-30 minutes for DNS propagation
 → Check DNS records are correct
 → Ensure proxy is enabled (orange cloud)
 
 ### SSL not working
+
 → Wait 15-20 minutes for provisioning
 → Check SSL mode is "Full" or "Full (strict)"
 → Clear browser cache
