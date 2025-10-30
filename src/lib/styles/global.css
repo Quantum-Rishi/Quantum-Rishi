@@ -1,0 +1,119 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand color variables */
+    --color-brand-primary: 99 102 241; /* indigo-500 */
+    --color-brand-secondary: 139 92 246; /* violet-500 */
+    --color-brand-accent: 59 130 246; /* blue-500 */
+    --color-brand-dark: 15 23 42; /* slate-900 */
+    --color-brand-light: 248 250 252; /* slate-50 */
+    
+    /* Quantum theme colors */
+    --color-quantum-blue: 59 130 246;
+    --color-quantum-purple: 139 92 246;
+    --color-quantum-cyan: 6 182 212;
+    --color-quantum-indigo: 99 102 241;
+    
+    /* Background gradient */
+    --gradient-quantum: linear-gradient(135deg, rgb(99 102 241 / 0.1) 0%, rgb(139 92 246 / 0.1) 100%);
+  }
+
+  /* Dark theme by default */
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-600;
+  }
+}
+
+@layer components {
+  /* Utility classes */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent bg-clip-text text-transparent;
+  }
+
+  .card-glass {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-medium rounded-lg hover:shadow-lg hover:shadow-brand-primary/50 transition-all duration-300;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Text glow effect */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+
+  /* Holographic effect */
+  .holographic {
+    background: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.2) 0%,
+      rgba(139, 92, 246, 0.2) 25%,
+      rgba(59, 130, 246, 0.2) 50%,
+      rgba(139, 92, 246, 0.2) 75%,
+      rgba(99, 102, 241, 0.2) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+  }
+}
+
