@@ -16,6 +16,7 @@
 		onclick?: (event: MouseEvent) => void;
 		href?: string;
 		external?: boolean;
+		'aria-label'?: string;
 		children?: Snippet;
 	}
 
@@ -28,6 +29,7 @@
 		onclick,
 		href,
 		external = false,
+		'aria-label': ariaLabel,
 		children
 	}: Props = $props();
 
@@ -55,11 +57,12 @@
 		target={external ? '_blank' : undefined}
 		rel={external ? 'noopener noreferrer' : undefined}
 		aria-disabled={disabled}
+		aria-label={ariaLabel}
 	>
 		{@render children?.()}
 	</a>
 {:else}
-	<button {type} class={buttonClasses} {disabled} {onclick}>
+	<button {type} class={buttonClasses} {disabled} {onclick} aria-label={ariaLabel}>
 		{@render children?.()}
 	</button>
 {/if}

@@ -28,22 +28,29 @@
 	let { categoryName, categoryDescription, divisions, class: className = '' }: Props = $props();
 </script>
 
-<section class="category-section {className}">
+<section
+	class="category-section {className}"
+	aria-labelledby="category-{categoryName.replace(/\s+/g, '-').toLowerCase()}"
+>
 	<div class="category-header">
-		<SectionTitle level={2}>{categoryName}</SectionTitle>
+		<SectionTitle level={2} id="category-{categoryName.replace(/\s+/g, '-').toLowerCase()}"
+			>{categoryName}</SectionTitle
+		>
 		{#if categoryDescription}
 			<p class="category-description">{categoryDescription}</p>
 		{/if}
 	</div>
 
-	<div class="divisions-grid">
+	<div class="divisions-grid" role="list" aria-label="{categoryName} divisions">
 		{#each divisions as division (division.id)}
-			<DivisionCard
-				name={division.name}
-				tagline={division.tagline}
-				color={division.color}
-				slug={division.slug}
-			/>
+			<div role="listitem">
+				<DivisionCard
+					name={division.name}
+					tagline={division.tagline}
+					color={division.color}
+					slug={division.slug}
+				/>
+			</div>
 		{/each}
 	</div>
 </section>

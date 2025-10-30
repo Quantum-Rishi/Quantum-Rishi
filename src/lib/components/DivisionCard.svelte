@@ -28,14 +28,24 @@
 			window.location.href = `/divisions/${slug}`;
 		}
 	};
+
+	const handleKeyDown = (event: KeyboardEvent) => {
+		// Handle Enter and Space keys for accessibility
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			handleClick();
+		}
+	};
 </script>
 
 <button
 	class="division-card {className}"
 	style="--division-color: {color}"
 	onclick={handleClick}
+	onkeydown={handleKeyDown}
 	type="button"
-	aria-label={`Navigate to ${name} - ${tagline}`}
+	tabindex="0"
+	aria-label="Navigate to {name} - {tagline}"
 >
 	<div class="division-card-content">
 		<div class="division-header">

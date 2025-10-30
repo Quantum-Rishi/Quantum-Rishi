@@ -61,16 +61,20 @@
 
 <div class="tech-layout" style="--division-color: {division.color}">
 	<!-- Architecture Diagram Section -->
-	<section class="architecture-section">
+	<section class="architecture-section" aria-labelledby="architecture-heading">
 		<div class="qr-container">
-			<h2 class="section-heading">System Architecture</h2>
+			<h2 class="section-heading" id="architecture-heading">System Architecture</h2>
 			<p class="section-description">
 				Explore the core components and infrastructure that power {division.name}
 			</p>
 
-			<div class="architecture-diagram">
+			<div
+				class="architecture-diagram"
+				role="img"
+				aria-label="System architecture diagram showing core components and their connections"
+			>
 				<div class="diagram-placeholder">
-					<svg viewBox="0 0 800 400" class="arch-svg">
+					<svg viewBox="0 0 800 400" class="arch-svg" aria-hidden="true">
 						<defs>
 							<linearGradient id="tech-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
 								<stop offset="0%" style="stop-color:{division.color};stop-opacity:0.3" />
@@ -181,62 +185,67 @@
 			</div>
 
 			<!-- Architecture Components -->
-			<div class="components-grid">
+			<div class="components-grid" role="list" aria-label="Architecture components">
 				{#each architectureComponents as component (component.name)}
-					<Card hover glow>
-						<div class="component-icon">{component.icon}</div>
-						<h3 class="component-name">{component.name}</h3>
-						<p class="component-description">{component.description}</p>
-					</Card>
-				{/each}
-			</div>
-		</div>
-	</section>
-
-	<!-- Technical Specifications Section -->
-	<section class="specs-section">
-		<div class="qr-container">
-			<h2 class="section-heading">Technical Specifications</h2>
-
-			<div class="specs-grid">
-				{#each technicalSpecs as spec (spec.label)}
-					<div class="spec-item">
-						<div class="spec-label">{spec.label}</div>
-						<div class="spec-value">{spec.value}</div>
+					<div role="listitem">
+						<Card hover glow>
+							<div class="component-icon" aria-hidden="true">{component.icon}</div>
+							<h3 class="component-name">{component.name}</h3>
+							<p class="component-description">{component.description}</p>
+						</Card>
 					</div>
 				{/each}
 			</div>
 		</div>
 	</section>
 
+	<!-- Technical Specifications Section -->
+	<section class="specs-section" aria-labelledby="specs-heading">
+		<div class="qr-container">
+			<h2 class="section-heading" id="specs-heading">Technical Specifications</h2>
+
+			<dl class="specs-grid">
+				{#each technicalSpecs as spec (spec.label)}
+					<div class="spec-item">
+						<dt class="spec-label">{spec.label}</dt>
+						<dd class="spec-value">{spec.value}</dd>
+					</div>
+				{/each}
+			</dl>
+		</div>
+	</section>
+
 	<!-- Modules Section (Phase 10) -->
 	{#if divisionModules.length > 0}
-		<section class="modules-section">
+		<section class="modules-section" aria-labelledby="modules-heading">
 			<div class="qr-container">
-				<h2 class="section-heading">Available Modules</h2>
+				<h2 class="section-heading" id="modules-heading">Available Modules</h2>
 				<p class="section-description">
 					Explore specialized modules and capabilities within {division.name}
 				</p>
 
-				<div class="modules-grid">
+				<div class="modules-grid" role="list" aria-label="Available modules">
 					{#each divisionModules as module (module.slug)}
-						<a
-							href="/divisions/{division.slug}/modules/{module.slug}"
-							class="module-card"
-							style="--module-color: {division.color}"
-						>
-							<div class="module-card-content">
-								<h3 class="module-card-title">{module.name}</h3>
-								<p class="module-card-description">{module.description}</p>
-								<div class="module-card-features">
-									{#each module.features.slice(0, 3) as feature, index (index)}
-										<span class="feature-tag">{feature}</span>
-									{/each}
+						<div role="listitem">
+							<a
+								href="/divisions/{division.slug}/modules/{module.slug}"
+								class="module-card"
+								style="--module-color: {division.color}"
+								aria-label="View {module.name} module details"
+							>
+								<div class="module-card-content">
+									<h3 class="module-card-title">{module.name}</h3>
+									<p class="module-card-description">{module.description}</p>
+									<div class="module-card-features">
+										{#each module.features.slice(0, 3) as feature, index (index)}
+											<span class="feature-tag" role="text">{feature}</span>
+										{/each}
+									</div>
+									<div class="module-card-arrow" aria-hidden="true">→</div>
 								</div>
-								<div class="module-card-arrow">→</div>
-							</div>
-							<div class="module-card-glow"></div>
-						</a>
+								<div class="module-card-glow" aria-hidden="true"></div>
+							</a>
+						</div>
 					{/each}
 				</div>
 			</div>
@@ -244,9 +253,9 @@
 	{/if}
 
 	<!-- Developer Resources Section -->
-	<section class="dev-resources">
+	<section class="dev-resources" aria-labelledby="dev-resources-heading">
 		<div class="qr-container">
-			<h2 class="section-heading">Developer Resources</h2>
+			<h2 class="section-heading" id="dev-resources-heading">Developer Resources</h2>
 
 			<div class="resources-grid">
 				<Card hover glow>
