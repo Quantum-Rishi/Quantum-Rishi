@@ -9,6 +9,18 @@
 @import './lib/styles/tokens.css';
 
 /* Global styles */
+html {
+	/* Phase 11: Smooth scroll behavior */
+	scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
 body {
 	font-family: var(--font-family-sans);
 	background-color: var(--color-dark);

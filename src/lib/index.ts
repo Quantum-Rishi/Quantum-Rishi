@@ -18,3 +18,6 @@ export { default as KnowledgeLayout } from './components/layouts/KnowledgeLayout
 
 // Export data
 export { default as divisionsData } from './data/divisions.json';
+
+// Export Phase 11 utilities
+export * from './utils/smoothScroll';

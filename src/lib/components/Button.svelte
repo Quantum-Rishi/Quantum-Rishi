@@ -81,4 +81,49 @@
 	a {
 		text-decoration: none;
 	}
+
+	/* Phase 11: Hover pulse animation for CTA buttons */
+	@keyframes pulse-glow {
+		0%,
+		100% {
+			box-shadow: 0 0 15px rgba(40, 229, 255, 0.4);
+		}
+		50% {
+			box-shadow: 0 0 25px rgba(40, 229, 255, 0.8);
+		}
+	}
+
+	@keyframes pulse-glow-secondary {
+		0%,
+		100% {
+			box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+		}
+		50% {
+			box-shadow: 0 0 25px rgba(99, 102, 241, 0.8);
+		}
+	}
+
+	@keyframes pulse-glow-accent {
+		0%,
+		100% {
+			box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+		}
+		50% {
+			box-shadow: 0 0 25px rgba(139, 92, 246, 0.8);
+		}
+	}
+
+	/* Apply pulse animation on hover for non-disabled buttons */
+	button:not(:disabled):hover,
+	a:not([aria-disabled='true']):hover {
+		animation: pulse-glow 1.5s ease-in-out infinite;
+	}
+
+	/* Respect reduced motion preference */
+	@media (prefers-reduced-motion: reduce) {
+		button:not(:disabled):hover,
+		a:not([aria-disabled='true']):hover {
+			animation: none;
+		}
+	}
 </style>
