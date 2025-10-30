@@ -33,6 +33,9 @@
 	};
 
 	onMount(() => {
+		// Check for reduced motion preference
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 		// ========== Three.js Animated Background Setup ==========
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(
@@ -108,44 +111,47 @@
 		window.addEventListener('resize', handleResize);
 
 		// ========== GSAP Animations ==========
-		gsap.from(heroElement.querySelector('.hero-title'), {
-			opacity: 0,
-			y: 50,
-			duration: 1,
-			ease: 'power3.out'
-		});
+		// Skip animations if user prefers reduced motion
+		if (!prefersReducedMotion) {
+			gsap.from(heroElement.querySelector('.hero-title'), {
+				opacity: 0,
+				y: 50,
+				duration: 1,
+				ease: 'power3.out'
+			});
 
-		gsap.from(heroElement.querySelector('.hero-tagline'), {
-			opacity: 0,
-			y: 30,
-			duration: 1,
-			delay: 0.2,
-			ease: 'power3.out'
-		});
+			gsap.from(heroElement.querySelector('.hero-tagline'), {
+				opacity: 0,
+				y: 30,
+				duration: 1,
+				delay: 0.2,
+				ease: 'power3.out'
+			});
 
-		gsap.from(heroElement.querySelector('.hero-description'), {
-			opacity: 0,
-			y: 30,
-			duration: 1,
-			delay: 0.4,
-			ease: 'power3.out'
-		});
+			gsap.from(heroElement.querySelector('.hero-description'), {
+				opacity: 0,
+				y: 30,
+				duration: 1,
+				delay: 0.4,
+				ease: 'power3.out'
+			});
 
-		gsap.from(heroElement.querySelector('.hero-meta'), {
-			opacity: 0,
-			y: 20,
-			duration: 1,
-			delay: 0.6,
-			ease: 'power3.out'
-		});
+			gsap.from(heroElement.querySelector('.hero-meta'), {
+				opacity: 0,
+				y: 20,
+				duration: 1,
+				delay: 0.6,
+				ease: 'power3.out'
+			});
 
-		gsap.from(heroElement.querySelector('.hero-cta'), {
-			opacity: 0,
-			y: 20,
-			duration: 1,
-			delay: 0.8,
-			ease: 'power3.out'
-		});
+			gsap.from(heroElement.querySelector('.hero-cta'), {
+				opacity: 0,
+				y: 20,
+				duration: 1,
+				delay: 0.8,
+				ease: 'power3.out'
+			});
+		}
 
 		// Cleanup
 		return () => {
@@ -207,21 +213,26 @@
 </svelte:head>
 
 <!-- Division Hero Section -->
-<section class="division-hero" style="--division-color: {division.color}" bind:this={heroElement}>
+<section
+	class="division-hero"
+	style="--division-color: {division.color}"
+	bind:this={heroElement}
+	aria-labelledby="division-title"
+>
 	<!-- Animated Background Canvas -->
-	<canvas class="hero-canvas" bind:this={canvasElement}></canvas>
+	<canvas class="hero-canvas" bind:this={canvasElement} aria-hidden="true"></canvas>
 
 	<div class="qr-container">
 		<div class="hero-content">
 			<!-- Breadcrumb / Category Badge -->
-			<div class="hero-meta">
+			<nav class="hero-meta" aria-label="Breadcrumb">
 				<a href="/" class="breadcrumb-link">Home</a>
-				<span class="breadcrumb-separator">/</span>
+				<span class="breadcrumb-separator" aria-hidden="true">/</span>
 				<a href="/#ecosystem" class="breadcrumb-link">{category.name}</a>
-			</div>
+			</nav>
 
 			<!-- Division Title -->
-			<h1 class="hero-title">{division.name}</h1>
+			<h1 class="hero-title" id="division-title">{division.name}</h1>
 
 			<!-- Division Tagline -->
 			<div class="hero-tagline">{division.tagline}</div>
@@ -230,11 +241,22 @@
 			<p class="hero-description">{division.description}</p>
 
 			<!-- CTA Button -->
-			<div class="hero-cta">
-				<Button variant="primary" size="large" href={generateSubDomainUrl(division.slug)} external>
+			<div class="hero-cta" role="group" aria-label="Division actions">
+				<Button
+					variant="primary"
+					size="large"
+					href={generateSubDomainUrl(division.slug)}
+					external
+					aria-label="Open {division.name} platform in new tab"
+				>
 					Open Platform →
 				</Button>
-				<Button variant="outline" size="large" href="/#ecosystem">Back to Ecosystem</Button>
+				<Button
+					variant="outline"
+					size="large"
+					href="/#ecosystem"
+					aria-label="Return to ecosystem overview">Back to Ecosystem</Button
+				>
 			</div>
 		</div>
 	</div>

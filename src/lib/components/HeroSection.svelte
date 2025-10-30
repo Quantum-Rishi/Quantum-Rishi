@@ -23,6 +23,8 @@
 	let heroContentElement: HTMLDivElement;
 
 	onMount(() => {
+		// Check for reduced motion preference
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 		// ========== Three.js Cosmic Particle Field Setup ==========
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(
@@ -154,32 +156,34 @@
 		window.addEventListener('scroll', handleParallaxScroll, { passive: true });
 
 		// ========== GSAP Text Animations ==========
-		// Animate hero text with fade + upward reveal
-		gsap.from(heroTextElement, {
-			opacity: 0,
-			y: 50,
-			duration: 1.2,
-			ease: 'power3.out',
-			delay: 0.2
-		});
+		// Animate hero text with fade + upward reveal (skip if reduced motion is preferred)
+		if (!prefersReducedMotion) {
+			gsap.from(heroTextElement, {
+				opacity: 0,
+				y: 50,
+				duration: 1.2,
+				ease: 'power3.out',
+				delay: 0.2
+			});
 
-		// Animate subheadline
-		gsap.from(subheadlineElement, {
-			opacity: 0,
-			y: 30,
-			duration: 1,
-			ease: 'power3.out',
-			delay: 0.6
-		});
+			// Animate subheadline
+			gsap.from(subheadlineElement, {
+				opacity: 0,
+				y: 30,
+				duration: 1,
+				ease: 'power3.out',
+				delay: 0.6
+			});
 
-		// Animate CTA buttons
-		gsap.from(ctaContainerElement, {
-			opacity: 0,
-			y: 20,
-			duration: 0.8,
-			ease: 'power3.out',
-			delay: 1
-		});
+			// Animate CTA buttons
+			gsap.from(ctaContainerElement, {
+				opacity: 0,
+				y: 20,
+				duration: 0.8,
+				ease: 'power3.out',
+				delay: 1
+			});
+		}
 
 		// Cleanup function
 		return () => {
@@ -193,9 +197,9 @@
 	});
 </script>
 
-<section class="hero-section">
+<section class="hero-section" aria-label="Welcome to Quantum Rishi Ecosystem">
 	<!-- Three.js Canvas -->
-	<canvas class="hero-canvas" bind:this={canvasElement}></canvas>
+	<canvas class="hero-canvas" bind:this={canvasElement} aria-hidden="true"></canvas>
 
 	<!-- Hero Content -->
 	<div class="hero-content" bind:this={heroContentElement}>
@@ -212,7 +216,12 @@
 
 			<!-- CTA Buttons -->
 			<!-- Note: CTA functionality will be implemented in later phases when the respective pages exist -->
-			<div class="hero-cta-container" bind:this={ctaContainerElement}>
+			<div
+				class="hero-cta-container"
+				bind:this={ctaContainerElement}
+				role="group"
+				aria-label="Call to action buttons"
+			>
 				<Button
 					variant="primary"
 					size="large"
@@ -220,6 +229,7 @@
 						// TODO: Navigate to QR Studio (Phase 6+)
 						console.log('Launch QR Studio - Coming soon!');
 					}}
+					aria-label="Launch QR Studio - Opens main platform interface"
 				>
 					Launch QR Studio
 				</Button>
@@ -230,6 +240,7 @@
 						// Smooth scroll to ecosystem section
 						smoothScrollTo('ecosystem', 80, getScrollBehavior());
 					}}
+					aria-label="Explore Ecosystem - Scroll to divisions overview"
 				>
 					Explore Ecosystem
 				</Button>

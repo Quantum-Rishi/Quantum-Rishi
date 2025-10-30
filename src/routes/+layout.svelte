@@ -43,21 +43,47 @@
 
 	<!-- Favicon -->
 	<link rel="icon" href={favicon} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- Phase 13: Schema.org Organization Data -->
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html '<script type="application/ld+json">' +
-		JSON.stringify({
-			'@context': 'https://schema.org',
-			'@type': 'Organization',
-			name: 'Quantum Rishi',
-			url: 'https://quantum-rishi.com',
-			description:
-				'We Build Intelligent Autonomous Systems for a Secure, Scalable and Future-Ready India',
-			sameAs: []
-		}) +
-		'<' +
-		'/script>'}
+    <!-- Phase 13: Schema.org Organization Data -->
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+    {@html '<script type="application/ld+json">' +
+        JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Quantum Rishi',
+            url: 'https://quantum-rishi.com',
+            description:
+                'We Build Intelligent Autonomous Systems for a Secure, Scalable and Future-Ready India',
+            sameAs: []
+        }) +
+        '<' +
+        '/script>'}
+
 </svelte:head>
 
-{@render children?.()}
+<!-- Skip to main content link for keyboard navigation -->
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+<main id="main-content">
+	{@render children?.()}
+</main>
+
+<style>
+	.skip-to-content {
+		position: absolute;
+		left: -9999px;
+		z-index: 999;
+		padding: var(--spacing-md) var(--spacing-lg);
+		background-color: var(--color-primary);
+		color: var(--color-dark);
+		text-decoration: none;
+		font-weight: var(--font-weight-semibold);
+		border-radius: var(--radius-md);
+	}
+
+	.skip-to-content:focus {
+		left: var(--spacing-md);
+		top: var(--spacing-md);
+	}
+</style>

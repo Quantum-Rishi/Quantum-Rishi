@@ -79,16 +79,21 @@
 	let intervalId: ReturnType<typeof setInterval>;
 
 	onMount(() => {
-		// Auto-advance slider
-		const startInterval = () => {
-			intervalId = setInterval(() => {
-				currentSlide = (currentSlide + 1) % portfolioItems.length;
-			}, 4000);
-		};
+		// Check for reduced motion preference
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-		startInterval();
+		// Auto-advance slider (skip if user prefers reduced motion)
+		if (!prefersReducedMotion) {
+			const startInterval = () => {
+				intervalId = setInterval(() => {
+					currentSlide = (currentSlide + 1) % portfolioItems.length;
+				}, 4000);
+			};
 
-		return () => clearInterval(intervalId);
+			startInterval();
+
+			return () => clearInterval(intervalId);
+		}
 	});
 
 	const goToSlide = (index: number) => {
@@ -103,14 +108,19 @@
 
 <div class="creative-layout" style="--division-color: {division.color}">
 	<!-- Portfolio Slider Section -->
-	<section class="portfolio-section">
+	<section class="portfolio-section" aria-labelledby="portfolio-heading">
 		<div class="qr-container">
-			<h2 class="section-heading">Featured Work</h2>
+			<h2 class="section-heading" id="portfolio-heading">Featured Work</h2>
 			<p class="section-description">
 				Explore our creative portfolio and see the {division.name} difference
 			</p>
 
-			<div class="slider-container">
+			<div
+				class="slider-container"
+				role="region"
+				aria-label="Portfolio carousel"
+				aria-live="polite"
+			>
 				<div class="slider-track" style="transform: translateX(-{currentSlide * 100}%)">
 					{#each portfolioItems as item, index (item.title)}
 						<div
@@ -132,13 +142,14 @@
 				</div>
 
 				<!-- Slider Controls -->
-				<div class="slider-controls">
+				<div class="slider-controls" role="group" aria-label="Portfolio navigation">
 					{#each portfolioItems as item, index (item.title)}
 						<button
 							class="slider-dot"
 							class:active={currentSlide === index}
 							onclick={() => goToSlide(index)}
-							aria-label="Go to slide {index + 1}"
+							aria-label="Go to slide {index + 1}: {item.title}"
+							aria-current={currentSlide === index ? 'true' : 'false'}
 						></button>
 					{/each}
 				</div>
@@ -147,17 +158,19 @@
 	</section>
 
 	<!-- Creative Services Section -->
-	<section class="services-section">
+	<section class="services-section" aria-labelledby="services-heading">
 		<div class="qr-container">
-			<h2 class="section-heading">Creative Services</h2>
+			<h2 class="section-heading" id="services-heading">Creative Services</h2>
 
-			<div class="services-grid">
+			<div class="services-grid" role="list" aria-label="Creative services offered">
 				{#each creativeServices as service (service.name)}
-					<Card hover glow>
-						<div class="service-icon">{service.icon}</div>
-						<h3 class="service-name">{service.name}</h3>
-						<p class="service-description">{service.description}</p>
-					</Card>
+					<div role="listitem">
+						<Card hover glow>
+							<div class="service-icon" aria-hidden="true">{service.icon}</div>
+							<h3 class="service-name">{service.name}</h3>
+							<p class="service-description">{service.description}</p>
+						</Card>
+					</div>
 				{/each}
 			</div>
 		</div>
