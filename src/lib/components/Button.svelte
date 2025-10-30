@@ -14,6 +14,8 @@
 		disabled?: boolean;
 		class?: string;
 		onclick?: (event: MouseEvent) => void;
+		href?: string;
+		external?: boolean;
 		children?: Snippet;
 	}
 
@@ -24,6 +26,8 @@
 		disabled = false,
 		class: className = '',
 		onclick,
+		href,
+		external = false,
 		children
 	}: Props = $props();
 
@@ -44,18 +48,37 @@
 	const buttonClasses = `qr-button ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 </script>
 
-<button {type} class={buttonClasses} {disabled} {onclick}>
-	{@render children?.()}
-</button>
+{#if href}
+	<a
+		{href}
+		class={buttonClasses}
+		target={external ? '_blank' : undefined}
+		rel={external ? 'noopener noreferrer' : undefined}
+		aria-disabled={disabled}
+	>
+		{@render children?.()}
+	</a>
+{:else}
+	<button {type} class={buttonClasses} {disabled} {onclick}>
+		{@render children?.()}
+	</button>
+{/if}
 
 <style>
-	button:disabled {
+	button:disabled,
+	a[aria-disabled='true'] {
 		opacity: 0.5;
 		cursor: not-allowed;
+		pointer-events: none;
 	}
 
-	button:disabled:hover {
+	button:disabled:hover,
+	a[aria-disabled='true']:hover {
 		transform: none;
 		box-shadow: var(--shadow-md);
+	}
+
+	a {
+		text-decoration: none;
 	}
 </style>
