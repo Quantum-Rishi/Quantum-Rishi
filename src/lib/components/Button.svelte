@@ -8,10 +8,10 @@
   type={type}
   disabled={disabled}
   class={`
-    px-4 py-2 rounded font-semibold transition-colors duration-150
-    ${variant === 'primary' ? 'bg-blue-600 text-white hover:bg-blue-700' : ''}
-    ${variant === 'secondary' ? 'bg-gray-100 text-gray-900 border border-gray-300 hover:bg-gray-200' : ''}
-    ${variant === 'outline' ? 'bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-50' : ''}
+    px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105
+    ${variant === 'primary' ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg hover:shadow-xl hover:shadow-indigo-500/50' : ''}
+    ${variant === 'secondary' ? 'bg-slate-700 text-white border border-slate-600 hover:bg-slate-600' : ''}
+    ${variant === 'outline' ? 'bg-transparent border-2 border-indigo-500 text-indigo-400 hover:bg-indigo-500/10 hover:border-indigo-400' : ''}
     ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
   `}
 >
