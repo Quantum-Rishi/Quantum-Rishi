@@ -3,20 +3,14 @@
 	 * CategorySection Component
 	 * Phase 6: Landing Page – Meta-Category Layout
 	 * Phase 11: Motion & Interaction Enhancements
+	 * Phase 14: Performance Optimization - Lazy loading heavy assets
 	 *
 	 * Displays a category with its divisions in a responsive grid layout
-	 * Enhanced with GSAP ScrollTrigger for reveal animations
+	 * Enhanced with GSAP ScrollTrigger for reveal animations (lazy loaded)
 	 */
 	import { onMount } from 'svelte';
-	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	import SectionTitle from './SectionTitle.svelte';
 	import DivisionCard from './DivisionCard.svelte';
-
-	// Register ScrollTrigger plugin
-	if (typeof window !== 'undefined') {
-		gsap.registerPlugin(ScrollTrigger);
-	}
 
 	interface Division {
 		id: string;
@@ -41,14 +35,21 @@
 	let headerElement: HTMLDivElement;
 	let gridElement: HTMLDivElement;
 
-	onMount(() => {
+	onMount(async () => {
 		// Check for reduced motion preference
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 		// Store references to ScrollTriggers for proper cleanup
-		const scrollTriggers: ScrollTrigger[] = [];
+		const scrollTriggers: { kill: () => void }[] = [];
 
 		if (!prefersReducedMotion) {
+			// ========== Dynamically import GSAP for code splitting ==========
+			// Phase 14: Lazy load heavy libraries to improve initial page load
+			const { gsap, ScrollTrigger } = await import('gsap/all');
+
+			// Register ScrollTrigger plugin
+			gsap.registerPlugin(ScrollTrigger);
+
 			// Animate section header with fade + upward reveal
 			const headerAnimation = gsap.from(headerElement, {
 				opacity: 0,

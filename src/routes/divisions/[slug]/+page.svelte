@@ -15,8 +15,6 @@
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import { Button, TechLayout, CreativeLayout, KnowledgeLayout } from '$lib';
-	import * as THREE from 'three';
-	import { gsap } from 'gsap';
 
 	let { data }: { data: PageData } = $props();
 
@@ -32,9 +30,13 @@
 		return `https://${subdomain}.quantum-rishi.com`;
 	};
 
-	onMount(() => {
+	onMount(async () => {
 		// Check for reduced motion preference
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		// ========== Dynamically import Three.js and GSAP for code splitting ==========
+		// Phase 14: Lazy load heavy libraries
+		const [THREE, { gsap }] = await Promise.all([import('three'), import('gsap')]);
 
 		// ========== Three.js Animated Background Setup ==========
 		const scene = new THREE.Scene();
