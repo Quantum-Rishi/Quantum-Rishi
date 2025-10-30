@@ -142,8 +142,59 @@
 </script>
 
 <svelte:head>
+	<!-- Phase 13: SEO Meta Tags -->
 	<title>{module.name} - {division.name} - Quantum Rishi</title>
 	<meta name="description" content={module.description} />
+	<meta
+		name="keywords"
+		content={`${module.name}, ${division.name}, ${division.tagline}, Quantum Rishi`}
+	/>
+
+	<!-- Phase 13: Open Graph Tags for Social Sharing -->
+	<meta property="og:type" content="website" />
+	<meta
+		property="og:url"
+		content={`https://quantum-rishi.com/divisions/${division.slug}/modules/${module.slug}`}
+	/>
+	<meta property="og:title" content={`${module.name} - ${division.name}`} />
+	<meta property="og:description" content={module.description} />
+	<meta property="og:site_name" content="Quantum Rishi" />
+	<meta property="og:locale" content="en_US" />
+
+	<!-- Twitter Card Tags -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={`${module.name} - ${division.name}`} />
+	<meta name="twitter:description" content={module.description} />
+
+	<!-- Additional SEO -->
+	<meta name="author" content="Quantum Rishi" />
+	<meta name="robots" content="index, follow" />
+	<link
+		rel="canonical"
+		href={`https://quantum-rishi.com/divisions/${division.slug}/modules/${module.slug}`}
+	/>
+
+	<!-- Phase 13: Schema.org Structured Data for SoftwareApplication -->
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	{@html '<script type="application/ld+json">' +
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'SoftwareApplication',
+			name: module.name,
+			applicationCategory: 'DeveloperApplication',
+			description: module.description,
+			operatingSystem: 'Web',
+			offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+			provider: {
+				'@type': 'Organization',
+				name: 'Quantum Rishi',
+				url: 'https://quantum-rishi.com'
+			},
+			url: `https://${module.subdomain}`,
+			isPartOf: { '@type': 'SoftwareApplication', name: division.name }
+		}) +
+		'<' +
+		'/script>'}
 </svelte:head>
 
 <!-- Module Hero Section -->
