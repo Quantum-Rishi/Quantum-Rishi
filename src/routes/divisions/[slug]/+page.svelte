@@ -2,18 +2,19 @@
 	/**
 	 * Division Detail Page
 	 * Phase 8: Dynamic Division Routing
+	 * Phase 9: Division-Specific Layout Variations
 	 *
 	 * Features:
 	 * - Dynamic division data loading based on slug
 	 * - Hero section with division color theming
 	 * - Animated background
-	 * - Key modules/services as cards
-	 * - CTA linking to sub-domain
+	 * - Conditional layout rendering based on division type
+	 * - Layout variants: Technical, Creative, Knowledge
 	 */
 
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
-	import { Button, SectionTitle, Card } from '$lib';
+	import { Button, TechLayout, CreativeLayout, KnowledgeLayout } from '$lib';
 	import * as THREE from 'three';
 	import { gsap } from 'gsap';
 
@@ -30,38 +31,6 @@
 		const subdomain = slug.replace('qr-', '');
 		return `https://${subdomain}.quantum-rishi.com`;
 	};
-
-	// Example services/modules based on division type
-	const getDivisionModules = () => {
-		// This would ideally come from a modules.json file in the future (Phase 10)
-		// For now, we'll provide some generic examples
-		const commonModules = [
-			{
-				name: 'Platform Overview',
-				description: 'Explore the core features and capabilities',
-				icon: '🎯'
-			},
-			{
-				name: 'Documentation',
-				description: 'Comprehensive guides and API references',
-				icon: '📚'
-			},
-			{
-				name: 'Getting Started',
-				description: 'Quick start guides and tutorials',
-				icon: '🚀'
-			},
-			{
-				name: 'Community',
-				description: 'Join our community of developers and users',
-				icon: '👥'
-			}
-		];
-
-		return commonModules;
-	};
-
-	const modules = getDivisionModules();
 
 	onMount(() => {
 		// ========== Three.js Animated Background Setup ==========
@@ -229,35 +198,17 @@
 	<div class="hero-gradient"></div>
 </section>
 
-<!-- Modules / Services Section -->
-<section class="modules-section">
-	<div class="qr-container">
-		<SectionTitle>Key Modules & Services</SectionTitle>
-
-		<div class="modules-grid">
-			{#each modules as module, index (index)}
-				<Card hover glow class="module-card">
-					<div class="module-icon">{module.icon}</div>
-					<h3 class="module-name">{module.name}</h3>
-					<p class="module-description">{module.description}</p>
-				</Card>
-			{/each}
-		</div>
-
-		<!-- Platform Link Section -->
-		<div class="platform-callout">
-			<div class="callout-content">
-				<h3 class="callout-title">Ready to get started?</h3>
-				<p class="callout-description">
-					Visit the {division.name} platform to access all features and tools.
-				</p>
-			</div>
-			<Button variant="accent" size="large" href={generateSubDomainUrl(division.slug)} external>
-				Visit {division.name} Platform →
-			</Button>
-		</div>
-	</div>
-</section>
+<!-- Phase 9: Conditional Layout Rendering based on Division Type -->
+{#if division.layoutType === 'technical'}
+	<TechLayout {division} />
+{:else if division.layoutType === 'creative'}
+	<CreativeLayout {division} />
+{:else if division.layoutType === 'knowledge'}
+	<KnowledgeLayout {division} />
+{:else}
+	<!-- Fallback to Technical Layout -->
+	<TechLayout {division} />
+{/if}
 
 <style>
 	/* Hero Section Styles */
@@ -368,92 +319,6 @@
 		flex-wrap: wrap;
 	}
 
-	/* Modules Section Styles */
-	.modules-section {
-		padding: var(--spacing-4xl) 0;
-		background: var(--color-dark);
-	}
-
-	.modules-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: var(--spacing-lg);
-		margin-top: var(--spacing-2xl);
-		margin-bottom: var(--spacing-4xl);
-	}
-
-	.module-card {
-		text-align: center;
-		padding: var(--spacing-xl);
-	}
-
-	.module-icon {
-		font-size: 3rem;
-		margin-bottom: var(--spacing-md);
-	}
-
-	.module-name {
-		font-family: var(--font-family-display);
-		font-size: var(--font-size-h5);
-		font-weight: var(--font-weight-semibold);
-		color: var(--color-light);
-		margin: 0 0 var(--spacing-sm);
-	}
-
-	.module-description {
-		font-family: var(--font-family-sans);
-		font-size: var(--font-size-p);
-		color: var(--color-gray);
-		line-height: var(--line-height-relaxed);
-		margin: 0;
-	}
-
-	/* Platform Callout Styles */
-	.platform-callout {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: var(--spacing-xl);
-		padding: var(--spacing-2xl);
-		background: var(--color-dark-alt);
-		border-radius: var(--radius-xl);
-		border: 1px solid rgba(255, 255, 255, 0.05);
-		position: relative;
-		overflow: hidden;
-	}
-
-	.platform-callout::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: linear-gradient(135deg, var(--division-color) 0%, transparent 70%);
-		opacity: 0.05;
-		pointer-events: none;
-	}
-
-	.callout-content {
-		position: relative;
-		z-index: 1;
-	}
-
-	.callout-title {
-		font-family: var(--font-family-display);
-		font-size: var(--font-size-h4);
-		font-weight: var(--font-weight-bold);
-		color: var(--color-light);
-		margin: 0 0 var(--spacing-sm);
-	}
-
-	.callout-description {
-		font-family: var(--font-family-sans);
-		font-size: var(--font-size-p);
-		color: var(--color-gray);
-		margin: 0;
-	}
-
 	/* Responsive Styles */
 	@media (max-width: 768px) {
 		.division-hero {
@@ -475,24 +340,8 @@
 		.hero-cta {
 			flex-direction: column;
 		}
-
-		.modules-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.platform-callout {
-			flex-direction: column;
-			text-align: center;
-		}
-
-		.callout-title {
-			font-size: var(--font-size-h5);
-		}
 	}
 
 	@media (min-width: 769px) and (max-width: 1024px) {
-		.modules-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
 	}
 </style>

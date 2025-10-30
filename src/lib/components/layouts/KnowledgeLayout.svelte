@@ -1,0 +1,526 @@
+<script lang="ts">
+	/**
+	 * Knowledge Layout Component
+	 * For knowledge/education divisions like QR.Edu, QR.Learn, QR.Wiki, etc.
+	 *
+	 * Features:
+	 * - Learning paths visualization
+	 * - Course/content catalog
+	 * - Knowledge base sections
+	 * - Educational resources
+	 */
+
+	import { Card, Button } from '$lib';
+
+	interface Props {
+		division: {
+			name: string;
+			color: string;
+		};
+	}
+
+	let { division }: Props = $props();
+
+	// Example learning paths
+	const learningPaths = [
+		{
+			name: 'Beginner Path',
+			level: 'Beginner',
+			duration: '4 weeks',
+			modules: 12,
+			icon: '🌱',
+			description: 'Start your journey with fundamental concepts and basics'
+		},
+		{
+			name: 'Intermediate Path',
+			level: 'Intermediate',
+			duration: '8 weeks',
+			modules: 24,
+			icon: '🚀',
+			description: 'Advance your skills with practical applications'
+		},
+		{
+			name: 'Advanced Path',
+			level: 'Advanced',
+			duration: '12 weeks',
+			modules: 36,
+			icon: '⚡',
+			description: 'Master advanced topics and expert techniques'
+		},
+		{
+			name: 'Specialization',
+			level: 'Expert',
+			duration: '16 weeks',
+			modules: 48,
+			icon: '🎓',
+			description: 'Deep dive into specialized areas and research'
+		}
+	];
+
+	// Example content categories
+	const contentCategories = [
+		{
+			name: 'Interactive Courses',
+			description: 'Hands-on learning with real-world projects and exercises',
+			icon: '📚',
+			count: '150+'
+		},
+		{
+			name: 'Video Tutorials',
+			description: 'Step-by-step video guides from industry experts',
+			icon: '🎬',
+			count: '500+'
+		},
+		{
+			name: 'Documentation',
+			description: 'Comprehensive guides, references, and best practices',
+			icon: '📖',
+			count: '1000+'
+		},
+		{
+			name: 'Live Workshops',
+			description: 'Interactive sessions with mentors and peers',
+			icon: '👥',
+			count: '100+'
+		},
+		{
+			name: 'Practice Labs',
+			description: 'Safe environments to practice and experiment',
+			icon: '🧪',
+			count: '75+'
+		},
+		{
+			name: 'Certifications',
+			description: 'Industry-recognized certificates and credentials',
+			icon: '🏆',
+			count: '25+'
+		}
+	];
+
+	// Example features
+	const features = [
+		{
+			title: 'Personalized Learning',
+			description: 'AI-powered recommendations based on your goals and progress',
+			icon: '🎯'
+		},
+		{
+			title: 'Community Support',
+			description: 'Connect with learners and experts in our vibrant community',
+			icon: '💬'
+		},
+		{
+			title: 'Progress Tracking',
+			description: 'Monitor your learning journey with detailed analytics',
+			icon: '📊'
+		}
+	];
+</script>
+
+<div class="knowledge-layout" style="--division-color: {division.color}">
+	<!-- Learning Paths Section -->
+	<section class="paths-section">
+		<div class="qr-container">
+			<h2 class="section-heading">Learning Paths</h2>
+			<p class="section-description">
+				Choose your learning journey based on your experience level and goals
+			</p>
+
+			<div class="paths-grid">
+				{#each learningPaths as path (path.name)}
+					<Card hover glow>
+						<div class="path-icon">{path.icon}</div>
+						<div class="path-level">{path.level}</div>
+						<h3 class="path-name">{path.name}</h3>
+						<p class="path-description">{path.description}</p>
+						<div class="path-meta">
+							<span class="meta-item">
+								<span class="meta-icon">⏱️</span>
+								{path.duration}
+							</span>
+							<span class="meta-item">
+								<span class="meta-icon">📦</span>
+								{path.modules} modules
+							</span>
+						</div>
+						<div class="path-action">
+							<Button variant="outline" size="small">Explore Path</Button>
+						</div>
+					</Card>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- Content Categories Section -->
+	<section class="categories-section">
+		<div class="qr-container">
+			<h2 class="section-heading">Content Library</h2>
+			<p class="section-description">Access a comprehensive collection of learning resources</p>
+
+			<div class="categories-grid">
+				{#each contentCategories as category (category.name)}
+					<div class="category-card">
+						<div class="category-icon">{category.icon}</div>
+						<div class="category-header">
+							<h3 class="category-name">{category.name}</h3>
+							<span class="category-count">{category.count}</span>
+						</div>
+						<p class="category-description">{category.description}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- Features Section -->
+	<section class="features-section">
+		<div class="qr-container">
+			<h2 class="section-heading">Platform Features</h2>
+
+			<div class="features-grid">
+				{#each features as feature (feature.title)}
+					<Card hover glow>
+						<div class="feature-icon">{feature.icon}</div>
+						<h3 class="feature-title">{feature.title}</h3>
+						<p class="feature-description">{feature.description}</p>
+					</Card>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- Stats Section -->
+	<section class="stats-section">
+		<div class="qr-container">
+			<div class="stats-grid">
+				<div class="stat-item">
+					<div class="stat-value">10K+</div>
+					<div class="stat-label">Active Learners</div>
+				</div>
+				<div class="stat-item">
+					<div class="stat-value">1500+</div>
+					<div class="stat-label">Hours of Content</div>
+				</div>
+				<div class="stat-item">
+					<div class="stat-value">95%</div>
+					<div class="stat-label">Completion Rate</div>
+				</div>
+				<div class="stat-item">
+					<div class="stat-value">4.8/5</div>
+					<div class="stat-label">Average Rating</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="cta-section">
+		<div class="qr-container">
+			<div class="cta-content">
+				<h2 class="cta-title">Start Learning Today</h2>
+				<p class="cta-description">
+					Join thousands of learners and begin your journey with {division.name}
+				</p>
+				<div class="cta-actions">
+					<Button variant="primary" size="large">Get Started Free</Button>
+					<Button variant="outline" size="large">Browse Courses</Button>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<style>
+	.knowledge-layout {
+		background: var(--color-dark);
+	}
+
+	/* Section Styles */
+	section {
+		padding: var(--spacing-4xl) 0;
+	}
+
+	.section-heading {
+		font-family: var(--font-family-display);
+		font-size: var(--font-size-h2);
+		font-weight: var(--font-weight-bold);
+		color: var(--color-light);
+		margin: 0 0 var(--spacing-md);
+		text-align: center;
+	}
+
+	.section-description {
+		font-family: var(--font-family-sans);
+		font-size: var(--font-size-h6);
+		color: var(--color-gray);
+		text-align: center;
+		margin: 0 0 var(--spacing-3xl);
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* Learning Paths */
+	.paths-section {
+		background: var(--color-dark-alt);
+	}
+
+	.paths-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: var(--spacing-lg);
+	}
+
+	.path-icon {
+		font-size: 3rem;
+		text-align: center;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.path-level {
+		font-family: var(--font-family-mono);
+		font-size: var(--font-size-small);
+		color: var(--division-color);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-align: center;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.path-name {
+		font-family: var(--font-family-display);
+		font-size: var(--font-size-h5);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-light);
+		margin: 0 0 var(--spacing-sm);
+		text-align: center;
+	}
+
+	.path-description {
+		font-family: var(--font-family-sans);
+		font-size: var(--font-size-small);
+		color: var(--color-gray);
+		text-align: center;
+		line-height: var(--line-height-relaxed);
+		margin: 0 0 var(--spacing-md);
+	}
+
+	.path-meta {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.meta-item {
+		font-family: var(--font-family-sans);
+		font-size: var(--font-size-small);
+		color: var(--color-gray);
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+	}
+
+	.meta-icon {
+		font-size: 1rem;
+	}
+
+	.path-action {
+		text-align: center;
+	}
+
+	/* Content Categories */
+	.categories-section {
+		background: var(--color-dark);
+	}
+
+	.categories-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: var(--spacing-lg);
+	}
+
+	.category-card {
+		padding: var(--spacing-xl);
+		background: var(--color-dark-alt);
+		border-radius: var(--radius-lg);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		transition: all var(--transition-base);
+	}
+
+	.category-card:hover {
+		border-color: var(--division-color);
+		transform: translateY(-4px);
+	}
+
+	.category-icon {
+		font-size: 2.5rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.category-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.category-name {
+		font-family: var(--font-family-display);
+		font-size: var(--font-size-h6);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-light);
+		margin: 0;
+	}
+
+	.category-count {
+		font-family: var(--font-family-mono);
+		font-size: var(--font-size-small);
+		color: var(--division-color);
+		font-weight: var(--font-weight-semibold);
+	}
+
+	.category-description {
+		font-family: var(--font-family-sans);
+		font-size: var(--font-size-small);
+		color: var(--color-gray);
+		line-height: var(--line-height-relaxed);
+		margin: 0;
+	}
+
+	/* Features Section */
+	.features-section {
+		background: var(--color-dark-alt);
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: var(--spacing-lg);
+	}
+
+	.feature-icon {
+		font-size: 3rem;
+		text-align: center;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.feature-title {
+		font-family: var(--font-family-display);
+		font-size: var(--font-size-h5);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-light);
+		margin: 0 0 var(--spacing-sm);
+		text-align: center;
+	}
+
+	.feature-description {
+		font-family: var(--font-family-sans);
+		font-size: var(--font-size-small);
+		color: var(--color-gray);
+		text-align: center;
+		line-height: var(--line-height-relaxed);
+		margin: 0;
+	}
+
+	/* Stats Section */
+	.stats-section {
+		background: var(--color-dark);
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: var(--spacing-xl);
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.stat-item {
+		text-align: center;
+		padding: var(--spacing-xl);
+		background: var(--color-dark-alt);
+		border-radius: var(--radius-lg);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	.stat-value {
+		font-family: var(--font-family-display);
+		font-size: var(--font-size-h1);
+		font-weight: var(--font-weight-bold);
+		color: var(--division-color);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.stat-label {
+		font-family: var(--font-family-sans);
+		font-size: var(--font-size-p);
+		color: var(--color-gray);
+	}
+
+	/* CTA Section */
+	.cta-section {
+		background: var(--color-dark-alt);
+	}
+
+	.cta-content {
+		text-align: center;
+		padding: var(--spacing-3xl);
+		background: var(--color-dark);
+		border-radius: var(--radius-xl);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	.cta-title {
+		font-family: var(--font-family-display);
+		font-size: var(--font-size-h2);
+		font-weight: var(--font-weight-bold);
+		color: var(--color-light);
+		margin: 0 0 var(--spacing-md);
+	}
+
+	.cta-description {
+		font-family: var(--font-family-sans);
+		font-size: var(--font-size-h6);
+		color: var(--color-gray);
+		margin: 0 0 var(--spacing-2xl);
+	}
+
+	.cta-actions {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		section {
+			padding: var(--spacing-3xl) 0;
+		}
+
+		.section-heading {
+			font-size: var(--font-size-h3);
+		}
+
+		.paths-grid,
+		.categories-grid,
+		.features-grid,
+		.stats-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.cta-title {
+			font-size: var(--font-size-h3);
+		}
+
+		.cta-actions {
+			flex-direction: column;
+		}
+
+		.stat-value {
+			font-size: var(--font-size-h2);
+		}
+	}
+</style>
