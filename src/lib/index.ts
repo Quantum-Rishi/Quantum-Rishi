@@ -11,5 +11,10 @@ export { default as HeroSection } from './components/HeroSection.svelte';
 export { default as DivisionCard } from './components/DivisionCard.svelte';
 export { default as CategorySection } from './components/CategorySection.svelte';
 
+// Export Phase 9 layout components
+export { default as TechLayout } from './components/layouts/TechLayout.svelte';
+export { default as CreativeLayout } from './components/layouts/CreativeLayout.svelte';
+export { default as KnowledgeLayout } from './components/layouts/KnowledgeLayout.svelte';
+
 // Export data
 export { default as divisionsData } from './data/divisions.json';

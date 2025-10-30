@@ -11,7 +11,8 @@
 					"tagline": "AI & ML Systems",
 					"description": "Advanced AI and Machine Learning systems for intelligent automation and predictive analytics",
 					"color": "#28E5FF",
-					"icon": "brain-circuit"
+					"icon": "brain-circuit",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-data",
@@ -20,7 +21,8 @@
 					"tagline": "Big Data & Analytics",
 					"description": "Comprehensive data processing, warehousing, and real-time analytics platform",
 					"color": "#6366F1",
-					"icon": "database"
+					"icon": "database",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-cloud",
@@ -29,7 +31,8 @@
 					"tagline": "Cloud Infrastructure",
 					"description": "Scalable cloud infrastructure and services for modern application deployment",
 					"color": "#8B5CF6",
-					"icon": "cloud"
+					"icon": "cloud",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-iot",
@@ -38,7 +41,8 @@
 					"tagline": "Internet of Things",
 					"description": "Connected device ecosystem with edge computing and real-time monitoring",
 					"color": "#EC4899",
-					"icon": "network"
+					"icon": "network",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-net",
@@ -47,7 +51,8 @@
 					"tagline": "Network Systems",
 					"description": "High-performance networking infrastructure and software-defined networking solutions",
 					"color": "#10B981",
-					"icon": "radio-tower"
+					"icon": "radio-tower",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-api",
@@ -56,7 +61,8 @@
 					"tagline": "API Management",
 					"description": "Unified API gateway and microservices management platform",
 					"color": "#F59E0B",
-					"icon": "webhook"
+					"icon": "webhook",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-dev",
@@ -65,7 +71,8 @@
 					"tagline": "Developer Tools",
 					"description": "Integrated development environment and DevOps automation platform",
 					"color": "#3B82F6",
-					"icon": "code"
+					"icon": "code",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-os",
@@ -74,7 +81,8 @@
 					"tagline": "Operating Systems",
 					"description": "Custom Linux-based operating system optimized for quantum-ready infrastructure",
 					"color": "#6366F1",
-					"icon": "monitor"
+					"icon": "monitor",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-mobile",
@@ -83,7 +91,8 @@
 					"tagline": "Mobile Platform",
 					"description": "Cross-platform mobile development framework and deployment solutions",
 					"color": "#8B5CF6",
-					"icon": "smartphone"
+					"icon": "smartphone",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-web",
@@ -92,7 +101,8 @@
 					"tagline": "Web Technologies",
 					"description": "Modern web frameworks, progressive web apps, and front-end solutions",
 					"color": "#28E5FF",
-					"icon": "globe"
+					"icon": "globe",
+					"layoutType": "technical"
 				}
 			]
 		},
@@ -107,7 +117,8 @@
 					"tagline": "Blockchain & Web3",
 					"description": "Decentralized blockchain solutions for secure, transparent, and immutable transactions",
 					"color": "#F59E0B",
-					"icon": "blocks"
+					"icon": "blocks",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-cyber",
@@ -116,7 +127,8 @@
 					"tagline": "Cybersecurity",
 					"description": "Quantum-inspired security protocols and advanced threat detection systems",
 					"color": "#EF4444",
-					"icon": "shield"
+					"icon": "shield",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-quantum",
@@ -125,7 +137,8 @@
 					"tagline": "Quantum Computing",
 					"description": "Quantum computing research and quantum-inspired algorithms for optimization",
 					"color": "#8B5CF6",
-					"icon": "atom"
+					"icon": "atom",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-ar",
@@ -134,7 +147,8 @@
 					"tagline": "Augmented Reality",
 					"description": "Immersive AR experiences and spatial computing applications",
 					"color": "#06B6D4",
-					"icon": "scan"
+					"icon": "scan",
+					"layoutType": "creative"
 				},
 				{
 					"id": "qr-vr",
@@ -143,7 +157,8 @@
 					"tagline": "Virtual Reality",
 					"description": "Virtual reality environments and metaverse infrastructure",
 					"color": "#A855F7",
-					"icon": "glasses"
+					"icon": "glasses",
+					"layoutType": "creative"
 				},
 				{
 					"id": "qr-robotics",
@@ -152,7 +167,8 @@
 					"tagline": "Robotics & Automation",
 					"description": "Autonomous robotics systems and industrial automation solutions",
 					"color": "#64748B",
-					"icon": "bot"
+					"icon": "bot",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-drone",
@@ -161,7 +177,8 @@
 					"tagline": "Drone Technology",
 					"description": "Unmanned aerial vehicle systems for surveillance and delivery",
 					"color": "#10B981",
-					"icon": "plane"
+					"icon": "plane",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-auto",
@@ -170,7 +187,8 @@
 					"tagline": "Autonomous Vehicles",
 					"description": "Self-driving vehicle systems and intelligent transportation networks",
 					"color": "#3B82F6",
-					"icon": "car"
+					"icon": "car",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-energy",
@@ -179,7 +197,8 @@
 					"tagline": "Smart Energy",
 					"description": "Renewable energy management and smart grid optimization systems",
 					"color": "#10B981",
-					"icon": "zap"
+					"icon": "zap",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-health",
@@ -188,7 +207,8 @@
 					"tagline": "Digital Healthcare",
 					"description": "AI-powered healthcare diagnostics and telemedicine platforms",
 					"color": "#EC4899",
-					"icon": "heart-pulse"
+					"icon": "heart-pulse",
+					"layoutType": "technical"
 				}
 			]
 		},
@@ -203,7 +223,8 @@
 					"tagline": "Educational Platform",
 					"description": "Adaptive learning management system with AI-powered personalization",
 					"color": "#F59E0B",
-					"icon": "graduation-cap"
+					"icon": "graduation-cap",
+					"layoutType": "knowledge"
 				},
 				{
 					"id": "qr-learn",
@@ -212,7 +233,8 @@
 					"tagline": "Skill Development",
 					"description": "Professional training and certification programs for emerging technologies",
 					"color": "#3B82F6",
-					"icon": "book-open"
+					"icon": "book-open",
+					"layoutType": "knowledge"
 				},
 				{
 					"id": "qr-research",
@@ -221,7 +243,8 @@
 					"tagline": "Research Platform",
 					"description": "Collaborative research environment and paper repository system",
 					"color": "#8B5CF6",
-					"icon": "microscope"
+					"icon": "microscope",
+					"layoutType": "knowledge"
 				},
 				{
 					"id": "qr-wiki",
@@ -230,7 +253,8 @@
 					"tagline": "Knowledge Base",
 					"description": "Comprehensive technical documentation and knowledge sharing platform",
 					"color": "#06B6D4",
-					"icon": "library"
+					"icon": "library",
+					"layoutType": "knowledge"
 				},
 				{
 					"id": "qr-docs",
@@ -239,7 +263,8 @@
 					"tagline": "Documentation Hub",
 					"description": "Technical documentation generator and API reference system",
 					"color": "#6366F1",
-					"icon": "file-text"
+					"icon": "file-text",
+					"layoutType": "knowledge"
 				},
 				{
 					"id": "qr-content",
@@ -248,7 +273,8 @@
 					"tagline": "Content Management",
 					"description": "Headless CMS and digital asset management platform",
 					"color": "#EC4899",
-					"icon": "folder"
+					"icon": "folder",
+					"layoutType": "knowledge"
 				},
 				{
 					"id": "qr-media",
@@ -257,7 +283,8 @@
 					"tagline": "Media Processing",
 					"description": "Video, audio, and image processing with AI enhancement capabilities",
 					"color": "#F59E0B",
-					"icon": "film"
+					"icon": "film",
+					"layoutType": "creative"
 				},
 				{
 					"id": "qr-publish",
@@ -266,7 +293,8 @@
 					"tagline": "Digital Publishing",
 					"description": "Modern publishing platform for technical content and e-books",
 					"color": "#10B981",
-					"icon": "book"
+					"icon": "book",
+					"layoutType": "knowledge"
 				},
 				{
 					"id": "qr-social",
@@ -275,7 +303,8 @@
 					"tagline": "Social Platform",
 					"description": "Professional networking and community collaboration platform",
 					"color": "#3B82F6",
-					"icon": "users"
+					"icon": "users",
+					"layoutType": "knowledge"
 				},
 				{
 					"id": "qr-comm",
@@ -284,7 +313,8 @@
 					"tagline": "Communications",
 					"description": "Unified communication system with video conferencing and messaging",
 					"color": "#6366F1",
-					"icon": "message-square"
+					"icon": "message-square",
+					"layoutType": "knowledge"
 				}
 			]
 		},
@@ -299,7 +329,8 @@
 					"tagline": "Innovation Lab",
 					"description": "Research and development laboratory for experimental technologies",
 					"color": "#8B5CF6",
-					"icon": "flask"
+					"icon": "flask",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-future",
@@ -308,7 +339,8 @@
 					"tagline": "Future Tech",
 					"description": "Emerging technology exploration and future scenario planning",
 					"color": "#06B6D4",
-					"icon": "rocket"
+					"icon": "rocket",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-space",
@@ -317,7 +349,8 @@
 					"tagline": "Space Technology",
 					"description": "Satellite systems and space exploration technology initiatives",
 					"color": "#3B82F6",
-					"icon": "satellite"
+					"icon": "satellite",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-bio",
@@ -326,7 +359,8 @@
 					"tagline": "Biotechnology",
 					"description": "Computational biology and biotech innovation platform",
 					"color": "#10B981",
-					"icon": "dna"
+					"icon": "dna",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-nano",
@@ -335,7 +369,8 @@
 					"tagline": "Nanotechnology",
 					"description": "Nanoscale engineering and materials science research",
 					"color": "#64748B",
-					"icon": "atom"
+					"icon": "atom",
+					"layoutType": "technical"
 				},
 				{
 					"id": "qr-digi",
@@ -344,7 +379,8 @@
 					"tagline": "Digital Creativity",
 					"description": "Creative technology studio for digital art, design, and interactive experiences",
 					"color": "#EC4899",
-					"icon": "palette"
+					"icon": "palette",
+					"layoutType": "creative"
 				},
 				{
 					"id": "qr-studio",
@@ -353,7 +389,8 @@
 					"tagline": "Creative Studio",
 					"description": "Multimedia production studio for content creation and design services",
 					"color": "#F59E0B",
-					"icon": "clapperboard"
+					"icon": "clapperboard",
+					"layoutType": "creative"
 				},
 				{
 					"id": "qr-design",
@@ -362,7 +399,8 @@
 					"tagline": "Design Systems",
 					"description": "UI/UX design platform and design system development tools",
 					"color": "#8B5CF6",
-					"icon": "pencil"
+					"icon": "pencil",
+					"layoutType": "creative"
 				},
 				{
 					"id": "qr-3d",
@@ -371,7 +409,8 @@
 					"tagline": "3D Visualization",
 					"description": "3D modeling, rendering, and visualization services",
 					"color": "#06B6D4",
-					"icon": "box"
+					"icon": "box",
+					"layoutType": "creative"
 				},
 				{
 					"id": "qr-gaming",
@@ -380,7 +419,8 @@
 					"tagline": "Game Development",
 					"description": "Game engine development and interactive entertainment platform",
 					"color": "#A855F7",
-					"icon": "gamepad-2"
+					"icon": "gamepad-2",
+					"layoutType": "creative"
 				}
 			]
 		}
