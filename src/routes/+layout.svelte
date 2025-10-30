@@ -43,23 +43,22 @@
 
 	<!-- Favicon -->
 	<link rel="icon" href={favicon} />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Phase 13: Schema.org Organization Data -->
-    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-    {@html '<script type="application/ld+json">' +
-        JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'Quantum Rishi',
-            url: 'https://quantum-rishi.com',
-            description:
-                'We Build Intelligent Autonomous Systems for a Secure, Scalable and Future-Ready India',
-            sameAs: []
-        }) +
-        '<' +
-        '/script>'}
-
+	<!-- Phase 13: Schema.org Organization Data -->
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	{@html '<script type="application/ld+json">' +
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'Organization',
+			name: 'Quantum Rishi',
+			url: 'https://quantum-rishi.com',
+			description:
+				'We Build Intelligent Autonomous Systems for a Secure, Scalable and Future-Ready India',
+			sameAs: []
+		}) +
+		'<' +
+		'/script>'}
 </svelte:head>
 
 <!-- Skip to main content link for keyboard navigation -->

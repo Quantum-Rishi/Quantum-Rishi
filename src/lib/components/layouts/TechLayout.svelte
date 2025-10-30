@@ -238,7 +238,7 @@
 									<p class="module-card-description">{module.description}</p>
 									<div class="module-card-features">
 										{#each module.features.slice(0, 3) as feature, index (index)}
-											<span class="feature-tag" role="text">{feature}</span>
+											<span class="feature-tag">{feature}</span>
 										{/each}
 									</div>
 									<div class="module-card-arrow" aria-hidden="true">→</div>

@@ -92,36 +92,27 @@
 </script>
 
 <section
-    class="category-section {className}"
-    aria-labelledby="category-{categoryName.replace(/\s+/g, '-').toLowerCase()}"
-    bind:this={sectionElement}
+	class="category-section {className}"
+	aria-labelledby="category-{categoryName.replace(/\s+/g, '-').toLowerCase()}"
+	bind:this={sectionElement}
 >
-    <div class="category-header" bind:this={headerElement}>
-        <SectionTitle
-            level={2}
-            id="category-{categoryName.replace(/\s+/g, '-').toLowerCase()}"
-        >
-            {categoryName}
-        </SectionTitle>
-        {#if categoryDescription}
-            <p class="category-description">{categoryDescription}</p>
-        {/if}
-    </div>
+	<div class="category-header" bind:this={headerElement}>
+		<SectionTitle level={2} id="category-{categoryName.replace(/\s+/g, '-').toLowerCase()}">
+			{categoryName}
+		</SectionTitle>
+		{#if categoryDescription}
+			<p class="category-description">{categoryDescription}</p>
+		{/if}
+	</div>
 
-    <div
-        class="divisions-grid"
-        role="list"
-        aria-label="{categoryName} divisions"
-        bind:this={gridElement}
-    >
-        {#each divisions as division (division.id)}
-            <div class="division-card-wrapper" role="listitem">
-                <!-- Division content goes here -->
-            </div>
-        {/each}
-    </div>
-</section>
-
+	<div
+		class="divisions-grid"
+		role="list"
+		aria-label="{categoryName} divisions"
+		bind:this={gridElement}
+	>
+		{#each divisions as division (division.id)}
+			<div class="division-card-wrapper" role="listitem">
 				<DivisionCard
 					name={division.name}
 					tagline={division.tagline}
