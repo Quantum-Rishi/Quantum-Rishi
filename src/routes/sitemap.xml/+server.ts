@@ -5,7 +5,8 @@
  * It includes:
  * - Home page
  * - All division pages
- * - All module pages (when modules.json is available)
+ *
+ * Note: Module pages can be added in the future by iterating through modules.json
  */
 
 import divisionsData from '$lib/data/divisions.json';
