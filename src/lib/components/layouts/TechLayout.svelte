@@ -350,7 +350,7 @@
 
 	.spec-item:hover {
 		border-color: var(--division-color);
-		box-shadow: 0 0 20px rgba(var(--division-color), 0.2);
+		box-shadow: 0 0 20px color-mix(in srgb, var(--division-color) 20%, transparent);
 	}
 
 	.spec-label {

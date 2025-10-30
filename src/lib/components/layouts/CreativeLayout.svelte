@@ -74,9 +74,13 @@
 
 	onMount(() => {
 		// Auto-advance slider
-		intervalId = setInterval(() => {
-			currentSlide = (currentSlide + 1) % portfolioItems.length;
-		}, 4000);
+		const startInterval = () => {
+			intervalId = setInterval(() => {
+				currentSlide = (currentSlide + 1) % portfolioItems.length;
+			}, 4000);
+		};
+
+		startInterval();
 
 		return () => clearInterval(intervalId);
 	});
@@ -84,6 +88,7 @@
 	const goToSlide = (index: number) => {
 		currentSlide = index;
 		clearInterval(intervalId);
+		// Restart interval after manual navigation
 		intervalId = setInterval(() => {
 			currentSlide = (currentSlide + 1) % portfolioItems.length;
 		}, 4000);
