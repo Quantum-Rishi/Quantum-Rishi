@@ -121,9 +121,6 @@
 		window.addEventListener('resize', handleResize);
 
 		// ========== Parallax Scroll Effect ==========
-		// Check for reduced motion preference
-		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
 		// Use requestAnimationFrame for smooth, throttled parallax updates
 		let ticking = false;
 
