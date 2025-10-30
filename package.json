@@ -23,6 +23,7 @@
 		"@tailwindcss/typography": "^0.5.18",
 		"@tailwindcss/vite": "^4.1.13",
 		"@types/node": "^20",
+		"@types/three": "^0.180.0",
 		"eslint": "^9.36.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.12.4",
@@ -39,5 +40,9 @@
 	},
 	"overrides": {
 		"cookie": "^0.7.2"
+	},
+	"dependencies": {
+		"gsap": "^3.13.0",
+		"three": "^0.180.0"
 	}
 }
