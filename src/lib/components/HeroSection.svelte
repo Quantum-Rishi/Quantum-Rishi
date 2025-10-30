@@ -187,8 +187,11 @@
 					variant="outline"
 					size="large"
 					onclick={() => {
-						// TODO: Scroll to ecosystem section (Phase 6)
-						console.log('Explore Ecosystem - Coming soon!');
+						// Scroll to ecosystem section
+						const ecosystemSection = document.getElementById('ecosystem');
+						if (ecosystemSection) {
+							ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						}
 					}}
 				>
 					Explore Ecosystem
