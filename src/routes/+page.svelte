@@ -1,11 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	
-	let mounted = $state(false);
-
-	onMount(() => {
-		mounted = true;
-	});
+	// Homepage script - ready for animations and interactions
 </script>
 
 <div class="min-h-screen bg-slate-950">

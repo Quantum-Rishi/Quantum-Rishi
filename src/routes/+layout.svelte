@@ -1,4 +1,5 @@
 <script lang="ts">
+	// TODO: Replace with custom Quantum Rishi favicon
 	import favicon from '$lib/assets/favicon.svg';
 	import '../lib/styles/global.css';
 
