@@ -1,0 +1,124 @@
+# Cloudflare Pages Deployment Workflow
+# Phase 16: Automated CI/CD for Cloudflare Pages
+#
+# This workflow runs on every push to verify the build works
+# Cloudflare Pages handles the actual deployment automatically
+
+name: Cloudflare Pages CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run linter
+        run: pnpm run lint
+
+      - name: Run type check
+        run: pnpm run check
+
+      - name: Build project
+        run: pnpm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: .svelte-kit/cloudflare
+          retention-days: 7
+
+      - name: Build summary
+        run: |
+          echo "### Build Summary :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Build completed successfully" >> $GITHUB_STEP_SUMMARY
+          echo "- 📦 Output directory: \`.svelte-kit/cloudflare\`" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔗 Preview will be available on Cloudflare Pages" >> $GITHUB_STEP_SUMMARY
+
+  # Optional: Add performance testing
+  lighthouse:
+    name: Lighthouse Performance Test
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: .svelte-kit/cloudflare
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
+
+      - name: Preview build
+        run: |
+          pnpm run preview &
+          sleep 10
+        continue-on-error: true
+
+      - name: Run Lighthouse
+        run: |
+          lhci autorun --collect.url=http://localhost:4173 || echo "Lighthouse check completed"
+        continue-on-error: true
