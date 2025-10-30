@@ -10,11 +10,18 @@
 	interface Props {
 		variant?: 'default' | 'compact' | 'spacious';
 		hover?: boolean;
+		glow?: boolean;
 		class?: string;
 		children?: Snippet;
 	}
 
-	let { variant = 'default', hover = true, class: className = '', children }: Props = $props();
+	let {
+		variant = 'default',
+		hover = true,
+		glow = false,
+		class: className = '',
+		children
+	}: Props = $props();
 
 	const variantClasses = {
 		default: 'qr-card',
@@ -22,7 +29,7 @@
 		spacious: 'qr-card qr-card-spacious'
 	};
 
-	const cardClasses = `${variantClasses[variant]} ${hover ? '' : 'no-hover'} ${className}`;
+	const cardClasses = `${variantClasses[variant]} ${hover ? '' : 'no-hover'} ${glow ? 'with-glow' : ''} ${className}`;
 </script>
 
 <div class={cardClasses}>
