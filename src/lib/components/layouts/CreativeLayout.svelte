@@ -8,19 +8,25 @@
 	 * - Visual showcase gallery
 	 * - Creative services breakdown
 	 * - Design capabilities
+	 * - Modules section (Phase 10)
 	 */
 
 	import { Card, Button } from '$lib';
 	import { onMount } from 'svelte';
+	import modulesData from '$lib/data/modules.json';
 
 	interface Props {
 		division: {
 			name: string;
 			color: string;
+			slug: string;
 		};
 	}
 
 	let { division }: Props = $props();
+
+	// Get modules for this division (Phase 10)
+	const divisionModules = modulesData[division.slug as keyof typeof modulesData]?.modules || [];
 
 	// Example portfolio items
 	const portfolioItems = [
@@ -195,6 +201,40 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- Modules Section (Phase 10) -->
+	{#if divisionModules.length > 0}
+		<section class="modules-section">
+			<div class="qr-container">
+				<h2 class="section-heading">Available Modules</h2>
+				<p class="section-description">
+					Explore specialized modules and capabilities within {division.name}
+				</p>
+
+				<div class="modules-grid">
+					{#each divisionModules as module (module.slug)}
+						<a
+							href="/divisions/{division.slug}/modules/{module.slug}"
+							class="module-card"
+							style="--module-color: {division.color}"
+						>
+							<div class="module-card-content">
+								<h3 class="module-card-title">{module.name}</h3>
+								<p class="module-card-description">{module.description}</p>
+								<div class="module-card-features">
+									{#each module.features.slice(0, 3) as feature}
+										<span class="feature-tag">{feature}</span>
+									{/each}
+								</div>
+								<div class="module-card-arrow">→</div>
+							</div>
+							<div class="module-card-glow"></div>
+						</a>
+					{/each}
+				</div>
+			</div>
+		</section>
+	{/if}
 
 	<!-- CTA Section -->
 	<section class="cta-section">
@@ -421,6 +461,113 @@
 	.tool-badge:hover {
 		background: rgba(255, 255, 255, 0.1);
 		color: var(--division-color);
+	}
+
+	/* Modules Section (Phase 10) */
+	.modules-section {
+		background: var(--color-dark);
+	}
+
+	.modules-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		gap: var(--spacing-xl);
+	}
+
+	/* Module Card with Glowing Hover Effect (Phase 10) */
+	.module-card {
+		position: relative;
+		display: block;
+		text-decoration: none;
+		background: var(--color-dark-alt);
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--color-border);
+		padding: var(--spacing-xl);
+		transition: all var(--transition-base);
+		overflow: hidden;
+	}
+
+	.module-card-content {
+		position: relative;
+		z-index: 2;
+	}
+
+	.module-card-title {
+		font-family: var(--font-family-display);
+		font-size: var(--font-size-h5);
+		font-weight: var(--font-weight-bold);
+		color: var(--color-light);
+		margin: 0 0 var(--spacing-sm);
+	}
+
+	.module-card-description {
+		font-family: var(--font-family-sans);
+		font-size: var(--font-size-small);
+		color: var(--color-gray);
+		line-height: var(--line-height-relaxed);
+		margin: 0 0 var(--spacing-md);
+	}
+
+	.module-card-features {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-xs);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.feature-tag {
+		display: inline-block;
+		padding: var(--spacing-xs) var(--spacing-sm);
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: var(--radius-sm);
+		font-family: var(--font-family-mono);
+		font-size: 0.75rem;
+		color: var(--color-gray);
+		transition: all var(--transition-base);
+	}
+
+	.module-card:hover .feature-tag {
+		background: rgba(255, 255, 255, 0.1);
+		color: var(--module-color);
+	}
+
+	.module-card-arrow {
+		font-size: var(--font-size-h4);
+		color: var(--module-color);
+		transition: transform var(--transition-base);
+	}
+
+	/* Glowing hover effect */
+	.module-card-glow {
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(
+			circle,
+			var(--module-color) 0%,
+			transparent 70%
+		);
+		opacity: 0;
+		transition: opacity var(--transition-base);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.module-card:hover {
+		border-color: var(--module-color);
+		transform: translateY(-4px);
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+		            0 0 20px var(--module-color);
+	}
+
+	.module-card:hover .module-card-glow {
+		opacity: 0.15;
+	}
+
+	.module-card:hover .module-card-arrow {
+		transform: translateX(4px);
 	}
 
 	/* CTA Section */
