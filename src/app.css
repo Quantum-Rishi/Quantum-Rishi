@@ -5,38 +5,12 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
-/* Custom theme */
-@theme {
-	--color-brand-primary: #6366f1;
-	--color-brand-secondary: #8b5cf6;
-	--color-brand-accent: #3b82f6;
-	--color-brand-dark: #0f172a;
-	--color-brand-light: #f8fafc;
-
-	--color-quantum-blue: #3b82f6;
-	--color-quantum-purple: #8b5cf6;
-	--color-quantum-cyan: #06b6d4;
-	--color-quantum-indigo: #6366f1;
-
-	--font-family-sans: 'Inter', system-ui, sans-serif;
-	--font-family-display: 'Space Grotesk', system-ui, sans-serif;
-	--font-family-mono: 'JetBrains Mono', monospace;
-
-	--animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-	--animate-float: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-	0%,
-	100% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(-10px);
-	}
-}
+/* Import design system tokens */
+@import './lib/styles/tokens.css';
 
 /* Global styles */
 body {
 	font-family: var(--font-family-sans);
+	background-color: var(--color-dark);
+	color: var(--color-light);
 }
