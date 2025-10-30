@@ -150,7 +150,6 @@
 							onclick={() => goToSlide(index)}
 							aria-label="Go to slide {index + 1}: {item.title}"
 							aria-current={currentSlide === index ? 'true' : 'false'}
-							tabindex="0"
 						></button>
 					{/each}
 				</div>
