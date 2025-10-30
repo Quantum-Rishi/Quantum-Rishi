@@ -1,5 +1,15 @@
 import { test, expect } from '@playwright/test';
 
+/**
+ * Type definition for resource timing information
+ * Note: Playwright's Response object doesn't expose timing() method in TypeScript
+ * For detailed timing, use Performance API or Chrome DevTools Protocol
+ */
+interface ResourceTiming {
+	url: string;
+	status: number;
+}
+
 test.describe('Animation Performance', () => {
 	test('should maintain 60fps during scroll animations', async ({ page }) => {
 		await page.goto('/');
@@ -139,15 +149,14 @@ test.describe('CSS Animation Performance', () => {
 
 test.describe('Resource Loading Performance', () => {
 	test('should load critical resources efficiently', async ({ page }) => {
-		const resourceTimings: Array<{
-			url: string;
-			status: number;
-		}> = [];
+		const resourceTimings: ResourceTiming[] = [];
 
 		page.on('response', (response) => {
 			resourceTimings.push({
 				url: response.url(),
 				status: response.status()
+				// Note: Playwright Response doesn't expose timing() in the public API
+				// For detailed timing metrics, use page.evaluate(() => performance.getEntries())
 			});
 		});
 
