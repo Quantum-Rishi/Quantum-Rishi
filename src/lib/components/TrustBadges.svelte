@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Shield, Award, CheckCircle2, Zap } from 'lucide-svelte';
+  import { Shield, Award, CheckCircle2, Zap, ShieldCheck } from 'lucide-svelte';
 
   const badges = [
     {
@@ -21,6 +21,11 @@
       icon: Zap,
       label: 'Quantum-Secure',
       description: 'Future-proof cryptographic protection'
+    },
+    {
+      icon: ShieldCheck,
+      label: 'Zero-Trust Security',
+      description: 'Advanced security with never trust, always verify principle'
     }
   ];
 </script>
