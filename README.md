@@ -9,7 +9,7 @@ A production-ready Next.js corporate homepage showcasing enterprise-grade techno
 ## 🚀 Features
 
 - **Modern Tech Stack**: Built with Next.js 14.2 (App Router), TypeScript, Tailwind CSS, and Framer Motion
-- **10 Service Divisions**: Comprehensive showcase of QR.AI, QR.Block, QR.Cloud, QR.Cyber, QR.Quantum, QR.IoT, QR.Digi, QR.EduTech, QR.Labs, and QR.Stream
+- **10 Service Divisions**: Comprehensive showcase of QR.AI, QR.Block, QR.Cloud, QR.Cyber, QR.Quantum, QR.IoT, QR.Digi, QR.EduTech, QR.Labs and QR.Studio
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices
 - **Interactive Navigation**: Smooth scrolling, mobile menu with animations
 - **Engagement Models**: Multiple business engagement options (Consulting, Fixed-Scope, SaaS, Retainers, MVPs)
@@ -157,19 +157,20 @@ quantum-rishi/
 
 ## 🎯 Sections
 
-1. **Hero** - Main headline with gradient, CTAs, trust bar, and scroll indicator
-2. **Mission** - Company mission statement
-3. **Services** - Grid of 10 vertical divisions with icons
-4. **Engagement** - 5 flexible engagement models
-5. **CTA** - Call-to-action band with contact buttons
-6. **Contact** - Email/LinkedIn cards + demo form
-7. **Footer** - Brand info, quick links, social media
+1. **Header** - persistent, compact; logo left; primary nav: Products; Services; Road Map; Developer; Pricing; Docs; Demo; CTA: Sign up 
+2. **Hero** - Main headline with gradient, CTAs, trust bar, and scroll indicator
+3. **Mission** - Company mission statement
+4. **Services** - Grid of 10 vertical divisions with icons
+5. **Engagement** - 5 flexible engagement models
+6. **CTA** - Call-to-action band with contact buttons
+7. **Contact** - Email/LinkedIn cards + demo form
+8. **Footer** - Brand info, quick links, social media
 
 ## 📊 Performance
 
 - **Static Generation**: Pre-rendered at build time for optimal performance
-- **Code Splitting**: Automatic chunking by Next.js
-- **Image Optimization**: Next.js Image component with lazy loading
+- **Code Splitting**: Automatic chunking by SvelteKit
+- **Image Optimization**: SvelteKit Image component with lazy loading
 - **CSS Optimization**: Tailwind CSS with PurgeCSS
 - **Bundle Size**: 87.4 kB First Load JS (excellent!)
 - **Performance Guide**: See `docs/performance-optimization.md` for more details
