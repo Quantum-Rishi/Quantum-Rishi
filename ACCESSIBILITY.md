@@ -16,6 +16,7 @@ The platform follows **WCAG 2.1 Level AA** guidelines and implements best practi
 - **Logical Tab Order**: Elements follow a natural reading and navigation order.
 
 #### Keyboard Shortcuts
+
 - `Tab`: Navigate forward through interactive elements
 - `Shift + Tab`: Navigate backward through interactive elements
 - `Enter` or `Space`: Activate buttons and links
@@ -30,6 +31,7 @@ The platform follows **WCAG 2.1 Level AA** guidelines and implements best practi
 - **Screen Reader Only Text**: `.sr-only` utility class for providing additional context to screen readers
 
 #### ARIA Landmarks Implemented
+
 - `role="navigation"` - Navigation breadcrumbs
 - `role="main"` - Main content area
 - `role="list"` and `role="listitem"` - Lists of divisions, modules, and features
@@ -46,13 +48,16 @@ Users who prefer reduced motion (configured in their OS settings) will experienc
 - **Auto-advancing Carousels Paused**: Automatic slideshow advancement is disabled
 
 #### Implementation
+
 ```css
 @media (prefers-reduced-motion: reduce) {
-  /* All animations and transitions reduced to near-instant */
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+	/* All animations and transitions reduced to near-instant */
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
 }
 ```
 
@@ -65,6 +70,7 @@ Users who prefer reduced motion (configured in their OS settings) will experienc
 - **Focus Indicators**: High-contrast focus outlines on all interactive elements
 
 #### Color Palette Contrast Ratios
+
 - Primary text (#f8fafc on #0f172a): ~14:1 ✓
 - Secondary text (#64748b on #0f172a): ~5.2:1 ✓
 - Primary buttons (#28e5ff on #0f172a): ~11:1 ✓
@@ -77,6 +83,7 @@ Users who prefer reduced motion (configured in their OS settings) will experienc
 - **Mobile-First Approach**: Base styles designed for mobile, enhanced for larger screens
 
 #### Responsive Breakpoints
+
 - Mobile: 0-768px
 - Tablet: 769-1024px
 - Desktop: 1025px+
@@ -84,6 +91,7 @@ Users who prefer reduced motion (configured in their OS settings) will experienc
 ### 6. Form Accessibility (Future Implementation)
 
 When forms are added to the platform, they will include:
+
 - Properly associated labels with form inputs
 - Error messages announced to screen readers
 - Clear indication of required fields
@@ -100,11 +108,13 @@ When forms are added to the platform, they will include:
 ## Testing Recommendations
 
 ### Automated Testing
+
 - Use Lighthouse for automated accessibility audits
 - Run axe DevTools browser extension
 - Validate HTML for semantic correctness
 
 ### Manual Testing
+
 1. **Keyboard Navigation**: Navigate entire site using only keyboard
 2. **Screen Reader**: Test with NVDA (Windows), JAWS (Windows), or VoiceOver (Mac/iOS)
 3. **Zoom Testing**: Test at 200% and 400% zoom levels
@@ -112,6 +122,7 @@ When forms are added to the platform, they will include:
 5. **Reduced Motion**: Enable reduced motion in OS settings and verify
 
 ### Browser and Device Testing
+
 - Modern browsers: Chrome, Firefox, Safari, Edge
 - Mobile browsers: Safari iOS, Chrome Android
 - Screen reader combinations:
@@ -122,28 +133,33 @@ When forms are added to the platform, they will include:
 ## Component-Specific Accessibility
 
 ### HeroSection
+
 - Canvas marked as `aria-hidden="true"` (decorative)
 - Section labeled with `aria-label`
 - CTA buttons grouped with descriptive labels
 - Animations respect reduced motion preferences
 
 ### CategorySection
+
 - Section labeled with `aria-labelledby`
 - Division grid marked as `role="list"`
 - Each card wrapped in `role="listitem"`
 
 ### DivisionCard
+
 - Keyboard accessible with Enter/Space support
 - Descriptive `aria-label` combining name and tagline
 - Focus indicators visible
 - Hover effects disabled for reduced motion users
 
 ### Button Component
+
 - Supports custom `aria-label` prop
 - Disabled state properly communicated
 - External links include `rel="noopener noreferrer"`
 
 ### Layout Components (Tech/Creative/Knowledge)
+
 - All sections properly labeled
 - Lists semantically marked with `role="list"`
 - Icons marked as decorative
