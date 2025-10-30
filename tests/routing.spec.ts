@@ -59,9 +59,7 @@ test.describe('Division Pages', () => {
 		// Check for tagline
 		await expect(page.locator('text=AI & ML Systems')).toBeVisible();
 		// Check for description
-		await expect(
-			page.locator('text=/Advanced AI and Machine Learning systems/i')
-		).toBeVisible();
+		await expect(page.locator('text=/Advanced AI and Machine Learning systems/i')).toBeVisible();
 	});
 });
 

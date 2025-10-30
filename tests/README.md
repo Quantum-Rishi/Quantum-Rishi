@@ -5,14 +5,18 @@ This directory contains end-to-end tests for the Quantum Rishi platform using Pl
 ## Test Suites
 
 ### 1. Routing Tests (`routing.spec.ts`)
+
 Tests navigation and routing functionality:
+
 - Homepage loading and display
 - Navigation to division pages
 - Back navigation from division pages
 - 404 error handling
 
 ### 2. Responsive Tests (`responsive.spec.ts`)
+
 Tests mobile viewport scaling and responsive design:
+
 - Mobile viewport (iPhone, Android)
 - Tablet viewport (iPad)
 - Desktop viewport
@@ -22,7 +26,9 @@ Tests mobile viewport scaling and responsive design:
 - Image and media scaling
 
 ### 3. Performance Tests (`performance.spec.ts`)
+
 Tests animation smoothness and performance:
+
 - 60fps target for animations
 - Scroll performance
 - Layout thrashing detection
@@ -34,7 +40,9 @@ Tests animation smoothness and performance:
 - First Contentful Paint metrics
 
 ### 4. Console Error Tests (`console-errors.spec.ts`)
+
 Tests for JavaScript and console errors:
+
 - Console errors on homepage
 - Console errors on division pages
 - Performance warnings
@@ -48,42 +56,51 @@ Tests for JavaScript and console errors:
 ## Running Tests
 
 ### Prerequisites
+
 First, install Playwright browsers:
+
 ```bash
 pnpm exec playwright install chromium
 ```
 
 ### Run All Tests
+
 ```bash
 pnpm test
 ```
 
 ### Run Tests in UI Mode
+
 ```bash
 pnpm test:ui
 ```
 
 ### Run Tests in Headed Mode (see browser)
+
 ```bash
 pnpm test:headed
 ```
 
 ### Debug Tests
+
 ```bash
 pnpm test:debug
 ```
 
 ### View Test Report
+
 ```bash
 pnpm test:report
 ```
 
 ### Run Specific Test File
+
 ```bash
 pnpm exec playwright test tests/routing.spec.ts
 ```
 
 ### Run Tests for Specific Browser
+
 ```bash
 pnpm exec playwright test --project=chromium
 pnpm exec playwright test --project=firefox
@@ -91,6 +108,7 @@ pnpm exec playwright test --project=webkit
 ```
 
 ### Run Mobile Tests Only
+
 ```bash
 pnpm exec playwright test --project="Mobile Chrome"
 pnpm exec playwright test --project="Mobile Safari"
@@ -99,6 +117,7 @@ pnpm exec playwright test --project="Mobile Safari"
 ## Test Configuration
 
 The test configuration is defined in `playwright.config.ts`:
+
 - Tests run against `http://localhost:4173` (preview server)
 - Automatic server start before tests
 - Multiple browser configurations (Chromium, Firefox, WebKit)
@@ -108,6 +127,7 @@ The test configuration is defined in `playwright.config.ts`:
 ## Writing New Tests
 
 When adding new tests:
+
 1. Create a new `.spec.ts` file in the `tests` directory
 2. Import from `@playwright/test`
 3. Use descriptive test names
@@ -115,20 +135,22 @@ When adding new tests:
 5. Add appropriate assertions with `expect()`
 
 Example:
+
 ```typescript
 import { test, expect } from '@playwright/test';
 
 test.describe('New Feature', () => {
-  test('should do something', async ({ page }) => {
-    await page.goto('/');
-    await expect(page.locator('selector')).toBeVisible();
-  });
+	test('should do something', async ({ page }) => {
+		await page.goto('/');
+		await expect(page.locator('selector')).toBeVisible();
+	});
 });
 ```
 
 ## CI/CD Integration
 
 Tests can be integrated into CI/CD pipelines:
+
 - Set `CI=true` environment variable
 - Tests will automatically retry on failure (2 times)
 - Tests run sequentially (not in parallel)
@@ -146,16 +168,19 @@ Tests can be integrated into CI/CD pipelines:
 ## Troubleshooting
 
 ### Tests Failing Due to Timeouts
+
 - Increase timeout in test: `test.setTimeout(60000)`
 - Check if server is starting correctly
 - Ensure network is stable
 
 ### Elements Not Found
+
 - Check if selectors are correct
 - Verify element is actually rendered
 - Add proper waits before assertions
 
 ### Flaky Tests
+
 - Add explicit waits for animations
 - Wait for network idle: `await page.waitForLoadState('networkidle')`
 - Check for race conditions
@@ -163,6 +188,7 @@ Tests can be integrated into CI/CD pipelines:
 ## Performance Targets
 
 Based on Phase 15 requirements:
+
 - **Animation Performance**: Target 60fps
 - **Page Load Time**: < 3 seconds
 - **First Contentful Paint**: < 1.5 seconds

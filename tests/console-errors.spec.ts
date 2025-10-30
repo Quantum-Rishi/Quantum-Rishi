@@ -63,9 +63,7 @@ test.describe('Console Error Detection', () => {
 			const text = msg.text();
 			if (
 				msg.type() === 'warning' &&
-				(text.includes('performance') ||
-					text.includes('slow') ||
-					text.includes('deprecated'))
+				(text.includes('performance') || text.includes('slow') || text.includes('deprecated'))
 			) {
 				performanceWarnings.push(text);
 			}

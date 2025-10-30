@@ -139,13 +139,15 @@ test.describe('CSS Animation Performance', () => {
 
 test.describe('Resource Loading Performance', () => {
 	test('should load critical resources efficiently', async ({ page }) => {
-		const resourceTimings: any[] = [];
+		const resourceTimings: Array<{
+			url: string;
+			status: number;
+		}> = [];
 
 		page.on('response', (response) => {
 			resourceTimings.push({
 				url: response.url(),
-				status: response.status(),
-				timing: response.timing()
+				status: response.status()
 			});
 		});
 
