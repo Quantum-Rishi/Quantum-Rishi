@@ -3,16 +3,15 @@
 	 * HeroSection Component
 	 * Phase 5: Hero Section (Landing Page Intro)
 	 * Phase 11: Motion & Interaction Enhancements
+	 * Phase 14: Performance Optimization - Lazy loading heavy assets
 	 *
 	 * Cinematic introduction for Quantum Rishi Ecosystem with:
-	 * - 3D cosmic particle field background using Three.js
-	 * - Animated text with GSAP fade + upward reveal
+	 * - 3D cosmic particle field background using Three.js (lazy loaded)
+	 * - Animated text with GSAP fade + upward reveal (lazy loaded)
 	 * - CTA buttons for 'Launch QR Studio' and 'Explore Ecosystem'
 	 * - Parallax scrolling effect on cosmic background
 	 */
 	import { onMount } from 'svelte';
-	import * as THREE from 'three';
-	import { gsap } from 'gsap';
 	import Button from './Button.svelte';
 	import { smoothScrollTo, getScrollBehavior } from '$lib/utils/smoothScroll';
 
@@ -22,9 +21,17 @@
 	let ctaContainerElement: HTMLDivElement;
 	let heroContentElement: HTMLDivElement;
 
-	onMount(() => {
+	onMount(async () => {
 		// Check for reduced motion preference
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		
+		// ========== Dynamically import Three.js and GSAP for code splitting ==========
+		// Phase 14: Lazy load heavy libraries to improve initial page load
+		const [THREE, { gsap }] = await Promise.all([
+			import('three'),
+			import('gsap')
+		]);
+		
 		// ========== Three.js Cosmic Particle Field Setup ==========
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(

@@ -14,8 +14,6 @@
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import { Button } from '$lib';
-	import * as THREE from 'three';
-	import { gsap } from 'gsap';
 
 	let { data }: { data: PageData } = $props();
 
@@ -27,7 +25,14 @@
 	// Get related modules (excluding current)
 	const relatedModules = allModules.filter((mod) => mod.slug !== module.slug);
 
-	onMount(() => {
+	onMount(async () => {
+		// ========== Dynamically import Three.js and GSAP for code splitting ==========
+		// Phase 14: Lazy load heavy libraries
+		const [THREE, { gsap }] = await Promise.all([
+			import('three'),
+			import('gsap')
+		]);
+		
 		// ========== Three.js Background Animation ==========
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(
