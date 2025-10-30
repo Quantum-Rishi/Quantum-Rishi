@@ -206,6 +206,50 @@ html {
   font-size: var(--font-size);
 }
 
+/* Desktop responsive improvements */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+  
+  /* Increase base font size for better readability on large screens */
+  :root {
+    --font-size: 17px;
+  }
+  
+  /* Increase section padding on larger screens */
+  section.py-24 {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  
+  section.py-32 {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .container {
+    max-width: 1920px;
+  }
+  
+  :root {
+    --font-size: 18px;
+  }
+  
+  /* Further increase section padding on ultra-wide screens */
+  section.py-24 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  
+  section.py-32 {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+
 /* Enhanced visual effects */
 @layer utilities {
   .glass-card {
@@ -325,6 +369,25 @@ html {
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  
+  /* Desktop-specific enhancements */
+  @media (min-width: 1024px) {
+    .hover-lift {
+      transition: transform 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-4px);
+    }
+    
+    .desktop-grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .desktop-grid-5 {
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 }
