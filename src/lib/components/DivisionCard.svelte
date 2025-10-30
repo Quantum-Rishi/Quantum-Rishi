@@ -44,7 +44,6 @@
 	onclick={handleClick}
 	onkeydown={handleKeyDown}
 	type="button"
-	tabindex="0"
 	aria-label="Navigate to {name} - {tagline}"
 >
 	<div class="division-card-content">
