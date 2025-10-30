@@ -2,21 +2,25 @@
 	/**
 	 * HeroSection Component
 	 * Phase 5: Hero Section (Landing Page Intro)
+	 * Phase 11: Motion & Interaction Enhancements
 	 *
 	 * Cinematic introduction for Quantum Rishi Ecosystem with:
 	 * - 3D cosmic particle field background using Three.js
 	 * - Animated text with GSAP fade + upward reveal
 	 * - CTA buttons for 'Launch QR Studio' and 'Explore Ecosystem'
+	 * - Parallax scrolling effect on cosmic background
 	 */
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { gsap } from 'gsap';
 	import Button from './Button.svelte';
+	import { smoothScrollTo, getScrollBehavior } from '$lib/utils/smoothScroll';
 
 	let canvasElement: HTMLCanvasElement;
 	let heroTextElement: HTMLDivElement;
 	let subheadlineElement: HTMLDivElement;
 	let ctaContainerElement: HTMLDivElement;
+	let heroContentElement: HTMLDivElement;
 
 	onMount(() => {
 		// Check for reduced motion preference
@@ -116,6 +120,41 @@
 		};
 		window.addEventListener('resize', handleResize);
 
+		// ========== Parallax Scroll Effect ==========
+		// Check for reduced motion preference
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		// Use requestAnimationFrame for smooth, throttled parallax updates
+		let ticking = false;
+
+		const updateParallax = () => {
+			if (!prefersReducedMotion) {
+				const scrollY = window.scrollY;
+				const scrollSpeed = scrollY * 0.5; // Parallax intensity factor
+
+				// Move camera position based on scroll
+				camera.position.y = scrollSpeed * 0.02;
+
+				// Slow rotation based on scroll
+				particleSystem.rotation.z = scrollSpeed * 0.0003;
+
+				// Move content with slight parallax effect
+				if (heroContentElement) {
+					heroContentElement.style.transform = `translateY(${scrollSpeed * 0.3}px)`;
+				}
+			}
+			ticking = false;
+		};
+
+		const handleParallaxScroll = () => {
+			if (!ticking) {
+				requestAnimationFrame(updateParallax);
+				ticking = true;
+			}
+		};
+
+		window.addEventListener('scroll', handleParallaxScroll, { passive: true });
+
 		// ========== GSAP Text Animations ==========
 		// Animate hero text with fade + upward reveal (skip if reduced motion is preferred)
 		if (!prefersReducedMotion) {
@@ -150,6 +189,7 @@
 		return () => {
 			cancelAnimationFrame(animationId);
 			window.removeEventListener('resize', handleResize);
+			window.removeEventListener('scroll', handleParallaxScroll);
 			renderer.dispose();
 			particleMaterial.dispose();
 			particles.dispose();
@@ -162,7 +202,7 @@
 	<canvas class="hero-canvas" bind:this={canvasElement} aria-hidden="true"></canvas>
 
 	<!-- Hero Content -->
-	<div class="hero-content">
+	<div class="hero-content" bind:this={heroContentElement}>
 		<div class="hero-text-container">
 			<!-- Main Headline -->
 			<h1 class="hero-headline" bind:this={heroTextElement}>
@@ -197,11 +237,8 @@
 					variant="outline"
 					size="large"
 					onclick={() => {
-						// Scroll to ecosystem section
-						const ecosystemSection = document.getElementById('ecosystem');
-						if (ecosystemSection) {
-							ecosystemSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-						}
+						// Smooth scroll to ecosystem section
+						smoothScrollTo('ecosystem', 80, getScrollBehavior());
 					}}
 					aria-label="Explore Ecosystem - Scroll to divisions overview"
 				>
@@ -245,6 +282,8 @@
 		margin: 0 auto;
 		padding: 0 var(--spacing-lg);
 		text-align: center;
+		will-change: transform;
+		transition: transform 0.1s ease-out;
 	}
 
 	.hero-text-container {
