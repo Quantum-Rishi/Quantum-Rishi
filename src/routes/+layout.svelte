@@ -18,8 +18,8 @@
 <div class="dark min-h-screen flex flex-col">
 	<Navbar>
 		<div slot="cta" class="flex gap-3">
-			<Button variant="outline">Sign up</Button>
-			<Button variant="primary">Try it</Button>
+			<Button variant="outline">Request a Demo</Button>
+			<Button variant="primary">Explore Ecosystem</Button>
 		</div>
 	</Navbar>
 	<main class="flex-1">

@@ -13,7 +13,7 @@
 			headline="Accelerate Quantum Solutions" 
 			subhead="Unlock the power of quantum computing for your business with scalable, secure, and developer-friendly tools."
 		>
-			<Button slot="primary-cta" variant="primary">Launch QR Studio</Button>
+			<Button slot="primary-cta" variant="primary">Request a Demo</Button>
 			<Button slot="secondary-cta" variant="outline">Explore Ecosystem</Button>
 		</Hero>
 	</Parallax>

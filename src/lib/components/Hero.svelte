@@ -13,7 +13,7 @@
     <div class="flex gap-4 justify-center flex-wrap mb-8">
       <slot name="primary-cta">
         <button class="bg-white text-indigo-700 font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-indigo-50 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-          Launch QR Studio
+          Request a Demo
         </button>
       </slot>
       <slot name="secondary-cta">
