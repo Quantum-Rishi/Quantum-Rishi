@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
   let visible = false;
-  let el;
+  let el: HTMLElement;
 
   onMount(() => {
     const observer = new IntersectionObserver(

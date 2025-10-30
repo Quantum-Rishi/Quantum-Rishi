@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let variant: 'primary' | 'secondary' | 'outline' = 'primary';
   export let type: 'button' | 'submit' | 'reset' = 'button';
   export let disabled: boolean = false;

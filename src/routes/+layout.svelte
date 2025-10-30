@@ -17,7 +17,7 @@ import Footer from '../lib/components/Footer.svelte';
 <div class="dark min-h-screen flex flex-col">
 	<Navbar />
 		<main class="flex-1">
-			<slot />
+			{@render children()}
 		</main>
 	<Footer />
 </div>
