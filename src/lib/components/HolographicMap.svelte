@@ -87,12 +87,16 @@
 
     animate();
 
-    // Handle resize
+    // Handle resize with throttling
+    let resizeTimeout: number;
     const handleResize = () => {
       if (!canvasElement) return;
-      camera.aspect = canvasElement.clientWidth / canvasElement.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(canvasElement.clientWidth, canvasElement.clientHeight);
+      clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(() => {
+        camera.aspect = canvasElement.clientWidth / canvasElement.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(canvasElement.clientWidth, canvasElement.clientHeight);
+      }, 100);
     };
 
     window.addEventListener('resize', handleResize);
@@ -100,8 +104,10 @@
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
+        animationFrameId = 0;
       }
       geometry.dispose();
       material.dispose();
