@@ -9,7 +9,12 @@
 <HeroSection />
 
 <!-- Phase 6: Meta-Category Layout -->
-<div class="qr-container" id="ecosystem">
+<div
+	class="qr-container"
+	id="ecosystem"
+	role="region"
+	aria-label="Quantum Rishi Ecosystem divisions"
+>
 	<!-- Digital Core Category -->
 	<CategorySection
 		categoryName={categories['digital-core'].name}

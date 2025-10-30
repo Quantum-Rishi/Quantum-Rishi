@@ -12,6 +12,7 @@
 		underline?: boolean;
 		align?: 'left' | 'center' | 'right';
 		class?: string;
+		id?: string;
 		children?: Snippet;
 	}
 
@@ -20,6 +21,7 @@
 		underline = true,
 		align = 'left',
 		class: className = '',
+		id,
 		children
 	}: Props = $props();
 
@@ -42,10 +44,10 @@
 	const tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 </script>
 
-<svelte:element this={tag} class={titleClasses}>
+<svelte:element this={tag} class={titleClasses} {id}>
 	{@render children?.()}
 	{#if underline}
-		<div class="neon-underline"></div>
+		<div class="neon-underline" aria-hidden="true"></div>
 	{/if}
 </svelte:element>
 
