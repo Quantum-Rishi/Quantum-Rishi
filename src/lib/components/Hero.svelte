@@ -1,23 +1,38 @@
 <script>
+  import HolographicMap from './HolographicMap.svelte';
+  import TrustBadges from './TrustBadges.svelte';
+  
   export let headline = "Accelerate Quantum Solutions";
   export let subhead = "Unlock the power of quantum computing for your business with scalable, secure, and developer-friendly tools.";
 </script>
 
-<section class="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white py-32 flex flex-col items-center justify-center overflow-hidden min-h-[600px]">
+<section class="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white py-32 flex flex-col items-center justify-center overflow-hidden min-h-[700px]">
   <div class="z-10 relative text-center max-w-4xl mx-auto px-4">
     <h1 class="text-4xl md:text-6xl font-extrabold mb-6 animate-fade-in">{headline}</h1>
     <p class="text-lg md:text-2xl mb-10 text-white/90">{subhead}</p>
-    <div class="flex gap-4 justify-center flex-wrap">
+    <div class="flex gap-4 justify-center flex-wrap mb-8">
       <slot name="primary-cta">
         <button class="bg-white text-indigo-700 font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-indigo-50 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-          Request demo
+          Launch QR Studio
         </button>
       </slot>
       <slot name="secondary-cta">
         <button class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-indigo-700 transition-all duration-300 transform hover:scale-105">
-          Try quickstart
+          Explore Ecosystem
         </button>
       </slot>
+    </div>
+    
+    <!-- Trust Badges -->
+    <div class="mt-12">
+      <TrustBadges />
+    </div>
+  </div>
+  
+  <!-- 3D Holographic Map -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-40">
+      <HolographicMap />
     </div>
   </div>
   
