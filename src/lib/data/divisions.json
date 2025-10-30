@@ -1,0 +1,322 @@
+{
+	"qr.ai": {
+		"id": "qr.ai",
+		"name": "QR.AI",
+		"category": "Digital Core",
+		"tagline": "AI & ML Systems",
+		"description": "Advanced AI and Machine Learning systems for intelligent automation and predictive analytics",
+		"color": "#28E5FF",
+		"services": [
+			"LLM fine-tuning",
+			"Computer Vision",
+			"Predictive Analytics",
+			"Natural Language Processing",
+			"AI Model Training & Deployment"
+		],
+		"slug": "qr-ai"
+	},
+	"qr.block": {
+		"id": "qr.block",
+		"name": "QR.Block",
+		"category": "Digital Core",
+		"tagline": "Blockchain Infrastructure",
+		"description": "Decentralized blockchain solutions for secure, transparent, and immutable transactions",
+		"color": "#6366F1",
+		"services": [
+			"Smart Contract Development",
+			"DApp Creation",
+			"Token Economics Design",
+			"Blockchain Integration",
+			"NFT Platforms"
+		],
+		"slug": "qr-block"
+	},
+	"qr.cloud": {
+		"id": "qr.cloud",
+		"name": "QR.Cloud",
+		"category": "Digital Core",
+		"tagline": "Cloud Infrastructure",
+		"description": "Scalable cloud infrastructure and services for modern application deployment",
+		"color": "#8B5CF6",
+		"services": [
+			"Cloud Architecture Design",
+			"DevOps Solutions",
+			"Containerization & Orchestration",
+			"Serverless Computing",
+			"Cloud Migration"
+		],
+		"slug": "qr-cloud"
+	},
+	"qr.cyber": {
+		"id": "qr.cyber",
+		"name": "QR.Cyber",
+		"category": "Digital Core",
+		"tagline": "Cybersecurity Solutions",
+		"description": "Quantum-inspired security systems for next-generation threat protection",
+		"color": "#EC4899",
+		"services": [
+			"Penetration Testing",
+			"Security Audits",
+			"Quantum-Safe Cryptography",
+			"Threat Intelligence",
+			"Incident Response"
+		],
+		"slug": "qr-cyber"
+	},
+	"qr.data": {
+		"id": "qr.data",
+		"name": "QR.Data",
+		"category": "Digital Core",
+		"tagline": "Data Engineering & Analytics",
+		"description": "Enterprise data solutions for insights and business intelligence",
+		"color": "#10B981",
+		"services": [
+			"Data Pipeline Development",
+			"Big Data Analytics",
+			"Data Warehousing",
+			"ETL Solutions",
+			"Business Intelligence"
+		],
+		"slug": "qr-data"
+	},
+	"qr.iot": {
+		"id": "qr.iot",
+		"name": "QR.IoT",
+		"category": "Applied Tech",
+		"tagline": "Internet of Things",
+		"description": "Connected device ecosystems for smart automation and monitoring",
+		"color": "#F59E0B",
+		"services": [
+			"IoT Device Development",
+			"Sensor Networks",
+			"Edge Computing",
+			"Smart Home Solutions",
+			"Industrial IoT"
+		],
+		"slug": "qr-iot"
+	},
+	"qr.robotics": {
+		"id": "qr.robotics",
+		"name": "QR.Robotics",
+		"category": "Applied Tech",
+		"tagline": "Robotics & Automation",
+		"description": "Intelligent robotics systems for industrial and consumer applications",
+		"color": "#EF4444",
+		"services": [
+			"Robot Design & Development",
+			"Autonomous Systems",
+			"Computer Vision for Robotics",
+			"Industrial Automation",
+			"Human-Robot Interaction"
+		],
+		"slug": "qr-robotics"
+	},
+	"qr.digi": {
+		"id": "qr.digi",
+		"name": "QR.Digi",
+		"category": "Applied Tech",
+		"tagline": "Digital Media & Creative Tech",
+		"description": "Next-generation digital media production and creative technology solutions",
+		"color": "#A855F7",
+		"services": [
+			"3D Graphics & Animation",
+			"VFX Production",
+			"AR/VR Experiences",
+			"Digital Marketing",
+			"Content Creation"
+		],
+		"slug": "qr-digi"
+	},
+	"qr.mobility": {
+		"id": "qr.mobility",
+		"name": "QR.Mobility",
+		"category": "Applied Tech",
+		"tagline": "Smart Mobility Solutions",
+		"description": "Intelligent transportation and mobility systems for the future",
+		"color": "#3B82F6",
+		"services": [
+			"Autonomous Vehicle Systems",
+			"Traffic Management",
+			"Fleet Optimization",
+			"Smart Parking",
+			"Mobility Analytics"
+		],
+		"slug": "qr-mobility"
+	},
+	"qr.health": {
+		"id": "qr.health",
+		"name": "QR.Health",
+		"category": "Applied Tech",
+		"tagline": "Healthcare Technology",
+		"description": "AI-powered healthcare solutions for better patient outcomes",
+		"color": "#14B8A6",
+		"services": [
+			"Medical AI Systems",
+			"Telemedicine Platforms",
+			"Health Data Analytics",
+			"Medical Imaging",
+			"Patient Monitoring"
+		],
+		"slug": "qr-health"
+	},
+	"qr.edu": {
+		"id": "qr.edu",
+		"name": "QR.Edu",
+		"category": "Knowledge Systems",
+		"tagline": "Educational Technology",
+		"description": "Advanced learning platforms and educational technology solutions",
+		"color": "#8B5CF6",
+		"services": [
+			"Learning Management Systems",
+			"AI Tutors",
+			"Educational Content",
+			"Assessment Platforms",
+			"Virtual Classrooms"
+		],
+		"slug": "qr-edu"
+	},
+	"qr.research": {
+		"id": "qr.research",
+		"name": "QR.Research",
+		"category": "Knowledge Systems",
+		"tagline": "Research & Development",
+		"description": "Cutting-edge research in AI, quantum computing, and emerging technologies",
+		"color": "#06B6D4",
+		"services": [
+			"Research Publications",
+			"Technology Innovation",
+			"Prototype Development",
+			"Academic Collaboration",
+			"Patent Development"
+		],
+		"slug": "qr-research"
+	},
+	"qr.knowledge": {
+		"id": "qr.knowledge",
+		"name": "QR.Knowledge",
+		"category": "Knowledge Systems",
+		"tagline": "Knowledge Management",
+		"description": "Enterprise knowledge systems and information management solutions",
+		"color": "#84CC16",
+		"services": [
+			"Knowledge Bases",
+			"Document Management",
+			"Content Organization",
+			"Search Solutions",
+			"Collaboration Tools"
+		],
+		"slug": "qr-knowledge"
+	},
+	"qr.train": {
+		"id": "qr.train",
+		"name": "QR.Train",
+		"category": "Knowledge Systems",
+		"tagline": "Professional Training",
+		"description": "Professional development and training programs for tech skills",
+		"color": "#F97316",
+		"services": [
+			"Technical Training",
+			"Certification Programs",
+			"Corporate Training",
+			"Skill Development",
+			"Bootcamps"
+		],
+		"slug": "qr-train"
+	},
+	"qr.docs": {
+		"id": "qr.docs",
+		"name": "QR.Docs",
+		"category": "Knowledge Systems",
+		"tagline": "Documentation Systems",
+		"description": "Comprehensive documentation and technical writing solutions",
+		"color": "#64748B",
+		"services": [
+			"API Documentation",
+			"Technical Writing",
+			"Developer Guides",
+			"User Manuals",
+			"Documentation Platforms"
+		],
+		"slug": "qr-docs"
+	},
+	"qr.quantum": {
+		"id": "qr.quantum",
+		"name": "QR.Quantum",
+		"category": "R&D & Vision",
+		"tagline": "Quantum Computing",
+		"description": "Quantum computing research and quantum-inspired algorithms",
+		"color": "#C026D3",
+		"services": [
+			"Quantum Algorithm Design",
+			"Quantum Simulation",
+			"Quantum Cryptography",
+			"Quantum Machine Learning",
+			"Quantum Optimization"
+		],
+		"slug": "qr-quantum"
+	},
+	"qr.labs": {
+		"id": "qr.labs",
+		"name": "QR.Labs",
+		"category": "R&D & Vision",
+		"tagline": "Innovation Laboratory",
+		"description": "Experimental projects and future technology research",
+		"color": "#FB923C",
+		"services": [
+			"Prototype Development",
+			"Technology Incubation",
+			"Innovation Workshops",
+			"Concept Validation",
+			"Future Tech Research"
+		],
+		"slug": "qr-labs"
+	},
+	"qr.future": {
+		"id": "qr.future",
+		"name": "QR.Future",
+		"category": "R&D & Vision",
+		"tagline": "Future Technologies",
+		"description": "Exploring next-generation technologies and future visions",
+		"color": "#22D3EE",
+		"services": [
+			"Technology Forecasting",
+			"Future Scenario Planning",
+			"Emerging Tech Research",
+			"Innovation Strategy",
+			"Technology Roadmapping"
+		],
+		"slug": "qr-future"
+	},
+	"qr.studio": {
+		"id": "qr.studio",
+		"name": "QR.Studio",
+		"category": "R&D & Vision",
+		"tagline": "Creative Studio",
+		"description": "Integrated platform for all Quantum Rishi creative and technical projects",
+		"color": "#F472B6",
+		"services": [
+			"Project Management",
+			"Collaboration Tools",
+			"Resource Planning",
+			"Portfolio Management",
+			"Client Portal"
+		],
+		"slug": "qr-studio"
+	},
+	"qr.vision": {
+		"id": "qr.vision",
+		"name": "QR.Vision",
+		"category": "R&D & Vision",
+		"tagline": "Strategic Vision",
+		"description": "Strategic planning and vision for India's technological future",
+		"color": "#A78BFA",
+		"services": [
+			"Strategic Consulting",
+			"Technology Strategy",
+			"Digital Transformation",
+			"Innovation Planning",
+			"Future Readiness"
+		],
+		"slug": "qr-vision"
+	}
+}

@@ -360,19 +360,31 @@
 	grid-template-columns: repeat(4, 1fr);
 }
 
+.qr-grid-5 {
+	grid-template-columns: repeat(5, 1fr);
+}
+
 /* Responsive Grid */
 @media (max-width: 768px) {
 	.qr-grid-2,
 	.qr-grid-3,
-	.qr-grid-4 {
+	.qr-grid-4,
+	.qr-grid-5 {
 		grid-template-columns: 1fr;
 	}
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
 	.qr-grid-3,
-	.qr-grid-4 {
+	.qr-grid-4,
+	.qr-grid-5 {
 		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+	.qr-grid-5 {
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
 

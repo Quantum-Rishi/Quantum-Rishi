@@ -1,11 +1,67 @@
 <script lang="ts">
-	import { Button, Card, SectionTitle, Badge, HeroSection } from '$lib';
+	import { Button, Card, SectionTitle, Badge, HeroSection, divisionsByCategory } from '$lib';
+	import type { Division } from '$lib';
+
+	// Get divisions organized by category
+	let categorizedDivisions: Record<string, Division[]> = {};
+	divisionsByCategory.subscribe((value) => {
+		categorizedDivisions = value;
+	});
+
+	// Define category order for display
+	const categoryOrder = ['Digital Core', 'Applied Tech', 'Knowledge Systems', 'R&D & Vision'];
 </script>
 
 <!-- Phase 5: Hero Section -->
 <HeroSection />
 
 <div class="qr-container">
+	<!-- Phase 6 & 7: Meta-Category Layout with Dynamic Division Data -->
+	{#each categoryOrder as category (category)}
+		{#if categorizedDivisions[category]}
+			<section class="qr-section">
+				<SectionTitle level={2} align="left">{category}</SectionTitle>
+				<div class="qr-grid qr-grid-5">
+					{#each categorizedDivisions[category] as division (division.id)}
+						<a
+							href="/divisions/{division.slug}"
+							data-sveltekit-preload-data
+							style="text-decoration: none; display: block;"
+						>
+							<Card hover={true}>
+								<div class="qr-flex-col" style="height: 100%;">
+									<div
+										class="division-color-indicator"
+										style="background: {division.color}; height: 4px; width: 100%; border-radius: var(--radius-sm); margin-bottom: var(--spacing-md);"
+									></div>
+									<Badge variant="primary">{division.category}</Badge>
+									<h3 class="qr-heading-4" style="margin-top: var(--spacing-sm);">
+										{division.name}
+									</h3>
+									<p
+										class="qr-small"
+										style="color: var(--color-text-secondary); margin-top: var(--spacing-xs);"
+									>
+										{division.tagline}
+									</p>
+									<p class="qr-paragraph" style="margin-top: var(--spacing-sm); flex: 1;">
+										{division.description}
+									</p>
+									<div style="margin-top: var(--spacing-md);">
+										<Button variant="outline" size="small">Explore →</Button>
+									</div>
+								</div>
+							</Card>
+						</a>
+					{/each}
+				</div>
+			</section>
+		{/if}
+	{/each}
+
+	<!-- Divider -->
+	<div style="border-top: 1px solid var(--color-border); margin: var(--spacing-4xl) 0;"></div>
+
 	<!-- Phase 3 Design System Demo (kept for reference) -->
 	<section class="qr-section">
 		<div class="qr-flex-col" style="text-align: center; align-items: center;">
